@@ -6,6 +6,7 @@ namespace aernautica_imperiali {
             Console.WriteLine("Hello World!");
             Console.Write("test");
             Console.Write("Jonas");
+            Console.WriteLine("Niklas");
         }
     }
 }

@@ -5,27 +5,35 @@
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "Microsoft.NETCore.App >= 3.1.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\Jonas\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
+      "projectUniqueName": "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
       "projectName": "aernautica_imperiali",
-      "projectPath": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
-      "packagesPath": "C:\\Users\\Jonas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\obj\\",
+      "projectPath": "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Jonas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -41,23 +49,31 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
-        ],
-        "assetTargetFallback": true,
-        "warn": true,
-        "frameworkReferences": {
+        "dependencies": {
           "Microsoft.NETCore.App": {
-            "privateAssets": "all"
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[3.1.0, )",
+            "autoReferenced": true
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "imports": [
+          "net461"
+        ],
+        "assetTargetFallback": true,
+        "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "Unable to find package Microsoft.NETCore.App with version (>= 3.1.0)\r\n  - Found 87 version(s) in nuget.org [ Nearest version: 3.0.0-preview8-28405-07 ]\r\n  - Found 0 version(s) in Microsoft Visual Studio Offline Packages",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

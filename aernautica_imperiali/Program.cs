@@ -3,12 +3,6 @@
 namespace aernautica_imperiali {
     class Program {
         static void Main(string[] args) {
-            Console.WriteLine("Hello World!");
-            Console.Write("test");
-            Console.Write("Jonas");
-            Console.WriteLine("Lukas");
-            Console.WriteLine("Moin");
-            Console.WriteLine("Moin");
         }
     }
 }

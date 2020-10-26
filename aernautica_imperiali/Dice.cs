@@ -2,25 +2,22 @@
 
 namespace aernautica_imperiali
 {
-    public class Dice
-    {
+    public class Dice {
+        
         private static Dice instance = new Dice();
         
         private Random random = new Random();
-        private Dice()
-        {
+        private Dice() {
             
         }
 
-        public static Dice getInstance()
-        {
+        public static Dice getInstance() {
             return instance;
         }
         
         
 
-        public int Roll()
-        {
+        public int Roll() {
             return random.Next(1, 7);
         }
     }

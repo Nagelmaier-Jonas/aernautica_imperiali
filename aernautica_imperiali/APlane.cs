@@ -10,8 +10,10 @@ namespace aernautica_imperiali{
         private int _altitude;
         private int _maxAltitude;
         private int _planeValue;
+        private bool _spin;
+        
 
-        public APlane(int x, int y, int z, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int altitude, int maxAltitude, int planeValue) : base(x, y, z){
+        public APlane(int x, int y, int z, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int altitude, int maxAltitude, int planeValue, bool spin) : base(x, y, z){
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -22,6 +24,7 @@ namespace aernautica_imperiali{
             _altitude = altitude;
             _maxAltitude = maxAltitude;
             _planeValue = planeValue;
+            _spin = spin;
         }
 
         public int PlaneValue{
@@ -72,6 +75,11 @@ namespace aernautica_imperiali{
         public int Structure{
             get => _structure;
             set => _structure = value;
+        }
+        
+        public bool Spin {
+            get => _spin;
+            set => _spin = value;
         }
     }
 }

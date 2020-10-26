@@ -6,6 +6,8 @@ namespace aernautica_imperiali {
             Console.WriteLine("Niklas = Votekick!!");
             
             Console.Write("Jonas");
+
+            Console.WriteLine("War das Sarkasmus?");
         }
     }
 }

@@ -9,6 +9,8 @@ namespace aernautica_imperiali {
 
             Console.WriteLine(" War das Sarkasmus?");
             //fjfjfj
+
+            Console.WriteLine(Dice.getInstance().Roll());
         }
     }
 }

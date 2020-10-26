@@ -5,7 +5,8 @@ namespace aernautica_imperiali
     public class Dice
     {
         private static Dice instance;
-
+        
+        private Random random = new Random();
         private Dice()
         {
             
@@ -16,7 +17,7 @@ namespace aernautica_imperiali
             return instance;
         }
         
-        Random random = new Random();
+        
 
         public int Roll()
         {

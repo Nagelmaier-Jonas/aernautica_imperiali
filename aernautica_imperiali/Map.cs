@@ -2,14 +2,16 @@ using System.Collections.Generic;
 
 namespace aernautica_imperiali{
     public class Map{
-        private List<Point> points = new List<Point>();
+        public Point[,,] _points;
 
-        public Map(){
+        public Map(Point[,,] points){
+            _points = points;
         }
-
-        public List<Point> Points{
-            get => points;
-            set => points = value;
+        
+        public bool IsPointLegal(Point p)
+        {
+            if (p.X < _points.GetLength(0) && p.X > 0 && p.Y < _points.GetLength(1) && p.Y > 0 && p.X < _points.GetLength(2) && p.X > 0) return true;
+            return false;
         }
     }
 }

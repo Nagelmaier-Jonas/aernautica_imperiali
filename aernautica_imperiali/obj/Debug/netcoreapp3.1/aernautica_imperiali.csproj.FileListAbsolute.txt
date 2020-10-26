@@ -1,0 +1,13 @@
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.exe
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.deps.json
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.runtimeconfig.json
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.runtimeconfig.dev.json
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.dll
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.pdb
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.csprojAssemblyReference.cache
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.AssemblyInfoInputs.cache
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.AssemblyInfo.cs
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.csproj.CoreCompileInputs.cache
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.dll
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.pdb
+C:\Users\Niklas\Documents\Schule\Softwareentwicklung\3. Klasse\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.genruntimeconfig.cache

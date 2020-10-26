@@ -4,7 +4,7 @@ namespace aernautica_imperiali
 {
     public class Dice
     {
-        private static Dice instance;
+        private static Dice instance = new Dice();
         
         private Random random = new Random();
         private Dice()

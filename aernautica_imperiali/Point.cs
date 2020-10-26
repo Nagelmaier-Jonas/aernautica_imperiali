@@ -1,9 +1,5 @@
 namespace aernautica_imperiali{
     public class Point{
-        protected bool Equals(Point other){
-            return _x == other._x && _y == other._y && _z == other._z;
-        }
-
         public override int GetHashCode(){
             unchecked{
                 var hashCode = _x;
@@ -44,7 +40,9 @@ namespace aernautica_imperiali{
             if (obj.GetType() != this.GetType()) return false;
             return Equals((Point) obj);
         }
-
+        protected bool Equals(Point other){ 
+            return _x == other._x && _y == other._y && _z == other._z;
+        }
         public override string ToString(){
             return $"{nameof(_x)}: {_x}, {nameof(_y)}: {_y}, {nameof(_z)}: {_z}";
         }

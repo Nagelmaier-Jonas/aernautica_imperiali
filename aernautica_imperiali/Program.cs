@@ -5,6 +5,8 @@ namespace aernautica_imperiali {
         static void Main(string[] args) {
             Console.WriteLine("Niklas = Votekick!!");
             Console.WriteLine("Hi");
+            
+            Console.Write("Jonas");
         }
     }
 }

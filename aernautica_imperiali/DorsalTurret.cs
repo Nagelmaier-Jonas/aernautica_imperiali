@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class DorsalTurret {
+    public class DorsalTurret : AWeapon{
         
     }
 }

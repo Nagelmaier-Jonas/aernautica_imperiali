@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class QuadBigShootas {
+    public class QuadBigShootas : AWeapon{
         
     }
 }

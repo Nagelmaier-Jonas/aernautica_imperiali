@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class TwinLasercannon {
+    public class TwinLasercannon : AWeapon{
         
     }
 }

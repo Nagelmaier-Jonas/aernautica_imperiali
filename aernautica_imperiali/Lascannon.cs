@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class Lascannon {
+    public class Lascannon : AWeapon{
         
     }
 }

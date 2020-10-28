@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class RearTurret {
+    public class RearTurret : AWeapon{
         
     }
 }

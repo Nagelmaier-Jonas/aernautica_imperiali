@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class StarboardTurret {
+    public class StarboardTurret : AWeapon{
         
     }
 }

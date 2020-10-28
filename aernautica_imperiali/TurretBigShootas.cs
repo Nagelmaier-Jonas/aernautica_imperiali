@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class TurretBigShootas {
+    public class TurretBigShootas : AWeapon{
         
     }
 }

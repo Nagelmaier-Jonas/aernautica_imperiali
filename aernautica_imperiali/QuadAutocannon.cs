@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class QuadAutocannon {
+    public class QuadAutocannon : AWeapon{
         
     }
 }

@@ -12,53 +12,7 @@ namespace aernautica_imperiali {
             _history = new Stack<ACommand>();
         }
 
-        public bool MoveUp() {
-            if (Map.GetInstance().IsMoveLegal(_plane, EOrientation.NORTH)) {
-                MoveUpCommand up = new MoveUpCommand(_plane);
-                _commands.Push(up);
-                _commands.Peek().Process();
-                _history.Clear();
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool MoveDown() {
-            if (Map.GetInstance().IsMoveLegal(_plane, EOrientation.SOUTH)) {
-                MoveDownCommand down = new MoveDownCommand(_plane);
-                _commands.Push(down);
-                _commands.Peek().Process();
-                _history.Clear();
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool MoveLeft() {
-            if (Map.GetInstance().IsMoveLegal(_plane, EOrientation.WEST)) {
-                MoveLeftCommand left = new MoveLeftCommand(_plane);
-                _commands.Push(left);
-                _commands.Peek().Process();
-                _history.Clear();
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool MoveRight() {
-            if (Map.GetInstance().IsMoveLegal(_plane, EOrientation.EAST)) {
-                MoveRightCommand right = new MoveRightCommand(_plane);
-                _commands.Push(right);
-                _commands.Peek().Process();
-                _history.Clear();
-                return true;
-            }
-
-            return false;
-        }
+       
 
         public bool Do() {
             if (_history.Count > 0) {

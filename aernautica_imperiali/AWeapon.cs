@@ -12,6 +12,13 @@ namespace aernautica_imperiali {
         private int mediumpower;
         private int longpower;
 
+        private int ammo;
+
+        public int Ammo {
+            get => ammo;
+            set => ammo = value;
+        }
+
         private EFireArc[] fireArc;
 
         public EFireArc[] FireArc => fireArc;
@@ -26,13 +33,14 @@ namespace aernautica_imperiali {
 
         public int Special => special;
 
-        protected AWeapon(EFireArc[] fireArc,int shortpower, int mediumpower, int longpower, int damage, int special) {
+        protected AWeapon(EFireArc[] fireArc,int shortpower, int mediumpower, int longpower, int damage,int ammo, int special) {
             this.shortpower = shortpower;
             this.mediumpower = mediumpower;
             this.longpower = longpower;
             this.damage = damage;
             this.special = special;
             this.fireArc = fireArc;
+            this.ammo = ammo;
 
             firepower["shortpower"] = shortpower;
             firepower["mediumpower"] = mediumpower;

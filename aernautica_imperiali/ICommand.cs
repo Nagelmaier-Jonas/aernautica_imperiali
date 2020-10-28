@@ -1,7 +1,7 @@
 ﻿namespace aernautica_imperiali {
     public interface ICommand {
-        public abstract void Process();
+        void Process();
 
-        public abstract void Undo();
+        void Undo();
     }
 }

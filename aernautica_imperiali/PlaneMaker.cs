@@ -1,27 +1,27 @@
 ﻿namespace aernautica_imperiali {
     public class PlaneMaker : IPlaneFactory {
         public APlane BigBurna(Point point, int speed) {
-            return null;
+            return new BigBurna(point, speed);
         }
 
         public APlane BlueDevil(Point point, int speed) {
-            throw new System.NotImplementedException();
+            return new BlueDevil(point, speed);
         }
 
         public APlane Executioner(Point point, int speed) {
-            throw new System.NotImplementedException();
+            return new Executioner(point, speed);
         }
 
         public APlane GrotBommer(Point point, int speed) {
-            throw new System.NotImplementedException();
+            return new GrotBommer(point, speed);
         }
 
         public APlane Hellion(Point point, int speed) {
-            throw new System.NotImplementedException();
+            return new Hellion(point, speed);
         }
 
         public APlane Vulture(Point point, int speed) {
-            throw new System.NotImplementedException();
+            return new Vulture(point, speed);
         }
     }
 }

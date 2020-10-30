@@ -60,7 +60,5 @@ namespace aernautica_imperiali{
 
         public AWeapon[] Weapons => _weapons;
         
-        
-        
     }
 }

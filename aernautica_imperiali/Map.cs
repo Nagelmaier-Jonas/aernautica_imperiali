@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 
 namespace aernautica_imperiali{
     public class Map{
@@ -26,17 +27,36 @@ namespace aernautica_imperiali{
             return false;
         }
 
+        public bool IsSame(APlane plane, Point p) {
+            if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z)
+                return true;
+            else
+                return false;
+        }
+        
         public void PrintMap() {
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
-                        if (GameEngine.GetInstance().Imperialis.Planes.Contains(_content[k,j,i])) {
-                            foreach (var plane in GameEngine.GetInstance().Imperialis.Planes) {
-                                if(plane.P == _content[k,j,i])
-                                    Console.Write(_content[k,j,i].ToString());
-                                else 
-                                    Console.Write("-");
+                        if (GameEngine.GetInstance().Imperialis.Planes.Contains(_content[k, j, i]) ||
+                            GameEngine.GetInstance().Ork.Planes.Contains(_content[k, j, i])) {
+                            if (GameEngine.GetInstance().Imperialis.Planes.Contains(_content[k, j, i])) {
+                                foreach (var plane in GameEngine.GetInstance().Imperialis.Planes) {
+                                    if (IsSame(plane,_content[k,j,i])) {
+                                        Console.WriteLine(_content[k,j,i].ToString());
+                                    }
+                                }
                             }
+                            else {
+                                foreach (var plane in GameEngine.GetInstance().Ork.Planes) {
+                                    if (IsSame(plane,_content[k,j,i])) {
+                                        Console.WriteLine(_content[k,j,i].ToString());
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            Console.WriteLine("-");
                         }
                     }
                     Console.WriteLine();

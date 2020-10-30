@@ -10,9 +10,9 @@ namespace aernautica_imperiali{
         private int _maxAltitude;
         private int _planeValue;
         private bool _spin;
-        
+        private AWeapon[] _weapons;
 
-        public APlane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin) : base(p.X,p.Y,p.Z){
+        public APlane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, AWeapon[] weapons) : base(p.X,p.Y,p.Z){
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -23,56 +23,41 @@ namespace aernautica_imperiali{
             _maxAltitude = maxAltitude;
             _planeValue = planeValue;
             _spin = spin;
+            _weapons = weapons;
         }
 
-        public int PlaneValue{
-            get => _planeValue;
-            set => _planeValue = value;
+        public int Structure {
+            get => _structure;
+            set => _structure = value;
         }
 
-        public int MaxAltitude{
-            get => _maxAltitude;
-            set => _maxAltitude = value;
-        }
-        
-        public int Handling{
-            get => _handling;
-            set => _handling = value;
-        }
-
-        public int Maneuver{
-            get => _maneuver;
-            set => _maneuver = value;
-        }
-
-        public int MaxSpeed{
-            get => _maxSpeed;
-            set => _maxSpeed = value;
-        }
-
-        public int MinSpeed{
-            get => _minSpeed;
-            set => _minSpeed = value;
-        }
-
-        public int Throttle{
-            get => _throttle;
-            set => _throttle = value;
-        }
-
-        public int Speed{
+        public int Speed {
             get => _speed;
             set => _speed = value;
         }
 
-        public int Structure{
-            get => _structure;
-            set => _structure = value;
+        public int Maneuver {
+            get => _maneuver;
+            set => _maneuver = value;
         }
-        
+
         public bool Spin {
             get => _spin;
             set => _spin = value;
         }
+
+        public int Throttle => _throttle;
+
+        public int MinSpeed => _minSpeed;
+
+        public int MaxSpeed => _maxSpeed;
+
+        public int Handling => _handling;
+
+        public int MaxAltitude => _maxAltitude;
+
+        public int PlaneValue => _planeValue;
+
+        public AWeapon[] Weapons => _weapons;
     }
 }

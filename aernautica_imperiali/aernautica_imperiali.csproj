@@ -6,7 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Movement" />
+      <Folder Include="Planes" />
+      <Folder Include="Weapons" />
     </ItemGroup>
 
 </Project>

@@ -9,11 +9,7 @@ namespace aernautica_imperiali {
         public static GameEngine GetInstance() {
             return _instance;
         }
-
-        public void Move(Point destination) {
-            //Bewegung des Flugzeuges
-        }
-
+        
         public int CalculateDistance(Point destination) {
             return 0;
         }

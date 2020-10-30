@@ -59,5 +59,15 @@ namespace aernautica_imperiali{
         public int PlaneValue => _planeValue;
 
         public AWeapon[] Weapons => _weapons;
+
+        public bool IsMoveLegal(Point destination) {
+            return true;
+            return false;
+        }
+
+        public void MovePlane(Point destination) {
+            
+        }
+        
     }
 }

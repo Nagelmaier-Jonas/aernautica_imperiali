@@ -30,9 +30,13 @@ namespace aernautica_imperiali{
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
-                        foreach (var plane in GameEngine.GetInstance().Imperialis.Planes) {
-                            if(GameEngine.GetInstance().Imperialis.Planes.(_content[k,j,i]))
-                                Console.Write(_content[k,j,i].ToString());
+                        if (GameEngine.GetInstance().Imperialis.Planes.Contains(_content[k,j,i])) {
+                            foreach (var plane in GameEngine.GetInstance().Imperialis.Planes) {
+                                if(plane.P == _content[k,j,i])
+                                    Console.Write(_content[k,j,i].ToString());
+                                else 
+                                    Console.Write("-");
+                            }
                         }
                     }
                     Console.WriteLine();

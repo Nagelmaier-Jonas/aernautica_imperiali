@@ -22,15 +22,21 @@ namespace aernautica_imperiali {
             return _instance;
         }
         
-        public int CalculateDistance(Point destination) {
-            return 0;
-        }
-        public List<Point> CalculateRoute(Point destination) {
-            return null;
+        public bool IsMoveLegal(APlane plane, Point destination) {
+            
         }
 
-        public bool IsPointValid() {
-            return true;
+        public void MovePlane(Point destination) {
+            
+        }
+
+        public bool IsPointValid(Point p){
+            if (!Map.GetInstance().IsPointLegal(p)) return false;
+            foreach (Player player in _ork){
+                foreach (APlane plane in player){
+                    if(plane.)
+                }
+            }
         }
 
         public bool CheckSpin() {

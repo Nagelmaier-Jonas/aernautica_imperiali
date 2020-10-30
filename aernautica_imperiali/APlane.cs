@@ -1,6 +1,5 @@
 namespace aernautica_imperiali{
-    public class APlane {
-        private Point p;
+    public class APlane : Point{
         private int _structure;
         private int _speed;
         private int _throttle;
@@ -13,7 +12,7 @@ namespace aernautica_imperiali{
         private bool _spin;
         private AWeapon[] _weapons;
 
-        public APlane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, AWeapon[] weapons){
+        public APlane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, AWeapon[] weapons) : base(p.X,p.Y,p.Z){
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -26,12 +25,7 @@ namespace aernautica_imperiali{
             _spin = spin;
             _weapons = weapons;
         }
-
-        public Point P {
-            get => p;
-            set => p = value;
-        }
-
+        
         public int Structure {
             get => _structure;
             set => _structure = value;
@@ -65,15 +59,6 @@ namespace aernautica_imperiali{
         public int PlaneValue => _planeValue;
 
         public AWeapon[] Weapons => _weapons;
-
-        public bool IsMoveLegal(Point destination) {
-            return true;
-            return false;
-        }
-
-        public void MovePlane(Point destination) {
-            
-        }
         
         
         

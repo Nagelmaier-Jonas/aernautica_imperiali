@@ -7,5 +7,9 @@ namespace aernautica_imperiali{
             new BombBay(), 
         }){
         }
+
+        public override string ToString() {
+            return "d";
+        }
     }
 }

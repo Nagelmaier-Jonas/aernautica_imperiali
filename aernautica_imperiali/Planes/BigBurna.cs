@@ -6,5 +6,9 @@ namespace aernautica_imperiali{
             new TailGun(), 
         }){
         }
+
+        public override string ToString() {
+            return "b";
+        }
     }
 }

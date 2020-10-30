@@ -5,5 +5,9 @@ namespace aernautica_imperiali{
             new TwinLasercannon(), 
         }){
         }
+
+        public override string ToString() {
+            return "e";
+        }
     }
 }

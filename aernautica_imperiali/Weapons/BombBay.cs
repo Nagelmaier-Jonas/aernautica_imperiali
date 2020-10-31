@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class BombBay : AWeapon{
+    public class BombBay : Weapon{
         public BombBay() : base(new EFireArc[]
             {
                 EFireArc.REAR

@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class TurretBigShootas : AWeapon{
+    public class TurretBigShootas : Weapon{
         public TurretBigShootas() : base(new EFireArc[]
             {
                 EFireArc.REAR,EFireArc.RIGHT,EFireArc.LEFT,EFireArc.UP

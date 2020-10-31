@@ -38,20 +38,17 @@ namespace aernautica_imperiali{
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
-                        if (GameEngine.GetInstance().Imperialis.Planes.Contains(_content[k, j, i]) ||
-                            GameEngine.GetInstance().Ork.Planes.Contains(_content[k, j, i])) {
-                            if (GameEngine.GetInstance().Imperialis.Planes.Contains(_content[k, j, i])) {
-                                foreach (var plane in GameEngine.GetInstance().Imperialis.Planes) {
-                                    if (IsSame(plane,_content[k,j,i])) {
-                                        Console.WriteLine(_content[k,j,i].ToString());
-                                    }
+                        if (GameEngine.GetInstance().Imperialis.Planes.Contains(_content[k, j, i])) {
+                            foreach (var plane in GameEngine.GetInstance().Imperialis.Planes) {
+                                if (IsSame(plane, _content[k, j, i])) {
+                                    Console.WriteLine(_content[k, j, i].ToString());
                                 }
                             }
-                            else {
-                                foreach (var plane in GameEngine.GetInstance().Ork.Planes) {
-                                    if (IsSame(plane,_content[k,j,i])) {
-                                        Console.WriteLine(_content[k,j,i].ToString());
-                                    }
+                        }
+                        else if (GameEngine.GetInstance().Ork.Planes.Contains(_content[k, j, i])) {
+                            foreach (var plane in GameEngine.GetInstance().Ork.Planes) {
+                                if (IsSame(plane, _content[k, j, i])) {
+                                    Console.WriteLine(_content[k, j, i].ToString());
                                 }
                             }
                         }

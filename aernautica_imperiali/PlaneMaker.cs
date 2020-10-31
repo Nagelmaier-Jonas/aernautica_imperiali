@@ -21,7 +21,7 @@
         }
 
         public Plane Vulture(Point p, int speed) {
-            return new Vulture(p, 2, speed, 2, 3, 8, 5, 3, 4, 23, false, weapons, EOrientation.SOUTH, 'v');
+            return new Plane(p, 2, speed, 2, 3, 8, 5, 3, 4, 23, false, weapons, EOrientation.SOUTH, 'v');
         }
     }
 }

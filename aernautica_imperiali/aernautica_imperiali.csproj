@@ -5,9 +5,4 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Planes" />
-      <Folder Include="Weapons" />
-    </ItemGroup>
-
 </Project>

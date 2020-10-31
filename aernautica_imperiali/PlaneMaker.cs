@@ -1,6 +1,6 @@
 ﻿namespace aernautica_imperiali {
     public class PlaneMaker : IPlaneFactory {
-        public APlane BigBurna(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, AWeapon[] weapons, char type) {
+        public APlane BigBurna(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, Weapon[] weapons, char type) {
             return new APlane(p, structure, speed, throttle, minSpeed, maxSpeed, maneuver, handling, maxAltitude, planeValue, spin, weapons, type);
         }
 

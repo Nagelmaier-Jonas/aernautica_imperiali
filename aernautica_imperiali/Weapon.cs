@@ -2,7 +2,7 @@
 using System.ComponentModel;
 
 namespace aernautica_imperiali {
-    public abstract class AWeapon {
+    public class Weapon {
 
         protected const int SHORT = 4;
         protected const int MEDIUM = 7;
@@ -33,7 +33,7 @@ namespace aernautica_imperiali {
 
         public int Special => special;
 
-        protected AWeapon(EFireArc[] fireArc, int shortpower, int mediumpower, int longpower, int damage, int ammo,
+        protected Weapon(EFireArc[] fireArc, int shortpower, int mediumpower, int longpower, int damage, int ammo,
             int special){
             this.shortpower = shortpower;
             this.mediumpower = mediumpower;

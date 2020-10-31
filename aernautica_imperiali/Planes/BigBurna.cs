@@ -4,7 +4,7 @@ namespace aernautica_imperiali{
             new QuadBigShootas(),
             new TurretBigShootas(),
             new TailGun(), 
-        }, EOrientation.NORTH){
+        }, EOrientation.SOUTH){
         }
 
         public override string ToString() {

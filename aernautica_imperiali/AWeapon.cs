@@ -33,7 +33,8 @@ namespace aernautica_imperiali {
 
         public int Special => special;
 
-        protected AWeapon(EFireArc[] fireArc,int shortpower, int mediumpower, int longpower, int damage,int ammo, int special) {
+        protected AWeapon(EFireArc[] fireArc, int shortpower, int mediumpower, int longpower, int damage, int ammo,
+            int special){
             this.shortpower = shortpower;
             this.mediumpower = mediumpower;
             this.longpower = longpower;
@@ -46,6 +47,5 @@ namespace aernautica_imperiali {
             firepower["mediumpower"] = mediumpower;
             firepower["longpower"] = longpower;
         }
-        
     }
 }

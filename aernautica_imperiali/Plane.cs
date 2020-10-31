@@ -1,5 +1,5 @@
 namespace aernautica_imperiali{
-    public class APlane : Point{
+    public class Plane : Point{
         private int _structure;
         private int _speed;
         private int _throttle;
@@ -11,9 +11,10 @@ namespace aernautica_imperiali{
         private int _planeValue;
         private bool _spin;
         private AWeapon[] _weapons;
+        private EOrientation _orientation;
         private char _type;
 
-        public APlane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, AWeapon[] weapons, char type) : base(p.X,p.Y,p.Z){
+        public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, AWeapon[] weapons, EOrientation orientation, char type) : base(p.X,p.Y,p.Z){
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -25,6 +26,7 @@ namespace aernautica_imperiali{
             _planeValue = planeValue;
             _spin = spin;
             _weapons = weapons;
+            _orientation = orientation;
             _type = type;
         }
         

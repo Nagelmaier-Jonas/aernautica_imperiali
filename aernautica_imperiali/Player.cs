@@ -2,14 +2,14 @@
     public class Player {
         private int _points;
         private int _startPoints;
-        private APlane[] _planes;
+        private Plane[] _planes;
 
         public Player() {
             _points = 0;
             _startPoints = 150;
         }
 
-        public APlane[] Planes {
+        public Plane[] Planes {
             get => _planes;
             set => _planes = value;
         }

@@ -22,7 +22,7 @@ namespace aernautica_imperiali {
             return _instance;
         }
         
-        public bool IsMoveLegal(APlane plane, Point destination) {
+        public bool IsMoveLegal(Plane plane, Point destination) {
             foreach (Point p in plane.CalculateRoute(destination)){
                 if (!IsPointValid(p)) return false;
             }
@@ -44,7 +44,7 @@ namespace aernautica_imperiali {
 
         }
 
-        public void MovePlane(APlane plane, Point destination) {
+        public void MovePlane(Plane plane, Point destination) {
             if (IsMoveLegal(plane, destination)){
                 plane.Move(destination);
                 for (int i = 0; i < plane.CalculateRoute(destination).Count; i++){
@@ -59,10 +59,10 @@ namespace aernautica_imperiali {
 
         public bool IsPointValid(Point p){
             if (!Map.GetInstance().IsPointLegal(p)) return false;
-                foreach (APlane plane in _ork.Planes){
+                foreach (Plane plane in _ork.Planes){
                     if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z) return false;
                 }
-                foreach (APlane plane in _imperialis.Planes){
+                foreach (Plane plane in _imperialis.Planes){
                     if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z) return false;
                 }
                 return true;

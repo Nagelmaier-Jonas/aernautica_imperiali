@@ -2,11 +2,11 @@
 
 namespace aernautica_imperiali {
     public class RemoteContol {
-        private APlane _plane;
+        private Plane _plane;
         private Stack<ICommand> _commands;
         private Stack<ICommand> _history;
 
-        public RemoteContol(APlane plane) {
+        public RemoteContol(Plane plane) {
             _plane = plane;
             _commands = new Stack<ICommand>();
             _history = new Stack<ICommand>();

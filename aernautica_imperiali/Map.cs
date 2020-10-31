@@ -27,7 +27,7 @@ namespace aernautica_imperiali{
             return false;
         }
 
-        public bool IsSame(APlane plane, Point p) {
+        public bool IsSame(Plane plane, Point p) {
             if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z)
                 return true;
             else

@@ -23,11 +23,11 @@ namespace aernautica_imperiali {
 
         public EFireArc[] FireArc => fireArc;
 
-        private Dictionary<string, int> firepower;
+        private Dictionary<ERange, int> firepower;
         private int damage;
         private int special;
 
-        public Dictionary<string, int> Firepower => firepower;
+        public Dictionary<ERange, int> Firepower => firepower;
 
         public int Damage => damage;
 
@@ -43,9 +43,9 @@ namespace aernautica_imperiali {
             this.fireArc = fireArc;
             this.ammo = ammo;
 
-            firepower["shortpower"] = shortpower;
-            firepower["mediumpower"] = mediumpower;
-            firepower["longpower"] = longpower;
+            firepower[ERange.SHORT] = shortpower;
+            firepower[ERange.MEDIUM] = mediumpower;
+            firepower[ERange.LONG] = longpower;
         }
     }
 }

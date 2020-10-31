@@ -21,7 +21,7 @@
         
         Weapon TurretBigShootas();
         
-        Weapon TwinLasercannon();
+        Weapon TwinLascannon();
         
         Weapon TwinMultilasers();
     }

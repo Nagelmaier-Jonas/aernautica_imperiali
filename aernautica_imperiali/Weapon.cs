@@ -33,7 +33,7 @@ namespace aernautica_imperiali {
 
         public int Special => special;
 
-        protected Weapon(EFireArc[] fireArc, int shortpower, int mediumpower, int longpower, int damage, int ammo,
+        public Weapon(EFireArc[] fireArc, int shortpower, int mediumpower, int longpower, int damage, int ammo,
             int special){
             this.shortpower = shortpower;
             this.mediumpower = mediumpower;

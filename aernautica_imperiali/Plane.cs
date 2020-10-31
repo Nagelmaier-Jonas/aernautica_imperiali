@@ -10,11 +10,11 @@ namespace aernautica_imperiali{
         private int _maxAltitude;
         private int _planeValue;
         private bool _spin;
-        private AWeapon[] _weapons;
+        private Weapon[] _weapons;
         private EOrientation _orientation;
         private char _type;
 
-        public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, AWeapon[] weapons, EOrientation orientation, char type) : base(p.X,p.Y,p.Z){
+        public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, Weapon[] weapons, EOrientation orientation, char type) : base(p.X,p.Y,p.Z){
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -62,7 +62,7 @@ namespace aernautica_imperiali{
 
         public int PlaneValue => _planeValue;
 
-        public AWeapon[] Weapons => _weapons;
+        public Weapon[] Weapons => _weapons;
 
         public bool IsMoveLegal(Point destination) {
             return true;

@@ -11,8 +11,9 @@ namespace aernautica_imperiali{
         private int _planeValue;
         private bool _spin;
         private AWeapon[] _weapons;
+        private EOrientation _orientation;
 
-        public APlane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, AWeapon[] weapons) : base(p.X,p.Y,p.Z){
+        public APlane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, AWeapon[] weapons, EOrientation orientation) : base(p.X,p.Y,p.Z){
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -24,6 +25,7 @@ namespace aernautica_imperiali{
             _planeValue = planeValue;
             _spin = spin;
             _weapons = weapons;
+            _orientation = orientation;
         }
         
         public int Structure {
@@ -44,6 +46,11 @@ namespace aernautica_imperiali{
         public bool Spin {
             get => _spin;
             set => _spin = value;
+        }
+
+        public EOrientation Orientation {
+            get => _orientation;
+            set => _orientation = value;
         }
 
         public int Throttle => _throttle;

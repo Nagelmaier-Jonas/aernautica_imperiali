@@ -1,5 +1,5 @@
 namespace aernautica_imperiali{
-    public class SpinBehavior{
+    public class SpinBehavior : IMoveBehavior{
         
     }
 }

@@ -1,5 +1,5 @@
 namespace aernautica_imperiali{
-    public class DefaultMoveBehavior{
+    public class DefaultMoveBehavior : IMoveBehavior{
         
     }
 }

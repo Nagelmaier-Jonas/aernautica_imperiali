@@ -12,17 +12,11 @@ namespace aernautica_imperiali{
         private int _maxAltitude;
         private int _planeValue;
         private IMoveBehavior _moveBehavior = new DefaultMoveBehavior();
-
-        public IMoveBehavior MoveBehavior {
-            get => _moveBehavior;
-            set => _moveBehavior = value;
-        }
-
         private Weapon[] _weapons;
         private EOrientation _orientation;
         private char _type;
 
-        public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, bool spin, Weapon[] weapons, EOrientation orientation, char type) : base(p.X,p.Y,p.Z){
+        public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type) : base(p.X,p.Y,p.Z){
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -65,6 +59,11 @@ namespace aernautica_imperiali{
         public int PlaneValue => _planeValue;
 
         public Weapon[] Weapons => _weapons;
+        
+        public IMoveBehavior MoveBehavior {
+            get => _moveBehavior;
+            set => _moveBehavior = value;
+        }
 
         public bool IsMoveLegal(Point destination) {
             foreach (Point p in CalculateRoute(destination)){

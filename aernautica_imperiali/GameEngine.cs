@@ -67,7 +67,7 @@ namespace aernautica_imperiali {
                 }
                 return true;
         }
-
+        
         public bool CheckSpin() {
             return true;
         }

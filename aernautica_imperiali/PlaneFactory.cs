@@ -1,51 +1,30 @@
 ﻿namespace aernautica_imperiali {
-    public class PlaneFactory : IWeaponFactory{
-        public Weapon BombBay() {
-            return new Weapon(new []{EFireArc.REAR}, 8,0,0,2,3,5);
+    public class PlaneFactory : IPlaneFactory {
+        
+        WeaponFactory _weaponFactory = new WeaponFactory();
+        
+        public Plane BigBurna(Point p, int speed) {
+            return new Plane(p, 3, speed, 2, 3, 7, 4, 4, 4, 22, new []{_weaponFactory.QuadBigShootas(), _weaponFactory.TurretBigShootas(), _weaponFactory.TailGun()}, EOrientation.SOUTH, 'b');
         }
 
-        public Weapon DorsalTurret() {
-            return new Weapon(new []{EFireArc.ALLROUND,EFireArc.UP},3,2,0,5,-1,0);
+        public Plane BlueDevil(Point p, int speed) {
+            return new Plane(p, 5, speed, 1, 2, 5, 3, 3, 5, 26, new []{_weaponFactory.Lascannon(), _weaponFactory.DorsalTurret(), _weaponFactory.RearTurret(), _weaponFactory.Lascannon(), _weaponFactory.BombBay()}, EOrientation.NORTH, 'd');
         }
 
-        public Weapon Lascannon() {
-            return new Weapon(new [] {EFireArc.FRONT},0,2,1,2,-1,6);
+        public Plane Executioner(Point p, int speed) {
+            return new Plane(p, 3, speed, 2, 2, 7, 6, 3, 5, 23, new []{_weaponFactory.QuadAutocannon(), _weaponFactory.TwinLascannon()}, EOrientation.NORTH, 'e');
         }
 
-        public Weapon PortTurret() {
-            return new Weapon(new [] {EFireArc.LEFT,EFireArc.UP},2,1,0,5,-1,0);
+        public Plane GrotBommer(Point p, int speed) {
+            return new Plane(p, 6, speed, 1, 2, 4, 3, 5, 4, 28, new []{_weaponFactory.QuadBigShootas(), _weaponFactory.PortTurret(), _weaponFactory.StarboardTurret()}, EOrientation.SOUTH, 'g');
         }
 
-        public Weapon QuadAutocannon() {
-            return new Weapon(new [] {EFireArc.FRONT},2,6,0,4,-1,0);
+        public Plane Hellion(Point p, int speed) {
+            return new Plane(p, 2, speed, 3, 2, 8, 7, 2, 5, 26, new []{_weaponFactory.TwinMultilasers()}, EOrientation.NORTH, 'h');
         }
 
-        public Weapon QuadBigShootas() {
-            return new Weapon(new [] {EFireArc.FRONT},8,4,0,5,-1,0);
-        }
-
-        public Weapon RearTurret() {
-            return new Weapon(new [] {EFireArc.REAR},3,2,0,5,-1,0);
-        }
-
-        public Weapon StarboardTurret() {
-            return new Weapon(new [] {EFireArc.RIGHT,EFireArc.UP},2,1,0,5,-1,0);
-        }
-
-        public Weapon TailGun() {
-            return new Weapon(new [] {EFireArc.REAR},1,0,0,6,-1,0);
-        }
-
-        public Weapon TurretBigShootas() {
-            return new Weapon(new [] {EFireArc.REAR,EFireArc.RIGHT,EFireArc.LEFT,EFireArc.UP},3,1,0,5,-1,0);
-        }
-
-        public Weapon TwinLascannon() {
-            return new Weapon(new [] {EFireArc.FRONT},0,2,1,2,-1,6);
-        }
-
-        public Weapon TwinMultilasers() {
-            return new Weapon(new [] {EFireArc.FRONT},4,6,2,5,-1,0);
+        public Plane Vulture(Point p, int speed) {
+            return new Plane(p, 2, speed, 2, 3, 8, 5, 3, 4, 23, new []{_weaponFactory.QuadBigShootas()}, EOrientation.SOUTH, 'v');
         }
     }
 }

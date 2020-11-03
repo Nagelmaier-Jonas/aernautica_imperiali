@@ -61,13 +61,7 @@ namespace aernautica_imperiali{
         public int CalculateDistance(){
             return (int)Math.Sqrt(Math.Pow(_x,2) + Math.Pow(_y,2) + Math.Pow(_z,2));
         }
-
-        public void Move(Point v){
-            _x += v.X;
-            _y += v.Y;
-            _z += v.Z;
-        }
-
+        
         public override bool Equals(object obj){
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;

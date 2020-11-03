@@ -116,6 +116,23 @@ namespace aernautica_imperiali{
             if (Z <= 0)
                 _structure = 0;
         }
-        
+
+        public bool CanFire(Plane plane, Weapon weapon) {
+            switch (_orientation) {
+                case EOrientation.NORTH:
+                    if (weapon.FireArc.Equals()) {
+                        
+                    }
+                    break;
+                case EOrientation.EAST:
+                    break;
+                case EOrientation.SOUTH:
+                    break;
+                case EOrientation.WEST:
+                    break;
+                default:
+                    throw new Exception("Hoppala do is wos schief gonga");
+            }
+        }
     }
 }

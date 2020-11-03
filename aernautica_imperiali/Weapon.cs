@@ -47,5 +47,7 @@ namespace aernautica_imperiali {
             firepower[ERange.MEDIUM] = mediumpower;
             firepower[ERange.LONG] = longpower;
         }
+        
+        
     }
 }

@@ -16,7 +16,6 @@ namespace aernautica_imperiali{
         private EOrientation _orientation;
         private char _type;
 
-        
         public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type) : base(p.X,p.Y,p.Z){
             _structure = structure;
             _speed = speed;
@@ -27,6 +26,7 @@ namespace aernautica_imperiali{
             _handling = handling;
             _maxAltitude = maxAltitude;
             _planeValue = planeValue;
+            _spin = spin;
             _weapons = weapons;
             _orientation = orientation;
             _type = type;
@@ -45,6 +45,11 @@ namespace aernautica_imperiali{
         public int Maneuver {
             get => _maneuver;
             set => _maneuver = value;
+        }
+
+        public bool Spin {
+            get => _spin;
+            set => _spin = value;
         }
 
         public int Throttle => _throttle;
@@ -100,16 +105,16 @@ namespace aernautica_imperiali{
         }
         
         public void CheckSpin() {
-            if (_moveBehavior == new SpinBehavior()) {
-                if (Dice.getInstance().Roll() >= _handling) {
-                    _moveBehavior = new DefaultMoveBehavior();
-                }
-            }
+            if (_speed > _maxSpeed || _speed < _minSpeed || Z > _maxAltitude)
+                _spin = true;
+            _spin = false;
+        }
+        
+        public void HandlingTest() {
+            if (Dice.getInstance().Roll() >= _handling)
+                //No Spin
+            //Spin
 
-            if (_moveBehavior == new DefaultMoveBehavior()) {
-                if (_speed > _maxSpeed || _speed < _minSpeed || Z > _maxAltitude)
-                    _moveBehavior = new SpinBehavior();
-            }
         }
 
         public void HitGround() {

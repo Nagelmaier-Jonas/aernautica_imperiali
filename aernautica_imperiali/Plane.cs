@@ -65,12 +65,36 @@ namespace aernautica_imperiali{
         public Weapon[] Weapons => _weapons;
 
         public bool IsMoveLegal(Point destination) {
-            return true;
-            return false;
-        }
+            foreach (Point p in CalculateRoute(destination)){
+                if (!IsPointValid(p)) return false;
+            }
 
-        public void MovePlane(Point destination) {
-            
+            int speed = _speed;
+            int maneuver = _maneuver;
+
+            for (int i = 0; i < CalculateRoute(destination).Count; i++){
+                if (CalculateRoute(destination)[i].X != CalculateRoute(destination)[i++].X &&
+                    CalculateRoute(destination)[i].Y != CalculateRoute(destination)[i++].Y){
+                    maneuver--;
+                    if (maneuver == 0) return false;
+                }
+                speed--;
+                if (speed == 0) return false;
+            }
+
+            return true;
+
+        }
+        
+        public bool IsPointValid(Point p){
+            if (!Map.GetInstance().IsPointLegal(p)) return false;
+            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes){
+                if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z) return false;
+            }
+            foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes){
+                if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z) return false;
+            }
+            return true;
         }
         
     }

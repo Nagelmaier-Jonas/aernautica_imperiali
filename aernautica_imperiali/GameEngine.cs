@@ -22,12 +22,12 @@ namespace aernautica_imperiali {
             return _instance;
         }
 
-        public bool CheckSpin() {
-            return true;
-        }
+        
 
         public void HandlingTest() {
             
         }
+        
+        public void 
     }
 }

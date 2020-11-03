@@ -97,5 +97,11 @@ namespace aernautica_imperiali{
             return true;
         }
         
+        public void CheckSpin() {
+            if (_speed > _maxSpeed || _speed < _minSpeed || Z > _maxAltitude)
+                _spin = true;
+            _spin = false;
+        }
+        
     }
 }

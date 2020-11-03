@@ -48,7 +48,7 @@ namespace aernautica_imperiali{
                         else if (GameEngine.GetInstance().Ork.Planes.Contains(_content[k, j, i])) {
                             foreach (var plane in GameEngine.GetInstance().Ork.Planes) {
                                 if (IsSame(plane, _content[k, j, i])) {
-                                    Console.WriteLine(_content[k, j, i].ToString());
+                                    
                                 }
                             }
                         }

@@ -1,3 +1,5 @@
+using System;
+
 namespace aernautica_imperiali{
     public class Plane : Point{
         private int _structure;
@@ -101,6 +103,18 @@ namespace aernautica_imperiali{
             if (_speed > _maxSpeed || _speed < _minSpeed || Z > _maxAltitude)
                 _spin = true;
             _spin = false;
+        }
+        
+        public void HandlingTest() {
+            if (Dice.getInstance().Roll() >= _handling)
+                //No Spin
+            //Spin
+
+        }
+
+        public void HitGround() {
+            if (Z <= 0)
+                _structure = 0;
         }
         
     }

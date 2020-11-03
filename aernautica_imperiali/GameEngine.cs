@@ -22,12 +22,16 @@ namespace aernautica_imperiali {
             return _instance;
         }
 
-        
-
-        public void HandlingTest() {
-            
+        public void CheckStructure() {
+            foreach (Plane plane in _imperialis.Planes) {
+                if (plane.Structure <= 0)
+                    _imperialis.Planes.Remove(plane);
+            }
+            foreach (Plane plane in _ork.Planes) {
+                if (plane.Structure <= 0)
+                    _ork.Planes.Remove(plane);
+            }
         }
         
-        public void 
     }
 }

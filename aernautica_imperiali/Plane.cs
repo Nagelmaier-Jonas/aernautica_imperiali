@@ -16,7 +16,6 @@ namespace aernautica_imperiali{
         private EOrientation _orientation;
         private char _type;
 
-        
         public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type) : base(p.X,p.Y,p.Z){
             _structure = structure;
             _speed = speed;

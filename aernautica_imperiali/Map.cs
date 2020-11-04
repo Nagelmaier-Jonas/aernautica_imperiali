@@ -40,11 +40,11 @@ namespace aernautica_imperiali{
                         if (GetPlanePoints().Contains(_content[k,j,i])) {
                             foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
                                 if(IsSame(plane,_content[k,j,i]))
-                                    Console.Write(plane.Type);
+                                    Console.Write(Char.ToUpperInvariant(plane.Type));
                             }
                             foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
                                 if(IsSame(plane,_content[k,j,i]))
-                                    Console.Write(plane.Type);
+                                    Console.Write(Char.ToUpperInvariant(plane.Type));
                             }
                         }
                         else {

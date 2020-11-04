@@ -23,7 +23,7 @@ namespace aernautica_imperiali{
         
         public bool IsPointLegal(Point p)
         {
-            if (p.X < _content.GetLength(0) && p.X > 0 && p.Y < _content.GetLength(1) && p.Y > 0 && p.X < _content.GetLength(2) && p.X > 0) return true;
+            if (p.X < _content.GetLength(0) && p.X >= 0 && p.Y < _content.GetLength(1) && p.Y >= 0 && p.X < _content.GetLength(2) && p.X >= 0) return true;
             return false;
         }
 

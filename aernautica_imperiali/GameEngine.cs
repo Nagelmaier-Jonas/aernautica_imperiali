@@ -3,8 +3,8 @@
 namespace aernautica_imperiali {
     public class GameEngine {
         private static GameEngine _instance = new GameEngine();
-        private Player _imperialis;
-        private Player _ork;
+        private Player _imperialis = new Player();
+        private Player _ork = new Player();
         private GameEngine() {
         }
 

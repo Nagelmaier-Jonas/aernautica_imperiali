@@ -43,10 +43,16 @@ namespace aernautica_imperiali {
                     if (plane.Y < 3) {
                         _imperialis.Planes.Add(plane);
                     }
+                    else {
+                        Logger.GetInstance().Info("Out of placement field");
+                    }
                 }
                 else {
                     if (plane.Y > 11) {
                         _ork.Planes.Add(plane);
+                    }
+                    else {
+                        Logger.GetInstance().Info("Out of placement field");
                     }
                 }
             }

@@ -65,6 +65,8 @@ namespace aernautica_imperiali{
             set => _moveBehavior = value;
         }
 
+        public char Type => _type;
+
         public bool IsMoveLegal(Point destination) {
             foreach (Point p in CalculateRoute(destination)){
                 if (!IsPointValid(p)) return false;

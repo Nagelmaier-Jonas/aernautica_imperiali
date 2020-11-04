@@ -23,7 +23,7 @@ namespace aernautica_imperiali {
 
         public EFireArc[] FireArc => fireArc;
 
-        private Dictionary<ERange, int> firepower;
+        private Dictionary<ERange, int> firepower = new Dictionary<ERange, int>();
         private int damage;
         private int special;
 

@@ -3,8 +3,8 @@
 namespace aernautica_imperiali {
     public class GameEngine {
         private static GameEngine _instance = new GameEngine();
-        private Player _imperialis;
-        private Player _ork;
+        private Player _imperialis = new Player();
+        private Player _ork = new Player();
         private GameEngine() {
         }
 
@@ -30,6 +30,31 @@ namespace aernautica_imperiali {
             foreach (Plane plane in _ork.Planes) {
                 if (plane.Structure <= 0)
                     _ork.Planes.Remove(plane);
+            }
+        }
+
+        public void Init() {
+            
+        }
+
+        public void PlacePlane(Plane plane) {
+            if (Map.GetInstance().IsPointLegal(plane)) {
+                if (plane.Faction == 'i') {
+                    if (plane.Y < 3) {
+                        _imperialis.Planes.Add(plane);
+                    }
+                    else {
+                        Logger.GetInstance().Info("Out of placement field");
+                    }
+                }
+                else {
+                    if (plane.Y > 11) {
+                        _ork.Planes.Add(plane);
+                    }
+                    else {
+                        Logger.GetInstance().Info("Out of placement field");
+                    }
+                }
             }
         }
         

@@ -24,3 +24,16 @@ C:\Users\Jonas\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug
 C:\Users\Jonas\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.dll
 C:\Users\Jonas\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.pdb
 C:\Users\Jonas\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.genruntimeconfig.cache
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.exe
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.deps.json
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.runtimeconfig.json
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.runtimeconfig.dev.json
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.dll
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\bin\Debug\netcoreapp3.1\aernautica_imperiali.pdb
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.csprojAssemblyReference.cache
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.AssemblyInfoInputs.cache
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.AssemblyInfo.cs
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.csproj.CoreCompileInputs.cache
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.dll
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.pdb
+C:\Users\User\RiderProjects\aernautica_imperiali\aernautica_imperiali\obj\Debug\netcoreapp3.1\aernautica_imperiali.genruntimeconfig.cache

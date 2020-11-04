@@ -30,37 +30,45 @@ namespace aernautica_imperiali{
         public bool IsSame(Plane plane, Point p) {
             if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z)
                 return true;
-            else
-                return false;
+            return false;
         }
-        
+
         public void PrintMap() {
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
-                        if (GameEngine.GetInstance().Imperialis.Planes.Contains(_content[k, j, i])) {
-                            foreach (var plane in GameEngine.GetInstance().Imperialis.Planes) {
-                                if (IsSame(plane, _content[k, j, i])) {
-                                    
-                                }
+                        if (GetPlanePoints().Contains(_content[k,j,i])) {
+                            foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
+                                if(IsSame(plane,_content[k,j,i]))
+                                    Console.Write(Char.ToUpperInvariant(plane.Type));
                             }
-                        }
-                        else if (GameEngine.GetInstance().Ork.Planes.Contains(_content[k, j, i])) {
-                            foreach (var plane in GameEngine.GetInstance().Ork.Planes) {
-                                if (IsSame(plane, _content[k, j, i])) {
-                                    
-                                }
+                            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
+                                if(IsSame(plane,_content[k,j,i]))
+                                    Console.Write(Char.ToUpperInvariant(plane.Type));
                             }
                         }
                         else {
-                            Console.WriteLine("-");
+                            Console.Write("-");
                         }
                     }
+
                     Console.WriteLine();
                 }
+
                 Console.WriteLine();
                 Console.WriteLine();
             }
+        }
+
+        public List<Point> GetPlanePoints() {
+            List<Point> planePoints = new List<Point>();
+            foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
+                planePoints.Add(new Point(plane.X,plane.Y,plane.Z));
+            }
+            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
+                planePoints.Add(new Point(plane.X,plane.Y,plane.Z));
+            }
+            return planePoints;
         }
         
     }

@@ -15,8 +15,9 @@ namespace aernautica_imperiali{
         private Weapon[] _weapons;
         private EOrientation _orientation;
         private char _type;
+        private char _faction;
 
-        public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type) : base(p.X,p.Y,p.Z){
+        public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type, char faction) : base(p.X,p.Y,p.Z){
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -29,6 +30,7 @@ namespace aernautica_imperiali{
             _weapons = weapons;
             _orientation = orientation;
             _type = type;
+            _faction = faction;
         }
         
         public int Structure {
@@ -66,6 +68,8 @@ namespace aernautica_imperiali{
         }
 
         public char Type => _type;
+
+        public char Faction => _faction;
 
         public bool IsMoveLegal(Point destination) {
             foreach (Point p in CalculateRoute(destination)){

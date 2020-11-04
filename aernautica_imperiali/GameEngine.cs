@@ -32,6 +32,25 @@ namespace aernautica_imperiali {
                     _ork.Planes.Remove(plane);
             }
         }
+
+        public void Init() {
+            
+        }
+
+        public void PlacePlane(Plane plane) {
+            if (Map.GetInstance().IsPointLegal(plane)) {
+                if (plane.Faction == 'i') {
+                    if (plane.Y < 3) {
+                        _imperialis.Planes.Add(plane);
+                    }
+                }
+                else {
+                    if (plane.Y > 11) {
+                        _ork.Planes.Add(plane);
+                    }
+                }
+            }
+        }
         
     }
 }

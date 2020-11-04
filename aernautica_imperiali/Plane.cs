@@ -118,21 +118,209 @@ namespace aernautica_imperiali{
         }
 
         public bool CanFire(Plane plane, Weapon weapon) {
+            if (InFireArc(plane, weapon) && CheckRange(plane) != ERange.OUTOFRANGE)
+                return true;
+            return false;
+        }
+        public ERange CheckRange(Plane plane) {
+            if (CalculateRoute(plane).Count <= 4) {
+                return ERange.SHORT;
+            }
+
+            if (CalculateRoute(plane).Count > 4 && CalculateRoute(plane).Count <= 7) {
+                return ERange.MEDIUM;
+            }
+
+            if (CalculateRoute(plane).Count > 7 && CalculateRoute(plane).Count <= 10) {
+                return ERange.LONG;
+            }
+
+            return ERange.OUTOFRANGE;
+        }
+
+        public bool InFireArc(Plane plane, Weapon weapon) {
             switch (_orientation) {
                 case EOrientation.NORTH:
-                    if (weapon.FireArc.Equals()) {
-                        
+                    foreach (EFireArc fireArc in weapon.FireArc) {
+                        if (InNorthFireArc(plane, fireArc)) {
+                            return true;
+                        }
                     }
                     break;
                 case EOrientation.EAST:
+                    foreach (EFireArc fireArc in weapon.FireArc) {
+                        if (InEastFireArc(plane, fireArc)) {
+                            return true;
+                        }
+                    }
                     break;
                 case EOrientation.SOUTH:
+                    foreach (EFireArc fireArc in weapon.FireArc) {
+                        if (InSouthFireArc(plane, fireArc)) {
+                            return true;
+                        }
+                    }
                     break;
                 case EOrientation.WEST:
+                    foreach (EFireArc fireArc in weapon.FireArc) {
+                        if (InWestFireArc(plane, fireArc)) {
+                            return true;
+                        }
+                    }
                     break;
-                default:
+                 default:
                     throw new Exception("Hoppala do is wos schief gonga");
             }
+
+            return false;
+        }
+
+        public bool InNorthFireArc(Plane plane, EFireArc fireArc) {
+            switch (fireArc) {
+                case EFireArc.ALLROUND:
+                    if (X != plane.X ^ Y != plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.FRONT:
+                    if (Y < plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.LEFT:
+                    if (X < plane.X) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.RIGHT:
+                    if (X > plane.X) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.REAR:
+                    if (Y > plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.UP:
+                    if (Z < plane.Z) {
+                        return true;
+                    }
+                    break;
+            }
+
+            return false;
+        }
+        
+        public bool InSouthFireArc(Plane plane, EFireArc fireArc) {
+            switch (fireArc) {
+                case EFireArc.ALLROUND:
+                    if (X != plane.X ^ Y != plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.FRONT:
+                    if (Y > plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.LEFT:
+                    if (X > plane.X) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.RIGHT:
+                    if (X < plane.X) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.REAR:
+                    if (Y < plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.UP:
+                    if (Z < plane.Z) {
+                        return true;
+                    }
+                    break;
+            }
+
+            return false;
+        }
+        
+        public bool InWestFireArc(Plane plane, EFireArc fireArc) {
+            switch (fireArc) {
+                case EFireArc.ALLROUND:
+                    if (X != plane.X ^ Y != plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.FRONT:
+                    if (X > plane.X) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.LEFT:
+                    if (Y < plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.RIGHT:
+                    if (Y > plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.REAR:
+                    if (X < plane.X) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.UP:
+                    if (Z < plane.Z) {
+                        return true;
+                    }
+                    break;
+            }
+
+            return false;
+        }
+        
+        public bool InEastFireArc(Plane plane, EFireArc fireArc) {
+            switch (fireArc) {
+                case EFireArc.ALLROUND:
+                    if (X != plane.X ^ Y != plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.FRONT:
+                    if (X < plane.X) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.LEFT:
+                    if (Y > plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.RIGHT:
+                    if (Y < plane.Y) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.REAR:
+                    if (X > plane.X) {
+                        return true;
+                    }
+                    break;
+                case EFireArc.UP:
+                    if (Z < plane.Z) {
+                        return true;
+                    }
+                    break;
+            }
+
+            return false;
         }
     }
 }

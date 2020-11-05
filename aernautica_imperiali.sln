@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aernautica_imperiali", "aernautica_imperiali\aernautica_imperiali.csproj", "{274236A1-9850-4A6B-B775-F2477C80AD2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aernautica_imperiali.unittest", "aernautica_imperiali.unittest\aernautica_imperiali.unittest.csproj", "{FB393D6F-0344-40E3-9FF8-5A1ADE091D27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aernautica_imperiali.unittest", "aernautica_imperiali.unittest\aernautica_imperiali.unittest.csproj", "{E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		{274236A1-9850-4A6B-B775-F2477C80AD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{274236A1-9850-4A6B-B775-F2477C80AD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{274236A1-9850-4A6B-B775-F2477C80AD2F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB393D6F-0344-40E3-9FF8-5A1ADE091D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB393D6F-0344-40E3-9FF8-5A1ADE091D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB393D6F-0344-40E3-9FF8-5A1ADE091D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB393D6F-0344-40E3-9FF8-5A1ADE091D27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

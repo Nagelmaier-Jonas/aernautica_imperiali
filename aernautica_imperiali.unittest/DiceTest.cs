@@ -1,7 +1,12 @@
 ﻿using NUnit.Framework;
+
 namespace aernautica_imperiali.unittest {
     public class DiceTest {
-
+        
+        [SetUp]
+        public void Setup() {
+        }
+        
         [Test]
         public void SingletonTest() {
             Dice dice = Dice.GetInstance();

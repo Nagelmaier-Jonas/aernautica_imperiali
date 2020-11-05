@@ -20,5 +20,7 @@ namespace aernautica_imperiali
         public int Roll() {
             return random.Next(1, 7);
         }
+        
+        
     }
 }

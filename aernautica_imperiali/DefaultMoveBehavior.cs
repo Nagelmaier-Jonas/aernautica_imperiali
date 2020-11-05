@@ -35,12 +35,12 @@ namespace aernautica_imperiali{
         public void Fire(Plane plane, Plane target, Weapon weapon) {
             int dice;
             if (plane.Faction == 'i') {
-                if (GameEngine.GetInstance().TurnToken) {
-                    
-                }
-                else {
+                if (!GameEngine.GetInstance().TurnToken) {
                     Logger.GetInstance().Info("It's not your turn");
                 }
+            }
+            else if (GameEngine.GetInstance().TurnToken) {
+                Logger.GetInstance().Info("It's not your turn");                
             }
             if (plane.CanFire(target,weapon)) {
                 ERange range = plane.CheckRange(target);

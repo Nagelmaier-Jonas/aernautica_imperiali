@@ -22,10 +22,5 @@ namespace aernautica_imperiali.unittest {
             GameEngine.GetInstance().Imperialis.Planes[0].Structure = 0;
             Assert.AreEqual(0,GameEngine.GetInstance().Imperialis.Planes.Count);
         }
-        
-        [Test]
-        public void TestPlacePlane(){
-            
-        }
     }
 }

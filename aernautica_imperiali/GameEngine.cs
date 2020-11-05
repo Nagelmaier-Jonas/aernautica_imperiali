@@ -117,16 +117,30 @@ namespace aernautica_imperiali {
                 Logger.GetInstance().Info("Orks won");
                 RestartGame();
             }
-            RestartRound();
+            NextRound();
             
         }
 
-        public void RestartRound() {
-            
+        public void NextRound() {
+            _turnToken = true;
+            _moveTurns = 0;
+            _fireTurns = 0;
+            _allowFire = false;
         }
 
         public void RestartGame() {
+            _imperialis.StartPoints = 150;
+            _imperialis.Points = 0;
+            _imperialis.Planes.Clear();
+            _ork.StartPoints = 150;
+            _ork.Points = 0;
+            _ork.Planes.Clear();
             
+        _turnToken = true;
+        _moveTurns = 0;
+        _fireTurns = 0; 
+        _allowFire = false;
+        _round = 1;
         }
     }
     

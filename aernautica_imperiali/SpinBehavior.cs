@@ -8,7 +8,6 @@ namespace aernautica_imperiali{
                     Logger.GetInstance().Info("You can not move, you're in spinmode");
                     GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                     GameEngine.GetInstance().CheckTurns();
-                    plane.CheckSpin();
                 }
                 else {
                     Logger.GetInstance().Info("It's not your turn");
@@ -20,7 +19,6 @@ namespace aernautica_imperiali{
                     Logger.GetInstance().Info("You can not move, you're in spinmode");
                     GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                     GameEngine.GetInstance().CheckTurns();
-                    plane.CheckSpin();
                 }
                 else {
                     Logger.GetInstance().Info("It's not your turn");
@@ -30,6 +28,7 @@ namespace aernautica_imperiali{
 
         public void Fire(Plane plane, Plane target, Weapon weapon) {
             Logger.GetInstance().Info("You can not shoot, you're in spinmode");
+            plane.CheckSpin();
         }
     }
 }

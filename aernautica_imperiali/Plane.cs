@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace aernautica_imperiali {
@@ -416,7 +417,8 @@ namespace aernautica_imperiali {
 
         public bool DoDamage(Plane target, Weapon weapon) {
             int dice;
-            dice = Dice.GetInstance().Roll();
+            int heightDifference = Math.Abs(Z - target.Z);
+            dice = Dice.GetInstance().Roll() - heightDifference;
             if (dice >= weapon.Damage) {
                 target.Structure--;
                 if (dice >= weapon.Special) {
@@ -432,11 +434,36 @@ namespace aernautica_imperiali {
         }
 
         public void Move(Point destination) {
+            SetOrientation(destination);
             X += destination.X;
             Y += destination.Y;
             Z += destination.Z;
             GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
             GameEngine.GetInstance().CheckTurns();
+        }
+
+        public void SetOrientation(Point destination) {
+            List<Point> route = CalculateRoute(destination);
+            Point[] lastPoints = new[] {route[route.Count - 2], route[route.Count - 1]};
+            if (lastPoints[0].X < lastPoints[1].X && lastPoints[0].Y == lastPoints[1].Y) {
+                _orientation = EOrientation.EAST;
+            }
+            if (lastPoints[0].X > lastPoints[1].X && lastPoints[0].Y == lastPoints[1].Y) {
+                _orientation = EOrientation.WEST;
+            }
+            if (lastPoints[0].X == lastPoints[1].X && lastPoints[0].Y < lastPoints[1].Y) {
+                _orientation = EOrientation.NORTH;
+            }
+            if (lastPoints[0].X == lastPoints[1].X && lastPoints[0].Y > lastPoints[1].Y) {
+                _orientation = EOrientation.SOUTH;
+            }
+            if (lastPoints[0].X != lastPoints[1].X && lastPoints[0].Y < lastPoints[1].Y) {
+                _orientation = EOrientation.SOUTH;
+            }
+            if (lastPoints[0].X != lastPoints[1].X && lastPoints[0].Y > lastPoints[1].Y) {
+                _orientation = EOrientation.NORTH;
+            }
+            
         }
 
         public void ChangeSpeed(int changeSpeed) {

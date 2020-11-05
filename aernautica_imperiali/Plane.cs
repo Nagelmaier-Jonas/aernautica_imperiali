@@ -328,5 +328,55 @@ namespace aernautica_imperiali{
 
             return false;
         }
+        
+        public void Fire(Plane target, Weapon weapon) {
+            int dice;
+             if (CanFire(target,weapon)) {
+                ERange range = CheckRange(target);
+                switch (range) {
+                    case ERange.SHORT:
+                        for (int i = 0; i < weapon.Firepower[ERange.SHORT]; i++) {
+                            dice = Dice.GetInstance().Roll();
+                            if (dice >= weapon.Damage) {
+                                target.Structure--;
+                            }
+
+                            if (dice >= weapon.Special) {
+                                target.Structure--;
+                            }
+                        }
+                        break;
+                    case ERange.MEDIUM:
+                        for (int i = 0; i < weapon.Firepower[ERange.MEDIUM]; i++) {
+                            dice = Dice.GetInstance().Roll();
+                            if (dice >= weapon.Damage) {
+                                target.Structure--;
+                            }
+
+                            if (dice >= weapon.Special) {
+                                target.Structure--;
+                            }
+                        }
+                        break;
+                    case ERange.LONG:
+                        for (int i = 0; i < weapon.Firepower[ERange.LONG]; i++) {
+                            dice = Dice.GetInstance().Roll();
+                            if (dice >= weapon.Damage) {
+                                target.Structure--;
+                            }
+
+                            if (dice >= weapon.Special) {
+                                target.Structure--;
+                            }
+                        }
+                        break;
+                    case ERange.OUTOFRANGE:
+                        Logger.GetInstance().Info("Target is out of Range");
+                        break;
+                }
+
+                GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+             }
+        }
     }
 }

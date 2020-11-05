@@ -2,9 +2,10 @@ using System;
 
 namespace aernautica_imperiali{
     public class DefaultMoveBehavior : IMoveBehavior{
-        public void Move(Plane plane, Point destination) {
+        public void Move(Plane plane, Point destination, int speedChange) {
             if (plane.Faction == 'i') {
                 if (GameEngine.GetInstance().TurnToken) {
+                    plane.ChangeSpeed(speedChange);
                     if (plane.IsMoveLegal(destination)) {
                         plane.Move(destination);
                     }
@@ -16,6 +17,7 @@ namespace aernautica_imperiali{
             else 
             {
                 if (GameEngine.GetInstance().TurnToken == false) {
+                    plane.ChangeSpeed(speedChange);
                     if (plane.IsMoveLegal(destination)) {
                         plane.Move(destination);
                     }

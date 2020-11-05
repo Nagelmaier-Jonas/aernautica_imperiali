@@ -2,7 +2,7 @@ using System;
 
 namespace aernautica_imperiali{
     public class SpinBehavior : IMoveBehavior{
-        public void Move(Plane plane, Point destination) {
+        public void Move(Plane plane, Point destination, int speedChange) {
             Logger.GetInstance().Info("You can not move, you're in spinmode");
         }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace aernautica_imperiali{
     public class Plane : Point{
@@ -84,10 +85,10 @@ namespace aernautica_imperiali{
                 if (CalculateRoute(destination)[i].X != CalculateRoute(destination)[i++].X &&
                     CalculateRoute(destination)[i].Y != CalculateRoute(destination)[i++].Y){
                     maneuver--;
-                    if (maneuver == 0) return false;
+                    if (maneuver < 0) return false;
                 }
                 speed--;
-                if (speed == 0) return false;
+                if (speed == 0) return true;
             }
 
             return true;
@@ -334,7 +335,8 @@ namespace aernautica_imperiali{
         }
         
         public void Fire(Plane target, Weapon weapon) {
-            int dice;
+            if (_weapons.Contains(weapon)) {
+                int dice;
              if (CanFire(target,weapon) && !_shotsFired && GameEngine.GetInstance().AllowFire) {
                 ERange range = CheckRange(target);
                 switch (range) {
@@ -383,14 +385,23 @@ namespace aernautica_imperiali{
                 weapon.Ammo--;
                 _shotsFired = true;
              }
+            }
         }
         
-        public void Move( Point destination) {
+        public void Move(Point destination) {
             X += destination.X;
             Y += destination.Y;
             Z += destination.Z;
             GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
             GameEngine.GetInstance().CheckTurns();
+        }
+
+        public void ChangeSpeed(int changeSpeed) {
+            if (Math.Abs(changeSpeed) < _throttle) {
+                _speed += changeSpeed;
+                return;
+            }
+            Logger.GetInstance().Info("SpeedChange is too high");
         }
     }
 }

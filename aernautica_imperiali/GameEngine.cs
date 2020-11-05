@@ -88,7 +88,7 @@ namespace aernautica_imperiali {
             _moveTurns++;
             _allowFire = false;
         }
-
+        
         public void EndTurn() {
             if (_imperialis.Points >= 100) {
                 Logger.GetInstance().Info("Imperialis won");

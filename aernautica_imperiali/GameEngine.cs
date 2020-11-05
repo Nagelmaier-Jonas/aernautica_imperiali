@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace aernautica_imperiali {
     public class GameEngine {
@@ -9,6 +11,7 @@ namespace aernautica_imperiali {
         private int _moveTurns = 0;
         private int _fireTurns = 0;
         private bool _allowFire = false;
+        private static int _round = 1;
         private GameEngine() {
         }
 
@@ -90,13 +93,36 @@ namespace aernautica_imperiali {
         }
         
         public void EndTurn() {
+            _round++;
+            if (_round == 5) {
+                if (_imperialis.Points >= 100) {
+                    Logger.GetInstance().Info("Imperialis won");
+                    RestartGame();
+                }
+                else {
+                    if (_ork.Points >= 100) {
+                        Logger.GetInstance().Info("Orks won");
+                        RestartGame();
+                    }
+                    else {
+                        Logger.GetInstance().Info("Nobody won! It's a draw");
+                        RestartGame();
+                    }
+                }
+            }
             if (_imperialis.Points >= 100) {
                 Logger.GetInstance().Info("Imperialis won");
+                RestartGame();
             }else if (_ork.Points >= 100) {
                 Logger.GetInstance().Info("Orks won");
+                RestartGame();
             }
             
         }
-        
+
+        public void RestartGame() {
+            
+        }
     }
+    
 }

@@ -34,6 +34,7 @@ namespace aernautica_imperiali{
         }
 
         public void PrintMap() {
+            Console.WriteLine("   Ebene: 0");
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
@@ -56,7 +57,12 @@ namespace aernautica_imperiali{
                 }
 
                 Console.WriteLine();
-                Console.WriteLine();
+                if (i + 1 < _content.GetLength(2)) {
+                    Console.WriteLine("   Ebene: " + (i + 1));
+                }
+                else {
+                    Console.WriteLine();
+                }
             }
             
         }

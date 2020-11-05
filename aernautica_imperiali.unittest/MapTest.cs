@@ -4,5 +4,8 @@ namespace aernautica_imperiali.unittest {
     public class MapTest {
         
         [Test]
+        public void Test() {
+            
+        }
     }
 }

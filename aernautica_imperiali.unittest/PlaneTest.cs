@@ -6,7 +6,12 @@ namespace aernautica_imperiali.unittest {
         [Test]
         public void TestIsMoveLegal() {
             PlaneFactory factory = new PlaneFactory();
-            factory.Executioner(new Point(0, 0, 0), 2);
+            Plane e = factory.Executioner(new Point(0, 0, 0), 2);
+            
+            Assert.AreEqual(true, e.IsMoveLegal(new Point(2,0,0)));
+        }
+
+        public void TestCheckSpin() {
             
         }
     }

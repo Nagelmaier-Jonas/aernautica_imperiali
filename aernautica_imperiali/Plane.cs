@@ -397,7 +397,7 @@ namespace aernautica_imperiali{
         }
 
         public void ChangeSpeed(int changeSpeed) {
-            if (Math.Abs(changeSpeed) < _throttle) {
+            if (Math.Abs(changeSpeed) <= _throttle) {
                 _speed += changeSpeed;
                 return;
             }

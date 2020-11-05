@@ -58,6 +58,7 @@ namespace aernautica_imperiali{
                 Console.WriteLine();
                 Console.WriteLine();
             }
+            
         }
 
         public List<Point> GetPlanePoints() {

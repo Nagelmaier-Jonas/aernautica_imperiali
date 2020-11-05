@@ -125,8 +125,11 @@ namespace aernautica_imperiali{
 
         public bool CanFire(Plane plane, Weapon weapon) {
             if (InFireArc(plane, weapon) && CheckRange(plane) != ERange.OUTOFRANGE)
+                if (weapon.Ammo == 0){
+                    Logger.GetInstance().Info("Out of Ammo");
+                    return false;
+                }
                 return true;
-            return false;
         }
         public ERange CheckRange(Plane plane) {
             if (CalculateRoute(plane).Count <= 4) {

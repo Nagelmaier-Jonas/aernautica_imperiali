@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jonas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+    "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj",
+        "projectName": "aernautica_imperiali.unittest",
+        "projectPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj",
+        "packagesPath": "C:\\Users\\Niklas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali.unittest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Niklas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> origin/master
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -58,6 +75,7 @@
             "net48"
           ],
           "assetTargetFallback": true,
+<<<<<<< HEAD
           "warn": true,
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
@@ -65,6 +83,9 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+=======
+          "warn": true
+>>>>>>> origin/master
         }
       }
     }

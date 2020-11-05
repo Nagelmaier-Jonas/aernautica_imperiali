@@ -9,7 +9,6 @@ namespace aernautica_imperiali {
             GameEngine.GetInstance().PlacePlane(factory.Executioner(p,5));
             Map.GetInstance().PrintMap();
             GameEngine.GetInstance().Imperialis.Planes[0].MoveBehavior.Move(GameEngine.GetInstance().Imperialis.Planes[0],new Point(2,2,2), 2);
-            Map.GetInstance().PrintMap();
             
         }
     }

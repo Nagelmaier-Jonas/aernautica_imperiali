@@ -6,6 +6,8 @@ namespace aernautica_imperiali {
         private Player _imperialis = new Player();
         private Player _ork = new Player();
         private bool _turnToken = true;
+        private int _turns = 0;
+        private bool _allowFire = false;
         private GameEngine() {
         }
 
@@ -69,6 +71,24 @@ namespace aernautica_imperiali {
                         Logger.GetInstance().Info("Out of placement field");
                     }
                 }
+            }
+            
+        }
+
+        public void CheckTurns() {
+            if (_turns == _imperialis.Planes.Count + _ork.Planes.Count) {
+                _allowFire = true;
+                _turns = 0;
+            }
+            _turns++;
+            _allowFire = false;
+        }
+
+        public void EndTurn() {
+            if (_imperialis.Points >= 100) {
+                Logger.GetInstance().Info("Imperialis won");
+            }else if (_ork.Points >= 100) {
+                Logger.GetInstance().Info("Orks won");
             }
         }
         

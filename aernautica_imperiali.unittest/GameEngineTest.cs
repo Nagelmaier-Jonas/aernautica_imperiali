@@ -27,30 +27,5 @@ namespace aernautica_imperiali.unittest {
         public void TestPlacePlane(){
             
         }
-        
-        [Test]
-        public void Test(){
-            
-        }
-        
-        [Test]
-        public void Test(){
-            
-        }
-        
-        [Test]
-        public void Test(){
-            
-        }
-        
-        [Test]
-        public void Test(){
-            
-        }
-        
-        [Test]
-        public void Test(){
-            
-        }
     }
 }

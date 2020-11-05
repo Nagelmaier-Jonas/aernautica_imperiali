@@ -117,6 +117,11 @@ namespace aernautica_imperiali {
                 Logger.GetInstance().Info("Orks won");
                 RestartGame();
             }
+            RestartRound();
+            
+        }
+
+        public void RestartRound() {
             
         }
 

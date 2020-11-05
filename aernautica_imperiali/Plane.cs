@@ -378,5 +378,12 @@ namespace aernautica_imperiali{
                 GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
              }
         }
+        
+        public void Move( Point destination) {
+            X += destination.X;
+            Y += destination.Y;
+            Z += destination.Z;
+            GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+        }
     }
 }

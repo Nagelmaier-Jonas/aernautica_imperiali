@@ -91,13 +91,6 @@ namespace aernautica_imperiali {
                 Logger.GetInstance().Info("Orks won");
             }
         }
-
-        public void Move(Plane plane, Point destination) {
-            plane.X += destination.X;
-            plane.Y += destination.Y;
-            plane.Z += destination.Z;
-            _turnToken = !_turnToken;
-        }
         
     }
 }

@@ -6,7 +6,7 @@ namespace aernautica_imperiali{
             if (plane.Faction == 'i') {
                 if (GameEngine.GetInstance().TurnToken) {
                     if (plane.IsMoveLegal(destination)) {
-                        GameEngine.GetInstance().Move(plane,destination);
+                        plane.Move(destination);
                     }
                 }
                 else {
@@ -17,7 +17,7 @@ namespace aernautica_imperiali{
             {
                 if (GameEngine.GetInstance().TurnToken == false) {
                     if (plane.IsMoveLegal(destination)) {
-                        GameEngine.GetInstance().Move(plane,destination);
+                        plane.Move(destination);
                     }
                 }
                 else {

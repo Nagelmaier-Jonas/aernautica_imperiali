@@ -3,10 +3,22 @@ using System;
 namespace aernautica_imperiali{
     public class DefaultMoveBehavior : IMoveBehavior{
         public void Move(Plane plane, Point destination) {
-            if(plane.IsMoveLegal(destination))
-                plane.X += destination.X;
-                plane.Y += destination.Y;
-                plane.Z += destination.Z;
+            if (plane.Faction == 'i' && GameEngine.GetInstance().TurnToken) {
+                if (plane.IsMoveLegal(destination)) {
+                    plane.X += destination.X;
+                    plane.Y += destination.Y;
+                    plane.Z += destination.Z;
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                }
+            }
+            else if (GameEngine.GetInstance().TurnToken == false) {
+                    if (plane.IsMoveLegal(destination)) {
+                        plane.X += destination.X;
+                        plane.Y += destination.Y;
+                        plane.Z += destination.Z;
+                        GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                    }
+            }
         }
 
         public void Fire(Plane plane, Plane target, Weapon weapon) {

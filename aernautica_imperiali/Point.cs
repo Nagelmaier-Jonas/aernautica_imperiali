@@ -3,15 +3,7 @@ using System.Collections.Generic;
 
 namespace aernautica_imperiali{
     public class Point{
-        public override int GetHashCode(){
-            unchecked{
-                var hashCode = _x;
-                hashCode = (hashCode * 397) ^ _y;
-                hashCode = (hashCode * 397) ^ _z;
-                return hashCode;
-            }
-        }
-
+        
         private int _x;
         private int _y;
         private int _z;
@@ -62,6 +54,14 @@ namespace aernautica_imperiali{
             return (int)Math.Sqrt(Math.Pow(_x,2) + Math.Pow(_y,2) + Math.Pow(_z,2));
         }
         
+        public override int GetHashCode(){
+            unchecked{
+                var hashCode = _x;
+                hashCode = (hashCode * 397) ^ _y;
+                hashCode = (hashCode * 397) ^ _z;
+                return hashCode;
+            }
+        }
         public override bool Equals(object obj){
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;

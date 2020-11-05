@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public interface IWeaponFactory {
+    public interface IWeaponFactory{
 
         Weapon BombBay();
         

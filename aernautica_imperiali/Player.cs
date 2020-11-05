@@ -15,5 +15,15 @@ namespace aernautica_imperiali {
             get => _planes;
             set => _planes = value;
         }
+
+        public int Points {
+            get => _points;
+            set => _points = value;
+        }
+
+        public int StartPoints {
+            get => _startPoints;
+            set => _startPoints = value;
+        }
     }
 }

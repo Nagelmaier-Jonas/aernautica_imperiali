@@ -112,7 +112,7 @@ namespace aernautica_imperiali{
             }
 
             if (_moveBehavior == new SpinBehavior()) {
-                if (Dice.getInstance().Roll() >= _handling) {
+                if (Dice.GetInstance().Roll() >= _handling) {
                     _moveBehavior = new DefaultMoveBehavior();
                 }
             }

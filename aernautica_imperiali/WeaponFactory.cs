@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class WeaponFactory : IWeaponFactory{
+    public class WeaponFactory{
         public Weapon BombBay() {
             return new Weapon(new []{EFireArc.REAR}, 8,0,0,2,3,5);
         }

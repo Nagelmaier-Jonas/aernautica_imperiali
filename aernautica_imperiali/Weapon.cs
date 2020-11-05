@@ -8,44 +8,40 @@ namespace aernautica_imperiali {
         protected const int MEDIUM = 7;
         protected const int LONG = 10;
 
-        private int shortpower;
-        private int mediumpower;
-        private int longpower;
+        private int _shortpower;
+        private int _mediumpower;
+        private int _longpower;
 
-        private int ammo;
+        private int _ammo;
 
+        private EFireArc[] _fireArc;
+        
+        private Dictionary<ERange, int> _firePower = new Dictionary<ERange, int>();
+        private int _damage;
+        private int _special;
+        
         public int Ammo {
-            get => ammo;
-            set => ammo = value;
+            get => _ammo;
+            set => _ammo = value;
         }
-
-        private EFireArc[] fireArc;
-
-        public EFireArc[] FireArc => fireArc;
-
-        private Dictionary<ERange, int> firepower = new Dictionary<ERange, int>();
-        private int damage;
-        private int special;
-
-        public Dictionary<ERange, int> Firepower => firepower;
-
-        public int Damage => damage;
-
-        public int Special => special;
+        public Dictionary<ERange, int> Firepower => _firePower;
+        public EFireArc[] FireArc => _fireArc;
+        public int Damage => _damage;
+        public int Special => _special;
 
         public Weapon(EFireArc[] fireArc, int shortpower, int mediumpower, int longpower, int damage, int ammo,
             int special){
-            this.shortpower = shortpower;
-            this.mediumpower = mediumpower;
-            this.longpower = longpower;
-            this.damage = damage;
-            this.special = special;
-            this.fireArc = fireArc;
-            this.ammo = ammo;
+            _shortpower = shortpower;
+            _mediumpower = mediumpower;
+            _longpower = longpower;
+            _damage = damage;
+            _special = special;
+            _fireArc = fireArc;
+            _ammo = ammo;
 
-            firepower[ERange.SHORT] = shortpower;
-            firepower[ERange.MEDIUM] = mediumpower;
-            firepower[ERange.LONG] = longpower;
+            _firePower[ERange.SHORT] = shortpower;
+            _firePower[ERange.MEDIUM] = mediumpower;
+            _firePower[ERange.LONG] = longpower;
         }
         
         

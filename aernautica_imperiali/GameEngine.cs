@@ -40,7 +40,8 @@ namespace aernautica_imperiali {
         public void PlacePlane(Plane plane) {
             if (Map.GetInstance().IsPointLegal(plane)) {
                 if (plane.Faction == 'i') {
-                    if (plane.Y < 3) {
+                    if (plane.Y < 3 && _imperialis.StartPoints >= plane.PlaneValue) {
+                        _imperialis.StartPoints -= plane.PlaneValue;
                         _imperialis.Planes.Add(plane);
                     }
                     else {
@@ -48,7 +49,8 @@ namespace aernautica_imperiali {
                     }
                 }
                 else {
-                    if (plane.Y > 11) {
+                    if (plane.Y > 11 && _ork.StartPoints >= plane.PlaneValue) {
+                        _ork.StartPoints -= plane.PlaneValue;
                         _ork.Planes.Add(plane);
                     }
                     else {

@@ -4,15 +4,15 @@ namespace aernautica_imperiali
 {
     public class Dice {
         
-        private static Dice instance = new Dice();
+        private static Dice _instance = new Dice();
         
         private Random random = new Random();
         private Dice() {
             
         }
 
-        public static Dice getInstance() {
-            return instance;
+        public static Dice GetInstance() {
+            return _instance;
         }
         
         

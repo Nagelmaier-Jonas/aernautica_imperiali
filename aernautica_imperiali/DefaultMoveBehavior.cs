@@ -3,26 +3,45 @@ using System;
 namespace aernautica_imperiali{
     public class DefaultMoveBehavior : IMoveBehavior{
         public void Move(Plane plane, Point destination) {
-            if (plane.Faction == 'i' && GameEngine.GetInstance().TurnToken) {
-                if (plane.IsMoveLegal(destination)) {
-                    plane.X += destination.X;
-                    plane.Y += destination.Y;
-                    plane.Z += destination.Z;
-                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
-                }
-            }
-            else if (GameEngine.GetInstance().TurnToken == false) {
+            if (plane.Faction == 'i') {
+                if (GameEngine.GetInstance().TurnToken) {
                     if (plane.IsMoveLegal(destination)) {
                         plane.X += destination.X;
                         plane.Y += destination.Y;
                         plane.Z += destination.Z;
                         GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                     }
+                }
+                else {
+                    Logger.GetInstance().Info("It's not your turn");
+                }
+            }
+            else 
+            {
+                if (GameEngine.GetInstance().TurnToken == false) {
+                    if (plane.IsMoveLegal(destination)) {
+                        plane.X += destination.X;
+                        plane.Y += destination.Y;
+                        plane.Z += destination.Z;
+                        GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                    }
+                }
+                else {
+                    Logger.GetInstance().Info("It's not your turn");
+                }
             }
         }
 
         public void Fire(Plane plane, Plane target, Weapon weapon) {
             int dice;
+            if (plane.Faction == 'i') {
+                if (GameEngine.GetInstance().TurnToken) {
+                    
+                }
+                else {
+                    Logger.GetInstance().Info("It's not your turn");
+                }
+            }
             if (plane.CanFire(target,weapon)) {
                 ERange range = plane.CheckRange(target);
                 switch (range) {

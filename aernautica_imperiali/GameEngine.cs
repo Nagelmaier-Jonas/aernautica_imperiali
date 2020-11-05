@@ -5,7 +5,7 @@ namespace aernautica_imperiali {
         private static GameEngine _instance = new GameEngine();
         private Player _imperialis = new Player();
         private Player _ork = new Player();
-        private bool _turnToken;
+        private bool _turnToken = true;
         private GameEngine() {
         }
 

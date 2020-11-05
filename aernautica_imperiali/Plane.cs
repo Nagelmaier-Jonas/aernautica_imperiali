@@ -409,9 +409,7 @@ namespace aernautica_imperiali {
                             break;
                     }
 
-                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
-                    weapon.Ammo--;
-                    _shotsFired = true;
+                    
                 }
             }
         }
@@ -424,6 +422,9 @@ namespace aernautica_imperiali {
                 if (dice >= weapon.Special) {
                     target.Structure--;
                 }
+                GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                weapon.Ammo--;
+                _shotsFired = true;
                 return true;
             }
 

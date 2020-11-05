@@ -16,6 +16,7 @@ namespace aernautica_imperiali{
         private EOrientation _orientation;
         private char _type;
         private char _faction;
+        private bool _shotsFired = false;
 
         public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver, int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type, char faction) : base(p.X,p.Y,p.Z){
             _structure = structure;
@@ -334,7 +335,7 @@ namespace aernautica_imperiali{
         
         public void Fire(Plane target, Weapon weapon) {
             int dice;
-             if (CanFire(target,weapon)) {
+             if (CanFire(target,weapon) && !_shotsFired && GameEngine.GetInstance().AllowFire) {
                 ERange range = CheckRange(target);
                 switch (range) {
                     case ERange.SHORT:
@@ -380,6 +381,7 @@ namespace aernautica_imperiali{
 
                 GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                 weapon.Ammo--;
+                _shotsFired = true;
              }
         }
         
@@ -388,6 +390,7 @@ namespace aernautica_imperiali{
             Y += destination.Y;
             Z += destination.Z;
             GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+            GameEngine.GetInstance().CheckTurns();
         }
     }
 }

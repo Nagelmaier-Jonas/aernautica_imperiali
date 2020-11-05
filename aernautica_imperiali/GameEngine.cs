@@ -6,7 +6,8 @@ namespace aernautica_imperiali {
         private Player _imperialis = new Player();
         private Player _ork = new Player();
         private bool _turnToken = true;
-        private int _turns = 0;
+        private int _moveTurns = 0;
+        private int _fireTurns = 0;
         private bool _allowFire = false;
         private GameEngine() {
         }
@@ -25,6 +26,10 @@ namespace aernautica_imperiali {
             get => _turnToken;
             set => _turnToken = value;
         }
+
+        public int MoveTurns => _moveTurns;
+
+        public bool AllowFire => _allowFire;
 
         public static GameEngine GetInstance() {
             return _instance;
@@ -76,11 +81,11 @@ namespace aernautica_imperiali {
         }
 
         public void CheckTurns() {
-            if (_turns == _imperialis.Planes.Count + _ork.Planes.Count) {
+            if (_moveTurns == _imperialis.Planes.Count + _ork.Planes.Count) {
                 _allowFire = true;
-                _turns = 0;
+                _moveTurns = 0;
             }
-            _turns++;
+            _moveTurns++;
             _allowFire = false;
         }
 
@@ -90,6 +95,7 @@ namespace aernautica_imperiali {
             }else if (_ork.Points >= 100) {
                 Logger.GetInstance().Info("Orks won");
             }
+            
         }
         
     }

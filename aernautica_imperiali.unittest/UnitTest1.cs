@@ -1,7 +1,6 @@
 using NUnit.Framework;
-using System.Collections.Generic;
 
-namespace aernautica_imperiali.unitTests {
+namespace aernautica_imperiali.unittest {
     public class Tests {
         [SetUp]
         public void Setup() {

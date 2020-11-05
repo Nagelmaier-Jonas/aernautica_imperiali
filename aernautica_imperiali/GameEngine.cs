@@ -39,10 +39,6 @@ namespace aernautica_imperiali {
             }
         }
 
-        public void Init() {
-            
-        }
-
         public void PlacePlane(Plane plane) {
             if (Map.GetInstance().IsPointLegal(plane)) {
                 if (plane.Faction == 'i') {

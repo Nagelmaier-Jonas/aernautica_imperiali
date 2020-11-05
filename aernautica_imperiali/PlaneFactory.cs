@@ -1,5 +1,5 @@
 ﻿namespace aernautica_imperiali {
-    public class PlaneFactory : IPlaneFactory {
+    public class PlaneFactory {
         
         WeaponFactory _weaponFactory = new WeaponFactory();
         

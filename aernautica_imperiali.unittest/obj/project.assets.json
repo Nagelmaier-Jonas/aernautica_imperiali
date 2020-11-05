@@ -1225,6 +1225,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "aernautica_imperiali/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/aernautica_imperiali.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/aernautica_imperiali.dll": {}
+        }
       }
     }
   },
@@ -4618,12 +4628,18 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "aernautica_imperiali/1.0.0": {
+      "type": "project",
+      "path": "../aernautica_imperiali/aernautica_imperiali.csproj",
+      "msbuildProject": "../aernautica_imperiali/aernautica_imperiali.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.NET.Test.Sdk >= 16.4.0",
       "NUnit3TestAdapter >= 3.15.1",
+      "aernautica_imperiali >= 1.0.0",
       "nunit >= 3.12.0"
     ]
   },
@@ -4650,7 +4666,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj": {
+              "projectPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

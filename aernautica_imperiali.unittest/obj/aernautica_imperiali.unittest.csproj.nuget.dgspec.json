@@ -41,7 +41,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj": {
+                "projectPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -86,6 +90,50 @@
 =======
           "warn": true
 >>>>>>> origin/master
+        }
+      }
+    },
+    "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
+        "projectName": "aernautica_imperiali",
+        "projectPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
+        "packagesPath": "C:\\Users\\Niklas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Niklas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
         }
       }
     }

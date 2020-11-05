@@ -83,6 +83,9 @@ namespace aernautica_imperiali {
 
             int speed = _speed;
             int maneuver = _maneuver;
+            
+            int zdistance = Math.Abs(Z - destination.Z);
+            speed -= zdistance;
 
             for (int i = 0; i < CalculateRoute(destination).Count; i++) {
                 if (CalculateRoute(destination)[i].X != CalculateRoute(destination)[i++].X &&
@@ -90,15 +93,15 @@ namespace aernautica_imperiali {
                     maneuver--;
                     if (maneuver < 0) return false;
                 }
-
+                
                 speed--;
                 if (speed == 0) return true;
             }
 
-            return true;
+            return false;
         }
 
-        public bool IsPointValid(Point p) {
+        private bool IsPointValid(Point p) {
             if (!Map.GetInstance().IsPointLegal(p)) return false;
             foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
                 if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z) return false;
@@ -131,12 +134,12 @@ namespace aernautica_imperiali {
             }
         }
 
-        public void HitGround() {
+        private void HitGround() {
             if (Z <= 0)
                 _structure = 0;
         }
 
-        public bool CanFire(Plane plane, Weapon weapon) {
+        private bool CanFire(Plane plane, Weapon weapon) {
             if (InFireArc(plane, weapon) && CheckRange(plane) != ERange.OUTOFRANGE)
                 if (weapon.Ammo == 0) {
                     Logger.GetInstance().Info("Out of Ammo");
@@ -146,7 +149,7 @@ namespace aernautica_imperiali {
             return true;
         }
 
-        public ERange CheckRange(Plane plane) {
+        private ERange CheckRange(Plane plane) {
             if (CalculateRoute(plane).Count <= 4) {
                 return ERange.SHORT;
             }
@@ -162,7 +165,7 @@ namespace aernautica_imperiali {
             return ERange.OUTOFRANGE;
         }
 
-        public bool InFireArc(Plane plane, Weapon weapon) {
+        private bool InFireArc(Plane plane, Weapon weapon) {
             switch (_orientation) {
                 case EOrientation.NORTH:
                     foreach (EFireArc fireArc in weapon.FireArc) {
@@ -203,7 +206,7 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        public bool InNorthFireArc(Plane plane, EFireArc fireArc) {
+        private bool InNorthFireArc(Plane plane, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
                     if (X != plane.X ^ Y != plane.Y) {
@@ -246,7 +249,7 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        public bool InSouthFireArc(Plane plane, EFireArc fireArc) {
+        private bool InSouthFireArc(Plane plane, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
                     if (X != plane.X ^ Y != plane.Y) {
@@ -289,7 +292,7 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        public bool InWestFireArc(Plane plane, EFireArc fireArc) {
+        private bool InWestFireArc(Plane plane, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
                     if (X != plane.X ^ Y != plane.Y) {
@@ -332,7 +335,7 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        public bool InEastFireArc(Plane plane, EFireArc fireArc) {
+        private bool InEastFireArc(Plane plane, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
                     if (X != plane.X ^ Y != plane.Y) {
@@ -415,7 +418,7 @@ namespace aernautica_imperiali {
             }
         }
 
-        public bool DoDamage(Plane target, Weapon weapon) {
+        private bool DoDamage(Plane target, Weapon weapon) {
             int dice;
             int heightDifference = Math.Abs(Z - target.Z);
             dice = Dice.GetInstance().Roll() - heightDifference;

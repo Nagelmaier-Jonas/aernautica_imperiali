@@ -1,0 +1,41 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=07b5e2b7_002De3c1_002D43b3_002Dbb0a_002De46aee414021/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SingeltonTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::FB393D6F-0344-40E3-9FF8-5A1ADE091D27::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest.SingeltonTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=19516557_002D02cf_002D4c26_002D80d4_002D01f0fcd489f2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::FB393D6F-0344-40E3-9FF8-5A1ADE091D27::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3599f3ba_002D2455_002D4ee8_002D94a9_002D49254b8e0fdb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SingletonTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::FB393D6F-0344-40E3-9FF8-5A1ADE091D27::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest.SingletonTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4a4e18ab_002De7b2_002D4541_002D8c04_002Dce59c59a5766/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::FB393D6F-0344-40E3-9FF8-5A1ADE091D27::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5029027a_002D3a75_002D4b4f_002D82b4_002Db219fbc7d7db/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Roll" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::FB393D6F-0344-40E3-9FF8-5A1ADE091D27::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest.Roll&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=afb235a8_002D6752_002D4d48_002Da221_002D1997ce6b8e46/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::FB393D6F-0344-40E3-9FF8-5A1ADE091D27::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dd884c02_002D5a53_002D4736_002Db405_002De9a44bc0add3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SingletonTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::FB393D6F-0344-40E3-9FF8-5A1ADE091D27::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest.SingletonTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eb993486_002D39e9_002D4ac1_002D87e8_002Dccc756106a76/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::FB393D6F-0344-40E3-9FF8-5A1ADE091D27::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

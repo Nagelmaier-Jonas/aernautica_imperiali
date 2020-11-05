@@ -376,6 +376,7 @@ namespace aernautica_imperiali{
                 }
 
                 GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                weapon.Ammo--;
              }
         }
         

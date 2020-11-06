@@ -21,7 +21,7 @@ namespace aernautica_imperiali {
             GameEngine.GetInstance().PlacePlane(factory.BigBurna(new Point(13,12,3), 3));
             
             //Round 1
-            GameEngine.GetInstance().Imperialis.Planes[0].MoveBehavior.Move(GameEngine.GetInstance().Imperialis.Planes[0],new Point(1,4,2), 0);
+            //GameEngine.GetInstance().Imperialis.Planes[0].MoveBehavior.Move(GameEngine.GetInstance().Imperialis.Planes[0],new Point(1,4,2), 0);
             //GameEngine.GetInstance().Ork.Planes[0].Move(new Point(3,9,3));
             
             //GameEngine.GetInstance().Imperialis.Planes[1].Move(new Point(2,4,3));

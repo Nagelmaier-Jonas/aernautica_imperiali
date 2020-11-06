@@ -125,7 +125,7 @@ namespace aernautica_imperiali {
         }
 
         public void CheckSpin() {
-            if (_spin == false) {
+            if (!_spin) {
                 if (_speed > _maxSpeed || _speed < _minSpeed || Z > _maxAltitude) {
                     _moveBehavior = new SpinBehavior();
                     _spin = true;

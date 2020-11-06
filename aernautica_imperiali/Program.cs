@@ -6,7 +6,7 @@ namespace aernautica_imperiali {
         static void Main(string[] args) {
             PlaneFactory factory = new PlaneFactory();
             Plane e = factory.Executioner(new Point(0, 0, 12), 1);
-            
+            ;
         }
     }
 }

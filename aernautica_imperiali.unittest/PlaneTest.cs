@@ -21,12 +21,7 @@ namespace aernautica_imperiali.unittest {
             Plane e = factory.Executioner(new Point(0, 0, 1), 1);
             e.CheckSpin();
             
-            Assert.AreEqual(new SpinBehavior(), e.MoveBehavior);
-        }
-
-        [Test]
-        public void TestFire() {
-            
+            //Assert.AreEqual(new SpinBehavior(), e.MoveBehavior);
         }
 
         [Test]

@@ -5,10 +5,8 @@ namespace aernautica_imperiali {
     class Program {
         static void Main(string[] args) {
             PlaneFactory factory = new PlaneFactory();
-            Point p = new Point(1,1,1);
-            Plane e = factory.Executioner(p, 1);
-            e.CheckSpin();
-            Console.WriteLine(e.MoveBehavior);
+            Plane e = factory.Executioner(new Point(0, 0, 12), 1);
+            
         }
     }
 }

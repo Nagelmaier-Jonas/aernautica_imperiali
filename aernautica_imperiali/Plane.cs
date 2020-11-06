@@ -447,7 +447,7 @@ namespace aernautica_imperiali {
             GameEngine.GetInstance().CheckTurns();
         }
 
-        public void SetOrientation(Point destination) {
+        private void SetOrientation(Point destination) {
             List<Point> route = CalculateRoute(destination);
             Point[] lastPoints = new Point[2];
             lastPoints[0] = route[route.Count - 2];

@@ -34,22 +34,27 @@ namespace aernautica_imperiali{
         }
 
         public void PrintMap() {
-            Console.WriteLine("   Ebene: 0");
+            Console.WriteLine("         Ebene: 0");
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
                         if (GetPlanePoints().Contains(_content[k,j,i])) {
                             foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
-                                if(IsSame(plane,_content[k,j,i]))
+                                if (IsSame(plane, _content[k, j, i])){
                                     Console.Write(Char.ToUpperInvariant(plane.Type));
+                                    Console.Write(" ");
+                                }
                             }
-                            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
-                                if(IsSame(plane,_content[k,j,i]))
+
+                            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes){
+                                if (IsSame(plane, _content[k, j, i])){
                                     Console.Write(Char.ToUpperInvariant(plane.Type));
+                                    Console.Write(" ");
                             }
                         }
+                        }
                         else {
-                            Console.Write("-");
+                            Console.Write("- ");
                         }
                     }
                     Console.WriteLine();
@@ -57,7 +62,7 @@ namespace aernautica_imperiali{
 
                 Console.WriteLine();
                 if (i + 1 < _content.GetLength(2)) {
-                    Console.WriteLine("   Ebene: " + (i + 1));
+                    Console.WriteLine("         Ebene: " + (i + 1));
                 }
                 else {
                     Console.WriteLine();

@@ -46,12 +46,12 @@ namespace aernautica_imperiali.unittest {
             GameEngine.GetInstance().Imperialis.Planes.Add(factory.Executioner(new Point(2,2,2),2));
             GameEngine.GetInstance().Ork.Planes.Add(factory.BigBurna(new Point(3,2,2),2));
             GameEngine.GetInstance().Imperialis.Planes.Add(factory.Hellion(new Point(2,4,2),2));
-            Assert.AreEqual(false, GameEngine.GetInstance().AllowFire);
+            Assert.IsFalse(GameEngine.GetInstance().AllowFire);
             GameEngine.GetInstance().Imperialis.Planes[0].Move(new Point(3,3,3));
             GameEngine.GetInstance().Ork.Planes[0].Move(new Point(2,2,3));
             Assert.AreEqual(2,GameEngine.GetInstance().MoveTurns);
             GameEngine.GetInstance().Imperialis.Planes[1].Move(new Point(4,4,4));
-            Assert.AreEqual(true,GameEngine.GetInstance().AllowFire);
+            Assert.IsTrue(GameEngine.GetInstance().AllowFire);
             Assert.AreEqual(0,GameEngine.GetInstance().MoveTurns);
         }
 
@@ -66,12 +66,12 @@ namespace aernautica_imperiali.unittest {
             Assert.AreEqual(0,GameEngine.GetInstance().Imperialis.Points);
             Assert.AreEqual(0,GameEngine.GetInstance().Imperialis.Planes.Count);
             Assert.AreEqual(150,GameEngine.GetInstance().Imperialis.StartPoints);
-            Assert.AreEqual(true,GameEngine.GetInstance().TurnToken);
+            Assert.IsTrue(GameEngine.GetInstance().TurnToken);
             
             GameEngine.GetInstance().Imperialis.StartPoints = 0;
             GameEngine.GetInstance().TurnToken = false;
             GameEngine.GetInstance().EndTurn();
-            Assert.AreEqual(true,GameEngine.GetInstance().TurnToken);
+            Assert.IsTrue(GameEngine.GetInstance().TurnToken);
             Assert.AreEqual(0,GameEngine.GetInstance().Imperialis.StartPoints);
         }
     }

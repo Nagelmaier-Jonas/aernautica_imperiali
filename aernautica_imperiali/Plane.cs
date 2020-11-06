@@ -20,7 +20,6 @@ namespace aernautica_imperiali {
         private char _type;
         private char _faction;
         private bool _shotsFired = false;
-        private bool _hasMoved;
 
         public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver,
             int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type,

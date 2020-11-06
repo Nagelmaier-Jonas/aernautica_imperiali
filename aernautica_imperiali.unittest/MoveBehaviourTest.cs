@@ -15,15 +15,15 @@ namespace aernautica_imperiali.unittest {
             
             e.MoveBehavior.Move(e, new Point(3,0,1), -2);
             Assert.AreEqual(3, e.X);
-
-            GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+            
+            GameEngine.GetInstance().NextRound();
 
             e.MoveBehavior.Move(e, new Point(5,0,2), 0);
             Assert.AreEqual(5, e.X);
             Assert.AreEqual(2, e.Z);
             
-            GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
-            
+            GameEngine.GetInstance().NextRound();
+
             e.MoveBehavior.Move(e, new Point(10, 1, 2), 2);
             Assert.AreEqual(10, e.X);
             Assert.AreEqual(1, e.Y);

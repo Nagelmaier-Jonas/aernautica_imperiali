@@ -449,7 +449,9 @@ namespace aernautica_imperiali {
 
         public void SetOrientation(Point destination) {
             List<Point> route = CalculateRoute(destination);
-            Point[] lastPoints = new[] {route[route.Count - 2], route[route.Count - 1]};
+            Point[] lastPoints = new Point[2];
+            lastPoints[0] = route[route.Count - 2];
+            lastPoints[1] = route[route.Count - 1];
             if (lastPoints[0].X < lastPoints[1].X && lastPoints[0].Y == lastPoints[1].Y) {
                 _orientation = EOrientation.EAST;
             }

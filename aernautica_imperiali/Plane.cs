@@ -84,7 +84,6 @@ namespace aernautica_imperiali {
             }
 
             if (_hasMoved) return false;
-            if (_moveBehavior.GetType() == new SpinBehavior().GetType()) return false;
 
             int speed = _speed;
             int maneuver = _maneuver;

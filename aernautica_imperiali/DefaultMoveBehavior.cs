@@ -6,8 +6,10 @@ namespace aernautica_imperiali{
             if (plane.Faction == 'i') {
                 if (GameEngine.GetInstance().TurnToken) {
                     plane.ChangeSpeed(speedChange);
+                    plane.CheckSpeed();
                     if (plane.IsMoveLegal(destination)) {
                         plane.Move(destination);
+                        plane.CheckHeight();
                     }
                 }
                 else {
@@ -18,8 +20,10 @@ namespace aernautica_imperiali{
             {
                 if (!GameEngine.GetInstance().TurnToken) {
                     plane.ChangeSpeed(speedChange);
+                    plane.CheckSpeed();
                     if (plane.IsMoveLegal(destination)) {
                         plane.Move(destination);
+                        plane.CheckHeight();
                     }
                 }
                 else {

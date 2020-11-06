@@ -14,7 +14,6 @@ namespace aernautica_imperiali {
         private int _maxAltitude;
         private int _planeValue;
         private IMoveBehavior _moveBehavior = new DefaultMoveBehavior();
-        private bool _spin = false;
         private Weapon[] _weapons;
         private EOrientation _orientation;
         private char _type;
@@ -38,7 +37,6 @@ namespace aernautica_imperiali {
             _orientation = orientation;
             _type = type;
             _faction = faction;
-
         }
 
         public int Structure {
@@ -69,9 +67,6 @@ namespace aernautica_imperiali {
         public int PlaneValue => _planeValue;
 
         public Weapon[] Weapons => _weapons;
-
-        public bool Spin => _spin;
-
         public IMoveBehavior MoveBehavior => _moveBehavior;
 
         public char Type => _type;
@@ -87,11 +82,13 @@ namespace aernautica_imperiali {
             foreach (Point p in CalculateRoute(destination)) {
                 if (!IsPointValid(p)) return false;
             }
+
             if (_hasMoved) return false;
-            
+            if (_moveBehavior.GetType() == new SpinBehavior().GetType()) return false;
+
             int speed = _speed;
             int maneuver = _maneuver;
-            
+
             int zdistance = Math.Abs(Z - destination.Z);
             speed -= zdistance;
 
@@ -101,10 +98,11 @@ namespace aernautica_imperiali {
                     maneuver--;
                     if (maneuver < 0) return false;
                 }
-                
+
                 speed--;
                 if (speed == 0) return true;
             }
+
             speed--;
             if (speed == 0) return true;
 
@@ -125,23 +123,26 @@ namespace aernautica_imperiali {
         }
 
         public void CheckSpin() {
-            if (_spin == false) {
-                if (_speed > _maxSpeed || _speed < _minSpeed || Z > _maxAltitude) {
-                    _moveBehavior = new SpinBehavior();
-                    _spin = true;
-                }
+            if (Dice.GetInstance().Roll() >= _handling) {
+                Logger.GetInstance().Info("Handling-Test successful");
+                _moveBehavior = new DefaultMoveBehavior();
             }
             else {
-                if (Dice.GetInstance().Roll() >= _handling) {
-                    Logger.GetInstance().Info("Handling-Test successful");
-                    _moveBehavior = new DefaultMoveBehavior();
-                    _spin = false;
-                }
-                else {
-                    Logger.GetInstance().Info("Handling-Test failed");
-                    Z--;
-                    HitGround();
-                }
+                Logger.GetInstance().Info("Handling-Test failed");
+                Z--;
+                HitGround();
+            }
+        }
+
+        public void CheckHeight() {
+            if (Z > _maxAltitude) {
+                _moveBehavior = new SpinBehavior();
+            }
+        }
+
+        public void CheckSpeed() {
+            if (_speed > _maxSpeed || _speed < _minSpeed) {
+                _moveBehavior = new SpinBehavior();
             }
         }
 
@@ -418,7 +419,6 @@ namespace aernautica_imperiali {
                                     GameEngine.GetInstance().CheckStructure();
                                     return;
                                 }
-                                
                             }
 
                             break;
@@ -426,8 +426,6 @@ namespace aernautica_imperiali {
                             Logger.GetInstance().Info("Target is out of Range");
                             break;
                     }
-
-                    
                 }
             }
         }
@@ -441,6 +439,7 @@ namespace aernautica_imperiali {
                 if (dice >= weapon.Special) {
                     target.Structure--;
                 }
+
                 GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                 weapon.Ammo--;
                 _shotsFired = true;
@@ -464,32 +463,37 @@ namespace aernautica_imperiali {
             List<Point> route = CalculateRoute(destination);
             Point[] lastPoints = new Point[2];
             if (route.Count == 1) {
-                lastPoints[0] = new Point(X,Y,Z);
+                lastPoints[0] = new Point(X, Y, Z);
                 lastPoints[1] = route[0];
             }
             else {
                 lastPoints[0] = route[route.Count - 2];
                 lastPoints[1] = route[route.Count - 1];
             }
+
             if (lastPoints[0].X < lastPoints[1].X && lastPoints[0].Y == lastPoints[1].Y) {
                 _orientation = EOrientation.EAST;
             }
+
             if (lastPoints[0].X > lastPoints[1].X && lastPoints[0].Y == lastPoints[1].Y) {
                 _orientation = EOrientation.WEST;
             }
+
             if (lastPoints[0].X == lastPoints[1].X && lastPoints[0].Y < lastPoints[1].Y) {
                 _orientation = EOrientation.NORTH;
             }
+
             if (lastPoints[0].X == lastPoints[1].X && lastPoints[0].Y > lastPoints[1].Y) {
                 _orientation = EOrientation.SOUTH;
             }
+
             if (lastPoints[0].X != lastPoints[1].X && lastPoints[0].Y < lastPoints[1].Y) {
                 _orientation = EOrientation.SOUTH;
             }
+
             if (lastPoints[0].X != lastPoints[1].X && lastPoints[0].Y > lastPoints[1].Y) {
                 _orientation = EOrientation.NORTH;
             }
-            
         }
 
         public void ChangeSpeed(int changeSpeed) {

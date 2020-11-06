@@ -22,6 +22,5 @@ namespace aernautica_imperiali.unittest {
             
             Assert.AreEqual(expectedRoute,route);
         }
-        
     }
 }

@@ -152,15 +152,15 @@ namespace aernautica_imperiali {
         }
 
         private ERange CheckRange(Plane plane) {
-            if (CalculateRoute(plane).Count <= 4) {
+            if (CalculateRoute(plane).Count <= Weapon.SHORT) {
                 return ERange.SHORT;
             }
 
-            if (CalculateRoute(plane).Count > 4 && CalculateRoute(plane).Count <= 7) {
+            if (CalculateRoute(plane).Count > Weapon.SHORT && CalculateRoute(plane).Count <= Weapon.MEDIUM) {
                 return ERange.MEDIUM;
             }
 
-            if (CalculateRoute(plane).Count > 7 && CalculateRoute(plane).Count <= 10) {
+            if (CalculateRoute(plane).Count > Weapon.MEDIUM && CalculateRoute(plane).Count <= Weapon.LONG) {
                 return ERange.LONG;
             }
 

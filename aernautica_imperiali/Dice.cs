@@ -6,7 +6,7 @@ namespace aernautica_imperiali
         
         private static Dice _instance = new Dice();
         
-        private Random random = new Random();
+        private Random _random = new Random();
         private Dice() {
             
         }
@@ -18,7 +18,7 @@ namespace aernautica_imperiali
         
 
         public int Roll() {
-            return random.Next(1, 7);
+            return _random.Next(1, 7);
         }
         
         

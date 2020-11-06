@@ -39,13 +39,19 @@ namespace aernautica_imperiali {
         }
 
         public void CheckStructure() {
-            foreach (Plane plane in _imperialis.Planes) {
-                if (plane.Structure <= 0)
-                    _imperialis.Planes.Remove(plane);
+            if (_imperialis.Planes.Count > 0) {
+                for (int i = 0; i < _imperialis.Planes.Count; i++) {
+                    if (_imperialis.Planes[i].Structure <= 0) {
+                        _imperialis.Planes.Remove(_imperialis.Planes[i]);
+                    }
+                }
             }
-            foreach (Plane plane in _ork.Planes) {
-                if (plane.Structure <= 0)
-                    _ork.Planes.Remove(plane);
+            if (_ork.Planes.Count > 0) {
+                for (int i = 0; i < _ork.Planes.Count; i++) {
+                    if (_ork.Planes[i].Structure <= 0) {
+                        _ork.Planes.Remove(_ork.Planes[i]);
+                    }
+                }
             }
         }
 
@@ -84,12 +90,14 @@ namespace aernautica_imperiali {
         }
 
         public void CheckTurns() {
+            _moveTurns++;
             if (_moveTurns == _imperialis.Planes.Count + _ork.Planes.Count) {
                 _allowFire = true;
                 _moveTurns = 0;
             }
-            _moveTurns++;
-            _allowFire = false;
+            else {
+                _allowFire = false;
+            }
         }
         
         public void EndTurn() {

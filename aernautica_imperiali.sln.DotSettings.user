@@ -41,9 +41,39 @@
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dddddb54_002Dfd1e_002D4b1b_002D881b_002Dba8394d7a4db/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestChangeSpeed" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Or&gt;&#xD;
+      &lt;Or&gt;&#xD;
+        &lt;Or&gt;&#xD;
+          &lt;Or&gt;&#xD;
+            &lt;Or&gt;&#xD;
+              &lt;TestAncestor&gt;&#xD;
+                &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
+              &lt;/TestAncestor&gt;&#xD;
+              &lt;TestAncestor&gt;&#xD;
+                &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
+              &lt;/TestAncestor&gt;&#xD;
+            &lt;/Or&gt;&#xD;
+            &lt;TestAncestor&gt;&#xD;
+              &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
+            &lt;/TestAncestor&gt;&#xD;
+          &lt;/Or&gt;&#xD;
+          &lt;TestAncestor&gt;&#xD;
+            &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.LoggerTest&lt;/TestId&gt;&#xD;
+          &lt;/TestAncestor&gt;&#xD;
+        &lt;/Or&gt;&#xD;
+        &lt;TestAncestor&gt;&#xD;
+          &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MapTest&lt;/TestId&gt;&#xD;
+        &lt;/TestAncestor&gt;&#xD;
+      &lt;/Or&gt;&#xD;
+      &lt;TestAncestor&gt;&#xD;
+        &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MoveBehaviourTest&lt;/TestId&gt;&#xD;
+      &lt;/TestAncestor&gt;&#xD;
+    &lt;/Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PointTest&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 	

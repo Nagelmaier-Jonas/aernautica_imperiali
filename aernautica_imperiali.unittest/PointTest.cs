@@ -17,10 +17,7 @@ namespace aernautica_imperiali.unittest {
             Point destination = new Point(4,2,2);
 
             List<Point> expectedRoute = new List<Point>(new []{new Point(2,2,2),new Point(3,2,2),new Point(4,2,2),});
-            expectedRoute.Add(new Point(2, 2, 2));
-            expectedRoute.Add(new Point(3,2,2));
-            expectedRoute.Add( new Point(4,2,2));
-            
+
             List<Point> route = plane.CalculateRoute(destination);
             
             Assert.AreEqual(expectedRoute,route);

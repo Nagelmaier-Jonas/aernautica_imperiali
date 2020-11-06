@@ -17,46 +17,53 @@ namespace aernautica_imperiali.unittest {
 
         [Test]
         public void TestCheckStructure(){
+            GameEngine.GetInstance().RestartGame();
+            
             PlaneFactory factory = new PlaneFactory();
-            GameEngine.GetInstance().Imperialis.Planes.Add(factory.Executioner(new Point(3,3,3),3 ));
-            GameEngine.GetInstance().Imperialis.Planes.Add(factory.Hellion(new Point(3,4,3),3 ));
+            GameEngine.GetInstance().PlacePlane(factory.Executioner(new Point(3,1,3),3 ));
+            GameEngine.GetInstance().PlacePlane(factory.Hellion(new Point(3,2,3),3 ));
             Assert.AreEqual(2,GameEngine.GetInstance().Imperialis.Planes.Count);
             GameEngine.GetInstance().Imperialis.Planes[0].Structure = 0;
             GameEngine.GetInstance().CheckStructure();
             Assert.AreEqual(1,GameEngine.GetInstance().Imperialis.Planes.Count);
-
         }
 
         [Test]
         public void TestPlacePlane(){
+            GameEngine.GetInstance().RestartGame();
+            
             PlaneFactory factory = new PlaneFactory();
-            GameEngine.GetInstance().PlacePlane(factory.Vulture(new Point(5,5,5),4 ));
+            GameEngine.GetInstance().PlacePlane(factory.Vulture(new Point(5,13,5),4 ));
             GameEngine.GetInstance().PlacePlane(factory.Hellion(new Point(2,2,4),4 ));
-            GameEngine.GetInstance().PlacePlane(factory.GrotBommer(new Point(13,13,6),4 ));
+            GameEngine.GetInstance().PlacePlane(factory.GrotBommer(new Point(18,13,6),4 ));
             GameEngine.GetInstance().PlacePlane(factory.Executioner(new Point(-2,20,7),4 ));
-            Assert.AreSame(factory.Vulture(new Point(5,5,5),4 ),GameEngine.GetInstance().Ork.Planes[0]);
-            Assert.AreSame(factory.Hellion(new Point(2,2,4),4 ),GameEngine.GetInstance().Imperialis.Planes[0]);
+            Assert.AreEqual(factory.Vulture(new Point(5,13,5),4 ),GameEngine.GetInstance().Ork.Planes[0]);
+            Assert.AreEqual(factory.Hellion(new Point(2,2,4),4 ),GameEngine.GetInstance().Imperialis.Planes[0]);
             Assert.AreEqual(1,GameEngine.GetInstance().Imperialis.Planes.Count);
             Assert.AreEqual(1,GameEngine.GetInstance().Ork.Planes.Count);
         }
 
         [Test]
         public void TestCheckTurns(){
+            GameEngine.GetInstance().RestartGame();
+            
             PlaneFactory factory = new PlaneFactory();
             GameEngine.GetInstance().Imperialis.Planes.Add(factory.Executioner(new Point(2,2,2),2));
-            GameEngine.GetInstance().Ork.Planes.Add(factory.BigBurna(new Point(3,2,2),2));
-            GameEngine.GetInstance().Imperialis.Planes.Add(factory.Hellion(new Point(2,4,2),2));
-            Assert.AreEqual(false, GameEngine.GetInstance().AllowFire);
+            GameEngine.GetInstance().Ork.Planes.Add(factory.BigBurna(new Point(3,12,2),2));
+            GameEngine.GetInstance().Imperialis.Planes.Add(factory.Hellion(new Point(2,1,2),2));
+            Assert.IsFalse(GameEngine.GetInstance().AllowFire);
             GameEngine.GetInstance().Imperialis.Planes[0].Move(new Point(3,3,3));
-            GameEngine.GetInstance().Ork.Planes[0].Move(new Point(2,2,3));
+            GameEngine.GetInstance().Ork.Planes[0].Move(new Point(3,11,3));
             Assert.AreEqual(2,GameEngine.GetInstance().MoveTurns);
-            GameEngine.GetInstance().Imperialis.Planes[1].Move(new Point(4,4,4));
-            Assert.AreEqual(true,GameEngine.GetInstance().AllowFire);
+            GameEngine.GetInstance().Imperialis.Planes[1].Move(new Point(3,1,3));
+            Assert.IsTrue(GameEngine.GetInstance().AllowFire);
             Assert.AreEqual(0,GameEngine.GetInstance().MoveTurns);
         }
 
         [Test]
         public void TestEndTurn(){
+            GameEngine.GetInstance().RestartGame();
+            
             PlaneFactory factory = new PlaneFactory();
             GameEngine.GetInstance().Imperialis.Points = 120;
             GameEngine.GetInstance().Imperialis.Planes.Add(factory.Executioner(new Point(2,2,2), 2));

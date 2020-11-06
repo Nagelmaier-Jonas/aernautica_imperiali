@@ -1,6 +1,11 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
+    "projectUniqueName": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj",
+    "projectName": "aernautica_imperiali.unittest",
+    "projectPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj",
+    "outputPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali.unittest\\obj\\",
+    "projectStyle": "PackageReference",
     "projectUniqueName": "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj",
     "projectName": "aernautica_imperiali.unittest",
     "projectPath": "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj",
@@ -19,6 +24,8 @@
     "frameworks": {
       "netcoreapp3.1": {
         "projectReferences": {
+          "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj": {
+            "projectPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj"
           "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj": {
             "projectPath": "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj"
           }

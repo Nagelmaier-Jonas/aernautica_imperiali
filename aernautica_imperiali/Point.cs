@@ -49,10 +49,6 @@ namespace aernautica_imperiali{
 
             return Points;
         }
-
-        public int CalculateDistance(){
-            return (int)Math.Sqrt(Math.Pow(_x,2) + Math.Pow(_y,2) + Math.Pow(_z,2));
-        }
         
         public override int GetHashCode(){
             unchecked{

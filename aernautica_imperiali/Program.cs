@@ -4,21 +4,20 @@ using System.Runtime.CompilerServices;
 namespace aernautica_imperiali {
     class Program {
         static void Main(string[] args) {
-            PlaneFactory factory = new PlaneFactory();
 
-            GameEngine.GetInstance().PlacePlane(factory.Executioner(new Point(0,1,2), 3));
-            GameEngine.GetInstance().PlacePlane(factory.Executioner(new Point(2,2,4), 3));
-            GameEngine.GetInstance().PlacePlane(factory.Hellion(new Point(4,1,3), 3));
-            GameEngine.GetInstance().PlacePlane(factory.BlueDevil(new Point(6,2,2), 3));
-            GameEngine.GetInstance().PlacePlane(factory.Executioner(new Point(9,1,3), 3));
-            GameEngine.GetInstance().PlacePlane(factory.BlueDevil(new Point(13,2,1), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(0,1,2), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(2,2,4), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Hellion(new Point(4,1,3), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.BlueDevil(new Point(6,2,2), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(9,1,3), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.BlueDevil(new Point(13,2,1), 3));
             
-            GameEngine.GetInstance().PlacePlane(factory.BigBurna(new Point(2,12,2), 3));
-            GameEngine.GetInstance().PlacePlane(factory.GrotBommer(new Point(4,13,4), 3));
-            GameEngine.GetInstance().PlacePlane(factory.GrotBommer(new Point(6,12,3), 3));
-            GameEngine.GetInstance().PlacePlane(factory.Vulture(new Point(8,14,2), 3));
-            GameEngine.GetInstance().PlacePlane(factory.Vulture(new Point(11,13,3), 3));
-            GameEngine.GetInstance().PlacePlane(factory.BigBurna(new Point(13,12,3), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.BigBurna(new Point(2,12,2), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(4,13,4), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(6,12,3), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(8,14,2), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(11,13,3), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.BigBurna(new Point(13,12,3), 3));
             
             //Round 1
             //GameEngine.GetInstance().Imperialis.Planes[0].MoveBehavior.Move(GameEngine.GetInstance().Imperialis.Planes[0],new Point(1,4,2), 0);

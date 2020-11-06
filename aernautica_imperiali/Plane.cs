@@ -23,7 +23,7 @@ namespace aernautica_imperiali {
 
         public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver,
             int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type,
-            char faction,bool spin) : base(p.X, p.Y, p.Z) {
+            char faction) : base(p.X, p.Y, p.Z) {
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -37,7 +37,6 @@ namespace aernautica_imperiali {
             _orientation = orientation;
             _type = type;
             _faction = faction;
-            _spin = spin;
 
         }
 

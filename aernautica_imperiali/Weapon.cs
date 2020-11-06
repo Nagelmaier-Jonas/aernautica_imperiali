@@ -4,9 +4,9 @@ using System.ComponentModel;
 namespace aernautica_imperiali {
     public class Weapon {
 
-        protected const int SHORT = 4;
-        protected const int MEDIUM = 7;
-        protected const int LONG = 10;
+        public const int SHORT = 4;
+        public const int MEDIUM = 7;
+        public const int LONG = 10;
 
         private int _shortpower;
         private int _mediumpower;
@@ -19,6 +19,8 @@ namespace aernautica_imperiali {
         private Dictionary<ERange, int> _firePower = new Dictionary<ERange, int>();
         private int _damage;
         private int _special;
+        
+        
         
         public int Ammo {
             get => _ammo;

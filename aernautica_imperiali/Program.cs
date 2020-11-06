@@ -9,6 +9,16 @@ namespace aernautica_imperiali {
             Plane e = factory.Executioner(p, 1);
             e.CheckSpin();
             Console.WriteLine(e.MoveBehavior);
+            
+            //Round1
+            
+            //Round2
+            
+            //Round3
+            
+            //Round4
+            
+            //Round5
         }
     }
 }

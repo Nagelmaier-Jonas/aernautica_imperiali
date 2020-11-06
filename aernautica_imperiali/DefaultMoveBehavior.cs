@@ -16,7 +16,7 @@ namespace aernautica_imperiali{
             }
             else 
             {
-                if (GameEngine.GetInstance().TurnToken == false) {
+                if (!GameEngine.GetInstance().TurnToken) {
                     plane.ChangeSpeed(speedChange);
                     if (plane.IsMoveLegal(destination)) {
                         plane.Move(destination);

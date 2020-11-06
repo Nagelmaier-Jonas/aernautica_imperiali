@@ -134,6 +134,12 @@ namespace aernautica_imperiali {
         }
 
         public void NextRound() {
+            foreach (Plane plane in _imperialis.Planes) {
+                plane.HasMoved = false;
+            }
+            foreach (Plane plane in _ork.Planes) {
+                plane.HasMoved = false;
+            }
             _turnToken = true;
             _moveTurns = 0;
             _fireTurns = 0;

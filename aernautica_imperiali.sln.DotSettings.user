@@ -9,20 +9,41 @@
     &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=47b2b7bf_002Dae9c_002D4264_002D851b_002Dec2ad5d6d869/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GameEngineTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=509463b4_002Df30e_002D4b22_002Db1d4_002De82d300b9ae6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Or&gt;&#xD;
+    &lt;Or&gt;&#xD;
+      &lt;Or&gt;&#xD;
+        &lt;Or&gt;&#xD;
+          &lt;Or&gt;&#xD;
+            &lt;Or&gt;&#xD;
+              &lt;TestAncestor&gt;&#xD;
+                &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
+              &lt;/TestAncestor&gt;&#xD;
+              &lt;TestAncestor&gt;&#xD;
+                &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
+              &lt;/TestAncestor&gt;&#xD;
+            &lt;/Or&gt;&#xD;
+            &lt;TestAncestor&gt;&#xD;
+              &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.LoggerTest&lt;/TestId&gt;&#xD;
+            &lt;/TestAncestor&gt;&#xD;
+          &lt;/Or&gt;&#xD;
+          &lt;TestAncestor&gt;&#xD;
+            &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MapTest&lt;/TestId&gt;&#xD;
+          &lt;/TestAncestor&gt;&#xD;
+        &lt;/Or&gt;&#xD;
+        &lt;TestAncestor&gt;&#xD;
+          &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MoveBehaviourTest&lt;/TestId&gt;&#xD;
+        &lt;/TestAncestor&gt;&#xD;
+      &lt;/Or&gt;&#xD;
+      &lt;TestAncestor&gt;&#xD;
+        &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
+      &lt;/TestAncestor&gt;&#xD;
+    &lt;/Or&gt;&#xD;
     &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MoveBehaviourTest&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PointTest&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=509463b4_002Df30e_002D4b22_002Db1d4_002De82d300b9ae6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=67bf2d82_002D10e6_002D4469_002D94c8_002D8b47b50ff3bb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GameEngineTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;

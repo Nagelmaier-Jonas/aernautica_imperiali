@@ -20,6 +20,7 @@ namespace aernautica_imperiali {
         private char _type;
         private char _faction;
         private bool _shotsFired = false;
+        private bool _hasMoved = false;
 
         public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver,
             int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type,
@@ -77,11 +78,17 @@ namespace aernautica_imperiali {
 
         public char Faction => _faction;
 
+        public bool HasMoved {
+            get => _hasMoved;
+            set => _hasMoved = value;
+        }
+
         public bool IsMoveLegal(Point destination) {
             foreach (Point p in CalculateRoute(destination)) {
                 if (!IsPointValid(p)) return false;
             }
-
+            if (_hasMoved) return false;
+            
             int speed = _speed;
             int maneuver = _maneuver;
             
@@ -445,6 +452,7 @@ namespace aernautica_imperiali {
 
         public void Move(Point destination) {
             SetOrientation(destination);
+            _hasMoved = true;
             X += destination.X;
             Y += destination.Y;
             Z += destination.Z;

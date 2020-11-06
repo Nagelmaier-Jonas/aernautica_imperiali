@@ -16,10 +16,5 @@ namespace aernautica_imperiali.unittest {
             
             Assert.AreEqual(5, e.X);
         }
-
-        [Test]
-        public void SpinMoveTest() {
-            
-        }
     }
 }

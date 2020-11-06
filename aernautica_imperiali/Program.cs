@@ -40,6 +40,7 @@ namespace aernautica_imperiali {
             
             Map.GetInstance().PrintMap();
 
+            Console.WriteLine("WE ARE THE CHAMPIONS");
         }
     }
 }

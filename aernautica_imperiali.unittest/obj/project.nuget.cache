@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XqO5XPbx7C6IP0HIuOV8rgvjLl9cNFq0fQegPnbgSLfXuzOAy6jV93hL2ImC1nhJgLmhF0k4wNb4ogw4V1shEw==",
+  "dgSpecHash": "1tEP4YPjA1xCp3nL8Pq1oUkEYdDJjyx/FbIuC+1pHifFnueOlkhFkY3MFbqfUybhglDMU/y0kNXrFRD3lTodgA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali.unittest\\aernautica_imperiali.unittest.csproj",
   "expectedPackageFiles": [
@@ -18,7 +18,7 @@
     "C:\\Users\\Jonas\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Users\\Jonas\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
     "C:\\Users\\Jonas\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
-    "C:\\Users\\Jonas\\.nuget\\packages\\nunit3testadapter\\3.15.1\\nunit3testadapter.3.15.1.nupkg.sha512",
+    "C:\\Users\\Jonas\\.nuget\\packages\\nunit3testadapter\\4.0.0-alpha.1\\nunit3testadapter.4.0.0-alpha.1.nupkg.sha512",
     "C:\\Users\\Jonas\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Jonas\\.nuget\\packages\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",
     "C:\\Users\\Jonas\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

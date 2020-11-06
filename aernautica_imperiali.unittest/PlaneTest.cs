@@ -12,16 +12,18 @@ namespace aernautica_imperiali.unittest {
             Plane e = factory.Executioner(new Point(0, 0, 1), 4);
             
             Assert.AreEqual(true, e.IsMoveLegal(new Point(4,0,1)));
-            //Assert.AreEqual(true, e.IsMoveLegal(new Point(4,2,1)));
+            Assert.AreEqual(true, e.IsMoveLegal(new Point(4,2,1)));
+            Assert.AreEqual(true, e.IsMoveLegal(new Point(3,0,2)));
         }
 
         [Test]
         public void TestCheckSpin() {
             PlaneFactory factory = new PlaneFactory();
+            SpinBehavior behavior = new SpinBehavior();
             Plane e = factory.Executioner(new Point(0, 0, 1), 1);
             e.CheckSpin();
             
-            Assert.AreEqual(new SpinBehavior(), e.MoveBehavior);
+            Assert.AreEqual(behavior.GetType(), e.MoveBehavior.GetType());
         }
 
         [Test]

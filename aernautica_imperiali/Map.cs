@@ -38,19 +38,19 @@ namespace aernautica_imperiali{
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
-                        if (GetPlanePoints().Contains(_content[k,j,i])) {
+                        if (GetPlanePoints().Contains(_content[k,j,i])){
                             foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
                                 if (IsSame(plane, _content[k, j, i])){
                                     Console.Write(Char.ToUpperInvariant(plane.Type));
-                                    Console.Write(" ");
+                                    Console.Write(GameEngine.GetInstance().Imperialis.Planes.IndexOf(plane));
                                 }
                             }
-
+                            
                             foreach (Plane plane in GameEngine.GetInstance().Ork.Planes){
                                 if (IsSame(plane, _content[k, j, i])){
                                     Console.Write(Char.ToUpperInvariant(plane.Type));
-                                    Console.Write(" ");
-                            }
+                                    Console.Write(GameEngine.GetInstance().Ork.Planes.IndexOf(plane));
+                                }
                         }
                         }
                         else {

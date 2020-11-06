@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
+    "projectUniqueName": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
     "projectName": "aernautica_imperiali",
-    "projectPath": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
-    "outputPath": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\obj\\",
+    "projectPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
+    "outputPath": "C:\\Users\\Niklas\\Documents\\Schule\\Softwareentwicklung\\3. Klasse\\aernautica_imperiali\\aernautica_imperiali\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"
@@ -34,13 +34,7 @@
         "net48"
       ],
       "assetTargetFallback": true,
-      "warn": true,
-      "frameworkReferences": {
-        "Microsoft.NETCore.App": {
-          "privateAssets": "all"
-        }
-      },
-      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+      "warn": true
     }
   }
 }

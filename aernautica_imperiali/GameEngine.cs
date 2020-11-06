@@ -33,11 +33,9 @@ namespace aernautica_imperiali {
         public int MoveTurns => _moveTurns;
 
         public bool AllowFire => _allowFire;
-
         public static GameEngine GetInstance() {
             return _instance;
         }
-
         public void CheckStructure() {
             if (_imperialis.Planes.Count > 0) {
                 for (int i = 0; i < _imperialis.Planes.Count; i++) {

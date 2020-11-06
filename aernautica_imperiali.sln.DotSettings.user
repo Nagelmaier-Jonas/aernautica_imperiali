@@ -1,7 +1,32 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2405391d_002D534e_002D4d0e_002Da3a9_002Db2d5c203b052/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GameEngineTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3143c5d5_002D8a83_002D4cbc_002Dad88_002D0d8f5eb21b07/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PlaneTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=47b2b7bf_002Dae9c_002D4264_002D851b_002Dec2ad5d6d869/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GameEngineTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MoveBehaviourTest&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=509463b4_002Df30e_002D4b22_002Db1d4_002De82d300b9ae6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=67bf2d82_002D10e6_002D4469_002D94c8_002D8b47b50ff3bb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GameEngineTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=75b63ada_002Ddb0f_002D4aaf_002D91db_002D96dd3df4ad2b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PlaneTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

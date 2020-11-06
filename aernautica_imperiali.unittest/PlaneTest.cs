@@ -19,10 +19,11 @@ namespace aernautica_imperiali.unittest {
         [Test]
         public void TestCheckSpin() {
             PlaneFactory factory = new PlaneFactory();
+            SpinBehavior behavior = new SpinBehavior();
             Plane e = factory.Executioner(new Point(0, 0, 1), 1);
             e.CheckSpin();
             
-            Assert.AreEqual(true, e.Spin);
+            Assert.AreEqual(behavior.GetType(), e.MoveBehavior.GetType());
         }
 
         [Test]

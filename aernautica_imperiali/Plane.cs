@@ -14,7 +14,7 @@ namespace aernautica_imperiali {
         private int _maxAltitude;
         private int _planeValue;
         private IMoveBehavior _moveBehavior = new DefaultMoveBehavior();
-        private bool spin = false;
+        private bool _spin = false;
         private Weapon[] _weapons;
         private EOrientation _orientation;
         private char _type;
@@ -23,7 +23,7 @@ namespace aernautica_imperiali {
 
         public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver,
             int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type,
-            char faction) : base(p.X, p.Y, p.Z) {
+            char faction,bool spin) : base(p.X, p.Y, p.Z) {
             _structure = structure;
             _speed = speed;
             _throttle = throttle;
@@ -37,6 +37,8 @@ namespace aernautica_imperiali {
             _orientation = orientation;
             _type = type;
             _faction = faction;
+            _spin = spin;
+
         }
 
         public int Structure {
@@ -68,7 +70,7 @@ namespace aernautica_imperiali {
 
         public Weapon[] Weapons => _weapons;
 
-        public bool Spin => spin;
+        public bool Spin => _spin;
 
         public IMoveBehavior MoveBehavior => _moveBehavior;
 
@@ -117,17 +119,17 @@ namespace aernautica_imperiali {
         }
 
         public void CheckSpin() {
-            if (spin == false) {
+            if (_spin == false) {
                 if (_speed > _maxSpeed || _speed < _minSpeed || Z > _maxAltitude) {
                     _moveBehavior = new SpinBehavior();
-                    spin = true;
+                    _spin = true;
                 }
             }
             else {
                 if (Dice.GetInstance().Roll() >= _handling) {
                     Logger.GetInstance().Info("Handling-Test successful");
                     _moveBehavior = new DefaultMoveBehavior();
-                    spin = false;
+                    _spin = false;
                 }
                 else {
                     Logger.GetInstance().Info("Handling-Test failed");

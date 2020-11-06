@@ -1,11 +1,8 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
     "projectUniqueName": "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
     "projectName": "aernautica_imperiali",
-    "projectPath": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
-    "outputPath": "C:\\Users\\Jonas\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\obj\\",
     "projectPath": "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\aernautica_imperiali.csproj",
     "outputPath": "C:\\Users\\User\\RiderProjects\\aernautica_imperiali\\aernautica_imperiali\\obj\\",
     "projectStyle": "PackageReference",
@@ -16,6 +13,7 @@
       "netcoreapp3.1"
     ],
     "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {

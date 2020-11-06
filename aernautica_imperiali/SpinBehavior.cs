@@ -29,6 +29,7 @@ namespace aernautica_imperiali{
         public void Fire(Plane plane, Plane target, Weapon weapon) {
             Logger.GetInstance().Info("You can not shoot, you're in spinmode");
             plane.CheckSpin();
+            GameEngine.GetInstance().CheckStructure();
         }
     }
 }

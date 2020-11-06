@@ -42,6 +42,7 @@ namespace aernautica_imperiali {
             if (_imperialis.Planes.Count > 0) {
                 for (int i = 0; i < _imperialis.Planes.Count; i++) {
                     if (_imperialis.Planes[i].Structure <= 0) {
+                        _ork.Points += _imperialis.Planes[i].PlaneValue;
                         _imperialis.Planes.Remove(_imperialis.Planes[i]);
                     }
                 }
@@ -49,6 +50,7 @@ namespace aernautica_imperiali {
             if (_ork.Planes.Count > 0) {
                 for (int i = 0; i < _ork.Planes.Count; i++) {
                     if (_ork.Planes[i].Structure <= 0) {
+                        _imperialis.Points += _imperialis.Planes[i].PlaneValue;
                         _ork.Planes.Remove(_ork.Planes[i]);
                     }
                 }

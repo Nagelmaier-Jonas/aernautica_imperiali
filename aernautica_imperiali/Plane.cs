@@ -451,9 +451,9 @@ namespace aernautica_imperiali {
         public void Move(Point destination) {
             SetOrientation(destination);
             _hasMoved = true;
-            X += destination.X;
-            Y += destination.Y;
-            Z += destination.Z;
+            X = destination.X;
+            Y = destination.Y;
+            Z = destination.Z;
             GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
             GameEngine.GetInstance().CheckTurns();
         }

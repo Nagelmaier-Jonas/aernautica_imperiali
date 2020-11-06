@@ -15,7 +15,7 @@ namespace aernautica_imperiali{
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
-                        _content[k, j, i] = new Point(j, i,k);
+                        _content[k, j, i] = new Point(k, j,i);
                     }
                 }
             }
@@ -52,7 +52,6 @@ namespace aernautica_imperiali{
                             Console.Write("-");
                         }
                     }
-
                     Console.WriteLine();
                 }
 

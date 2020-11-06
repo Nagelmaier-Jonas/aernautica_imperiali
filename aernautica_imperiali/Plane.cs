@@ -68,10 +68,9 @@ namespace aernautica_imperiali {
 
         public Weapon[] Weapons => _weapons;
 
-        public IMoveBehavior MoveBehavior {
-            get => _moveBehavior;
-            set => _moveBehavior = value;
-        }
+        public bool Spin => spin;
+
+        public IMoveBehavior MoveBehavior => _moveBehavior;
 
         public char Type => _type;
 

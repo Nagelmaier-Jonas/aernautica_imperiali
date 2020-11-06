@@ -13,6 +13,7 @@ namespace aernautica_imperiali.unittest {
             
             Assert.AreEqual(true, e.IsMoveLegal(new Point(4,0,1)));
             Assert.AreEqual(true, e.IsMoveLegal(new Point(4,2,1)));
+            Assert.AreEqual(true, e.IsMoveLegal(new Point(3,0,2)));
         }
 
         [Test]
@@ -21,7 +22,7 @@ namespace aernautica_imperiali.unittest {
             Plane e = factory.Executioner(new Point(0, 0, 1), 1);
             e.CheckSpin();
             
-            Assert.AreEqual(new SpinBehavior(), e.MoveBehavior);
+            Assert.AreEqual(true, e.Spin);
         }
 
         [Test]

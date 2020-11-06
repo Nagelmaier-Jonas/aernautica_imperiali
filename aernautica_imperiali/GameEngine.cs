@@ -110,15 +110,17 @@ namespace aernautica_imperiali {
                     }
                 }
             }
-            if (_imperialis.Points >= 100) {
-                Logger.GetInstance().Info("Imperialis won");
-                RestartGame();
-            }else if (_ork.Points >= 100) {
-                Logger.GetInstance().Info("Orks won");
-                RestartGame();
+            else{
+                if (_imperialis.Points >= 100){
+                    Logger.GetInstance().Info("Imperialis won");
+                    RestartGame();
+                }
+                else if (_ork.Points >= 100){
+                    Logger.GetInstance().Info("Orks won");
+                    RestartGame();
+                }
             }
             NextRound();
-            
         }
 
         public void NextRound() {

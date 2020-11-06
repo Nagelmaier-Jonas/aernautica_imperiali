@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace aernautica_imperiali {
     class Program {
@@ -20,10 +21,19 @@ namespace aernautica_imperiali {
             GameEngine.GetInstance().PlacePlane(PlaneFactory.BigBurna(new Point(13,12,3), 3));
             
             //Round 1
+            Map.GetInstance().PrintMap();
+            Thread.Sleep(10000);
+            Console.Clear();
             GameEngine.GetInstance().Imperialis.Planes[0].MoveBehavior.Move(GameEngine.GetInstance().Imperialis.Planes[0],new Point(1,4,2), 0);
+            Map.GetInstance().PrintMap();
+            Thread.Sleep(10000);
+            Console.Clear();
             GameEngine.GetInstance().Ork.Planes[0].MoveBehavior.Move(GameEngine.GetInstance().Imperialis.Planes[0], new Point(3,9,3), 0);
+            Map.GetInstance().PrintMap();
+            Thread.Sleep(10000);
+            Console.Clear();
             
-            GameEngine.GetInstance().Imperialis.Planes[1].MoveBehavior.Move(GameEngine.GetInstance().Imperialis.Planes[1], new Point(2,4,3), 0);
+            /*GameEngine.GetInstance().Imperialis.Planes[1].MoveBehavior.Move(GameEngine.GetInstance().Imperialis.Planes[1], new Point(2,4,3), 0);
             GameEngine.GetInstance().Ork.Planes[1].MoveBehavior.Move(GameEngine.GetInstance().Ork.Planes[1], new Point(4,10,5), 0);
             
             GameEngine.GetInstance().Imperialis.Planes[2].MoveBehavior.Move(GameEngine.GetInstance().Imperialis.Planes[2], new Point(5,4,5), 0);
@@ -40,7 +50,7 @@ namespace aernautica_imperiali {
             
             Map.GetInstance().PrintMap();
 
-            Console.WriteLine("WE ARE THE CHAMPIONS");
+            Console.WriteLine("WE ARE THE CHAMPIONS");*/
         }
     }
 }

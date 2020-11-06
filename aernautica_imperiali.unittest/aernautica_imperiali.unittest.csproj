@@ -16,4 +16,9 @@
       <ProjectReference Include="..\aernautica_imperiali\aernautica_imperiali.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="obj\project.nuget.cache" />
+      <Content Include="obj\project.packagespec.json" />
+    </ItemGroup>
+
 </Project>

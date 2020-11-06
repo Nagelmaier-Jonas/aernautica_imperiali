@@ -14,6 +14,7 @@ namespace aernautica_imperiali {
         private int _maxAltitude;
         private int _planeValue;
         private IMoveBehavior _moveBehavior = new DefaultMoveBehavior();
+        private bool spin = false;
         private Weapon[] _weapons;
         private EOrientation _orientation;
         private char _type;
@@ -117,16 +118,17 @@ namespace aernautica_imperiali {
         }
 
         public void CheckSpin() {
-            if (_moveBehavior == new DefaultMoveBehavior()) {
+            if (spin == false) {
                 if (_speed > _maxSpeed || _speed < _minSpeed || Z > _maxAltitude) {
                     _moveBehavior = new SpinBehavior();
+                    spin = true;
                 }
             }
-
-            if (_moveBehavior == new SpinBehavior()) {
+            else {
                 if (Dice.GetInstance().Roll() >= _handling) {
                     Logger.GetInstance().Info("Handling-Test successful");
                     _moveBehavior = new DefaultMoveBehavior();
+                    spin = false;
                 }
                 else {
                     Logger.GetInstance().Info("Handling-Test failed");

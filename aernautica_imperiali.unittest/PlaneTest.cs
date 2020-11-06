@@ -21,13 +21,15 @@ namespace aernautica_imperiali.unittest {
         }
 
         [Test]
-        public void TestCheckSpin() {
+        public void TestBehaviorChecks() {
             PlaneFactory factory = new PlaneFactory();
-            SpinBehavior behavior = new SpinBehavior();
             Plane e = factory.Executioner(new Point(0, 0, 1), 1);
-            e.CheckSpin();
             
-            Assert.AreEqual(behavior.GetType(), e.MoveBehavior.GetType());
+            e.CheckSpeed();
+            Assert.AreEqual(new SpinBehavior().GetType(), e.MoveBehavior.GetType());
+
+            Plane e2 = factory.Executioner(new Point(1, 0, 10), 4);
+            Assert.AreEqual(new SpinBehavior().GetType(), e.MoveBehavior.GetType());
         }
 
         [Test]

@@ -397,6 +397,7 @@ namespace aernautica_imperiali {
                         case ERange.SHORT:
                             for (int i = 0; i < weapon.Firepower[ERange.SHORT]; i++) {
                                 if (DoDamage(target, weapon)) {
+                                    Logger.GetInstance().Info("Hit successful");
                                     GameEngine.GetInstance().CheckStructure();
                                     return;
                                 }
@@ -406,6 +407,7 @@ namespace aernautica_imperiali {
                         case ERange.MEDIUM:
                             for (int i = 0; i < weapon.Firepower[ERange.MEDIUM]; i++) {
                                 if (DoDamage(target, weapon)) {
+                                    Logger.GetInstance().Info("Hit successful");
                                     GameEngine.GetInstance().CheckStructure();
                                     return;
                                 }
@@ -415,6 +417,7 @@ namespace aernautica_imperiali {
                         case ERange.LONG:
                             for (int i = 0; i < weapon.Firepower[ERange.LONG]; i++) {
                                 if (DoDamage(target, weapon)) {
+                                    Logger.GetInstance().Info("Hit successful");
                                     GameEngine.GetInstance().CheckStructure();
                                     return;
                                 }

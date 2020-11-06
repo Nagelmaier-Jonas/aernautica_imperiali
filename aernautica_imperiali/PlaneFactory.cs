@@ -10,11 +10,11 @@
         }
 
         public static Plane Executioner(Point p, int speed) {
-            return new Plane(p, 3, speed, 2, 2, 7, 6, 3, 5, 23, new []{WeaponFactory.QuadAutocannon(), WeaponFactory.TwinLascannon()}, EOrientation.NORTH, 'e','i');
+            return new Plane(p, 1, speed, 2, 2, 7, 6, 3, 5, 23, new []{WeaponFactory.QuadAutocannon(), WeaponFactory.TwinLascannon()}, EOrientation.NORTH, 'e','i');
         }
 
         public static Plane GrotBommer(Point p, int speed) {
-            return new Plane(p, 6, speed, 1, 2, 4, 3, 5, 4, 28, new []{WeaponFactory.QuadBigShootas(), WeaponFactory.PortTurret(), WeaponFactory.StarboardTurret()}, EOrientation.SOUTH, 'g','o');
+            return new Plane(p, 1, speed, 1, 2, 4, 3, 5, 4, 28, new []{WeaponFactory.QuadBigShootas(), WeaponFactory.PortTurret(), WeaponFactory.StarboardTurret()}, EOrientation.SOUTH, 'g','o');
         }
 
         public static Plane Hellion(Point p, int speed) {

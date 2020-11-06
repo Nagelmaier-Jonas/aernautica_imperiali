@@ -437,17 +437,19 @@ namespace aernautica_imperiali {
             int heightDifference = Math.Abs(Z - target.Z);
             dice = Dice.GetInstance().Roll() - heightDifference;
             if (dice >= weapon.Damage) {
+                Logger.GetInstance().Info("Hit");
                 target.Structure--;
                 if (dice >= weapon.Special) {
+                    Logger.GetInstance().Info("Hit (Special)");
                     target.Structure--;
                 }
-
-                GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                
                 weapon.Ammo--;
                 _shotsFired = true;
                 return true;
             }
-
+            Logger.GetInstance().Info("Hit Failed");
+            
             return false;
         }
 

@@ -36,6 +36,7 @@ namespace aernautica_imperiali{
             if (plane.Faction == 'i') {
                 if (GameEngine.GetInstance().TurnToken) {
                     plane.Fire(target,weapon);
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                 }
                 else {
                     Logger.GetInstance().Info("It's not your turn");
@@ -44,6 +45,7 @@ namespace aernautica_imperiali{
             else {
                 if (!GameEngine.GetInstance().TurnToken) {
                     plane.Fire(target,weapon);     
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                 }
                 else {
                     Logger.GetInstance().Info("It's not your turn");      

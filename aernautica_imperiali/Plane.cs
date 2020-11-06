@@ -87,7 +87,7 @@ namespace aernautica_imperiali {
             int zdistance = Math.Abs(Z - destination.Z);
             speed -= zdistance;
 
-            for (int i = 0; i < CalculateRoute(destination).Count; i++) {
+            for (int i = 0; i < (CalculateRoute(destination).Count - 1); i++) {
                 if (CalculateRoute(destination)[i].X != CalculateRoute(destination)[i + 1].X &&
                     CalculateRoute(destination)[i].Y != CalculateRoute(destination)[i + 1].Y) {
                     maneuver--;
@@ -97,6 +97,8 @@ namespace aernautica_imperiali {
                 speed--;
                 if (speed == 0) return true;
             }
+            speed--;
+            if (speed == 0) return true;
 
             return false;
         }

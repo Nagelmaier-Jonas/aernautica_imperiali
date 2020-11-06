@@ -1,50 +1,50 @@
 ﻿namespace aernautica_imperiali {
     public class WeaponFactory{
-        public Weapon BombBay() {
+        public static Weapon BombBay() {
             return new Weapon(new []{EFireArc.REAR}, 8,0,0,2,3,5);
         }
 
-        public Weapon DorsalTurret() {
+        public static Weapon DorsalTurret() {
             return new Weapon(new []{EFireArc.ALLROUND,EFireArc.UP},3,2,0,5,-1,0);
         }
 
-        public Weapon Lascannon() {
+        public static Weapon Lascannon() {
             return new Weapon(new [] {EFireArc.FRONT},0,2,1,2,-1,6);
         }
 
-        public Weapon PortTurret() {
+        public static Weapon PortTurret() {
             return new Weapon(new [] {EFireArc.LEFT,EFireArc.UP},2,1,0,5,-1,0);
         }
 
-        public Weapon QuadAutocannon() {
+        public static Weapon QuadAutocannon() {
             return new Weapon(new [] {EFireArc.FRONT},2,6,0,4,-1,0);
         }
 
-        public Weapon QuadBigShootas() {
+        public static Weapon QuadBigShootas() {
             return new Weapon(new [] {EFireArc.FRONT},8,4,0,5,-1,0);
         }
 
-        public Weapon RearTurret() {
+        public static Weapon RearTurret() {
             return new Weapon(new [] {EFireArc.REAR},3,2,0,5,-1,0);
         }
 
-        public Weapon StarboardTurret() {
+        public static Weapon StarboardTurret() {
             return new Weapon(new [] {EFireArc.RIGHT,EFireArc.UP},2,1,0,5,-1,0);
         }
 
-        public Weapon TailGun() {
+        public static Weapon TailGun() {
             return new Weapon(new [] {EFireArc.REAR},1,0,0,6,-1,0);
         }
 
-        public Weapon TurretBigShootas() {
+        public static Weapon TurretBigShootas() {
             return new Weapon(new [] {EFireArc.REAR,EFireArc.RIGHT,EFireArc.LEFT,EFireArc.UP},3,1,0,5,-1,0);
         }
 
-        public Weapon TwinLascannon() {
+        public static Weapon TwinLascannon() {
             return new Weapon(new [] {EFireArc.FRONT},0,2,1,2,-1,6);
         }
 
-        public Weapon TwinMultilasers() {
+        public static Weapon TwinMultilasers() {
             return new Weapon(new [] {EFireArc.FRONT},4,6,2,5,-1,0);
         }
     }

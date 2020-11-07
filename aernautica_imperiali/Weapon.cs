@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace aernautica_imperiali {
@@ -43,6 +44,45 @@ namespace aernautica_imperiali {
             _firePower[ERange.SHORT] = shortpower;
             _firePower[ERange.MEDIUM] = mediumpower;
             _firePower[ERange.LONG] = longpower;
+        }
+
+        public void Fire(Plane plane, Plane target) {
+            if (plane.Faction == 'i') {
+                if (GameEngine.GetInstance().TurnToken) {
+                    plane.MoveBehavior.Fire(plane, target, this);
+                }
+                else {
+                    Logger.GetInstance().Info("It's not your turn");
+                }
+            }
+            else {
+                if (!GameEngine.GetInstance().TurnToken) {
+                    plane.MoveBehavior.Fire(plane, target, this);
+                }
+                else {
+                    Logger.GetInstance().Info("It's not your turn");
+                }
+            }
+            GameEngine.GetInstance().FireTurns++;
+            GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+        }
+
+        public bool Equals(Weapon other) {
+            return _shortpower == other._shortpower && _mediumpower == other._mediumpower &&
+                   _longpower == other._longpower && _ammo == other._ammo && Equals(_fireArc, other._fireArc) &&
+                   Equals(_firePower, other._firePower) && _damage == other._damage && _special == other._special;
+        }
+
+        public override bool Equals(object obj) {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Weapon) obj);
+        }
+
+        public override int GetHashCode() {
+            return HashCode.Combine(_shortpower, _mediumpower, _longpower, _ammo, _fireArc, _firePower, _damage,
+                _special);
         }
     }
 }

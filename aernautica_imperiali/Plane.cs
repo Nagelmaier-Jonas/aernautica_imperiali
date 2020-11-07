@@ -18,8 +18,9 @@ namespace aernautica_imperiali {
         private EOrientation _orientation;
         private char _type;
         private char _faction;
-        private bool _shotsFired = false;
-        private bool _hasMoved = false;
+        private bool _shotsFired;
+        private bool _hasMoved;
+        private int _listIndex;
 
         public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver,
             int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type,
@@ -73,9 +74,16 @@ namespace aernautica_imperiali {
 
         public char Faction => _faction;
 
+        public bool ShotsFired => _shotsFired;
+
         public bool HasMoved {
             get => _hasMoved;
             set => _hasMoved = value;
+        }
+
+        public int ListIndex {
+            get => _listIndex;
+            set => _listIndex = value;
         }
 
         public bool IsMoveLegal(Point destination) {
@@ -83,7 +91,10 @@ namespace aernautica_imperiali {
                 if (!IsPointValid(p)) return false;
             }
 
-            if (_hasMoved) return false;
+            if (_hasMoved) {
+                Logger.GetInstance().Info("Plane has already moved"); 
+                return false;
+            }
 
             int speed = _speed;
             int maneuver = _maneuver;
@@ -128,9 +139,9 @@ namespace aernautica_imperiali {
             }
             else {
                 Logger.GetInstance().Info("Handling-Test failed");
-                Z--;
                 HitGround();
             }
+            Z--;
         }
 
         public void CheckHeight() {
@@ -150,7 +161,7 @@ namespace aernautica_imperiali {
                 _structure = 0;
         }
 
-        private bool CanFire(Plane plane, Weapon weapon) {
+        public bool CanFire(Plane plane, Weapon weapon) {
             if (InFireArc(plane, weapon) && CheckRange(plane) != ERange.OUTOFRANGE)
                 if (weapon.Ammo == 0) {
                     Logger.GetInstance().Info("Out of Ammo");
@@ -160,7 +171,7 @@ namespace aernautica_imperiali {
             return true;
         }
 
-        private ERange CheckRange(Plane plane) {
+        public ERange CheckRange(Plane plane) {
             if (CalculateRoute(plane).Count <= Weapon.SHORT) {
                 return ERange.SHORT;
             }
@@ -172,7 +183,6 @@ namespace aernautica_imperiali {
             if (CalculateRoute(plane).Count > Weapon.MEDIUM && CalculateRoute(plane).Count <= Weapon.LONG) {
                 return ERange.LONG;
             }
-
             return ERange.OUTOFRANGE;
         }
 
@@ -389,50 +399,9 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        public void Fire(Plane target, Weapon weapon) {
-            if (_weapons.Contains(weapon)) {
-                if (CanFire(target, weapon) && !_shotsFired && GameEngine.GetInstance().AllowFire) {
-                    ERange range = CheckRange(target);
-                    switch (range) {
-                        case ERange.SHORT:
-                            for (int i = 0; i < weapon.Firepower[ERange.SHORT]; i++) {
-                                if (DoDamage(target, weapon)) {
-                                    Logger.GetInstance().Info("Hit successful");
-                                    GameEngine.GetInstance().CheckStructure();
-                                    return;
-                                }
-                            }
+        
 
-                            break;
-                        case ERange.MEDIUM:
-                            for (int i = 0; i < weapon.Firepower[ERange.MEDIUM]; i++) {
-                                if (DoDamage(target, weapon)) {
-                                    Logger.GetInstance().Info("Hit successful");
-                                    GameEngine.GetInstance().CheckStructure();
-                                    return;
-                                }
-                            }
-
-                            break;
-                        case ERange.LONG:
-                            for (int i = 0; i < weapon.Firepower[ERange.LONG]; i++) {
-                                if (DoDamage(target, weapon)) {
-                                    Logger.GetInstance().Info("Hit successful");
-                                    GameEngine.GetInstance().CheckStructure();
-                                    return;
-                                }
-                            }
-
-                            break;
-                        case ERange.OUTOFRANGE:
-                            Logger.GetInstance().Info("Target is out of Range");
-                            break;
-                    }
-                }
-            }
-        }
-
-        private bool DoDamage(Plane target, Weapon weapon) {
+        public bool DoDamage(Plane target, Weapon weapon) {
             int dice;
             int heightDifference = Math.Abs(Z - target.Z);
             dice = Dice.GetInstance().Roll() - heightDifference;
@@ -453,18 +422,24 @@ namespace aernautica_imperiali {
 
             return false;
         }
-
-        public void Move(Point destination) {
-            SetOrientation(destination);
-            _hasMoved = true;
-            X = destination.X;
-            Y = destination.Y;
-            Z = destination.Z;
-            GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
-            GameEngine.GetInstance().CheckTurns();
+        
+        public void Move(Point destination, int speedChange) {
+            if (!GameEngine.GetInstance().GameOver) {
+                if (GameEngine.GetInstance().MoveTurns == 0) {
+                    Console.WriteLine("Current Round: Move");
+                    Console.WriteLine();
+                }
+                ChangeSpeed(speedChange);
+                if (IsMoveLegal(destination)) {
+                    MoveBehavior.Move(this, destination, speedChange);
+                    CheckSpeed();
+                    CheckHeight();
+                }
+                GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+            }
         }
-
-        private void SetOrientation(Point destination) {
+        
+        public void SetOrientation(Point destination) {
             List<Point> route = CalculateRoute(destination);
             Point[] lastPoints = new Point[2];
             if (route.Count == 1) {

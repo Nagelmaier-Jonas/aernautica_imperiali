@@ -9,71 +9,188 @@ namespace aernautica_imperiali {
             //Place
             Console.WriteLine("Place");
 
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(0, 1, 2), 3));
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(2, 2, 4), 3));
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(4, 1, 5), 3));
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(6, 2, 2), 3));
-
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(2, 12, 2), 3));
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(4, 13, 4), 3));
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(6, 12, 3), 3));
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(8, 14, 2), 3));
-
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(2, 1, 3), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(2, 13, 3), 3));
+            
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(5, 2, 3), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(5, 12, 3), 3));
+            
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(8, 1, 3), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(8, 13, 3), 3));
+            
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(12, 2, 3), 3));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(12, 12, 3), 3));
+            
             Map.GetInstance().PrintMap(); // PlacePlane
-
-            Console.WriteLine("Move");
-
+            
             //Move
-            GameEngine.GetInstance().Imperialis.Planes[0].MoveBehavior
-                .Move(GameEngine.GetInstance().Imperialis.Planes[0], new Point(1, 4, 2), 0);
-            GameEngine.GetInstance().Ork.Planes[0].MoveBehavior
-                .Move(GameEngine.GetInstance().Ork.Planes[0], new Point(3, 10, 3), 0);
-
-            GameEngine.GetInstance().Imperialis.Planes[1].MoveBehavior
-                .Move(GameEngine.GetInstance().Imperialis.Planes[1], new Point(2, 4, 3), 0);
-            GameEngine.GetInstance().Ork.Planes[1].MoveBehavior
-                .Move(GameEngine.GetInstance().Ork.Planes[1], new Point(6, 10, 3), 0);
-
-            GameEngine.GetInstance().Imperialis.Planes[2].MoveBehavior
-                .Move(GameEngine.GetInstance().Imperialis.Planes[2], new Point(3, 4, 5), 0);
-            GameEngine.GetInstance().Ork.Planes[2].MoveBehavior
-                .Move(GameEngine.GetInstance().Ork.Planes[2], new Point(5, 9, 4), 0);
-
-            GameEngine.GetInstance().Imperialis.Planes[3].MoveBehavior
-                .Move(GameEngine.GetInstance().Imperialis.Planes[3], new Point(6, 5, 3), 0);
-            GameEngine.GetInstance().Ork.Planes[3].MoveBehavior
-                .Move(GameEngine.GetInstance().Ork.Planes[3], new Point(8, 12, 4), 0);
+            GameEngine.GetInstance().GetImperialis(0).Move(new Point(2, 2, 3), -2);
+            GameEngine.GetInstance().GetOrk(0).Move(new Point(2, 11, 3), -1);
+            
+            GameEngine.GetInstance().GetImperialis(1).Move(new Point(5, 4, 3), -1);
+            GameEngine.GetInstance().GetOrk(1).Move(new Point(5, 10, 3), -1);
+            
+            GameEngine.GetInstance().GetImperialis(2).Move(new Point(8, 3, 3), -1);
+            GameEngine.GetInstance().GetOrk(2).Move(new Point(8, 11, 3), -1);
+            
+            GameEngine.GetInstance().GetImperialis(3).Move(new Point(12, 4, 3), -1);
+            GameEngine.GetInstance().GetOrk(3).Move(new Point(12, 10, 3), -1);
 
             Map.GetInstance().PrintMap(); // MovePlane
 
-            Console.WriteLine("Fire");
+            //Fire
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            Map.GetInstance().PrintMap(); // Fire
+
+            //Move
+            GameEngine.GetInstance().GetImperialis(0).Move(new Point(2, 4, 3), 1);
+            GameEngine.GetInstance().GetOrk(0).Move(new Point(2, 9, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(1).Move(new Point(5, 6, 3), 0);
+            GameEngine.GetInstance().GetOrk(1).Move(new Point(5, 8, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(2).Move(new Point(8, 5, 3), 0);
+            GameEngine.GetInstance().GetOrk(2).Move(new Point(8, 9, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(3).Move(new Point(12, 6, 3), 0);
+            GameEngine.GetInstance().GetOrk(3).Move(new Point(12, 8, 3), 0);
+
+            Map.GetInstance().PrintMap(); // MovePlane
 
             //Fire
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            Map.GetInstance().PrintMap(); // Fire
 
-            GameEngine.GetInstance().Imperialis.Planes[0].MoveBehavior.Fire(
-                GameEngine.GetInstance().Imperialis.Planes[0], GameEngine.GetInstance().Ork.Planes[0],
-                WeaponFactory.QuadAutocannon());
-            GameEngine.GetInstance().Ork.Planes[0].MoveBehavior.Fire(GameEngine.GetInstance().Ork.Planes[0],
-                GameEngine.GetInstance().Imperialis.Planes[0], WeaponFactory.QuadBigShootas());
+            //Move
+            GameEngine.GetInstance().GetImperialis(0).Move(new Point(2, 6, 3), 0);
+            GameEngine.GetInstance().GetOrk(0).Move(new Point(2, 7, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(1).Move(new Point(5, 4, 3), 0);
+            GameEngine.GetInstance().GetOrk(1).Move(new Point(5, 6, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(2).Move(new Point(8, 7, 3), 0);
+            GameEngine.GetInstance().GetOrk(2).Move(new Point(8, 11, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(3).Move(new Point(12, 4, 3), 0);
+            GameEngine.GetInstance().GetOrk(3).Move(new Point(12, 6, 3), 0);
 
-            GameEngine.GetInstance().Imperialis.Planes[1].MoveBehavior.Fire(
-                GameEngine.GetInstance().Imperialis.Planes[1], GameEngine.GetInstance().Ork.Planes[1],
-                WeaponFactory.QuadAutocannon());
-            GameEngine.GetInstance().Ork.Planes[1].MoveBehavior.Fire(GameEngine.GetInstance().Ork.Planes[1],
-                GameEngine.GetInstance().Imperialis.Planes[1], WeaponFactory.QuadBigShootas());
+            Map.GetInstance().PrintMap(); // MovePlane
 
-            GameEngine.GetInstance().Imperialis.Planes[2].MoveBehavior.Fire(
-                GameEngine.GetInstance().Imperialis.Planes[2], GameEngine.GetInstance().Ork.Planes[2],
-                WeaponFactory.QuadAutocannon());
-            GameEngine.GetInstance().Ork.Planes[2].MoveBehavior.Fire(GameEngine.GetInstance().Ork.Planes[2],
-                GameEngine.GetInstance().Imperialis.Planes[2], WeaponFactory.QuadBigShootas());
+            //Fire
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            Map.GetInstance().PrintMap(); // Fire
 
-            GameEngine.GetInstance().Imperialis.Planes[3].MoveBehavior.Fire(
-                GameEngine.GetInstance().Imperialis.Planes[3], GameEngine.GetInstance().Ork.Planes[1],
-                WeaponFactory.QuadAutocannon());
-            GameEngine.GetInstance().Ork.Planes[3].MoveBehavior.Fire(GameEngine.GetInstance().Ork.Planes[3],
-                GameEngine.GetInstance().Imperialis.Planes[3], WeaponFactory.QuadBigShootas());
+            //Move
+            GameEngine.GetInstance().GetImperialis(0).Move(new Point(2, 4, 3), 0);
+            GameEngine.GetInstance().GetOrk(0).Move(new Point(2, 5, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(1).Move(new Point(5, 2, 3), 0);
+            GameEngine.GetInstance().GetOrk(1).Move(new Point(5, 4, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(2).Move(new Point(8, 5, 3), 0);
+            GameEngine.GetInstance().GetOrk(2).Move(new Point(8, 9, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(3).Move(new Point(12, 2, 3), 0);
+            GameEngine.GetInstance().GetOrk(3).Move(new Point(12, 4, 3), 0);
 
+            Map.GetInstance().PrintMap(); // MovePlane
+
+            //Fire
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            Map.GetInstance().PrintMap(); // Fire
+
+            //Move
+            GameEngine.GetInstance().GetImperialis(0).Move(new Point(2, 2, 3), 0);
+            GameEngine.GetInstance().GetOrk(0).Move(new Point(2, 3, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(1).Move(new Point(5, 0, 3), 0);
+            GameEngine.GetInstance().GetOrk(1).Move(new Point(5, 2, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(2).Move(new Point(8, 3, 3), 0);
+            GameEngine.GetInstance().GetOrk(2).Move(new Point(8, 7, 3), 0);
+            
+            GameEngine.GetInstance().GetImperialis(3).Move(new Point(12, 0, 3), 0);
+            GameEngine.GetInstance().GetOrk(3).Move(new Point(12, 2, 3), 0);
+
+            Map.GetInstance().PrintMap(); // MovePlane
+
+            //Fire
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(0),GameEngine.GetInstance().GetImperialis(0),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(1),GameEngine.GetInstance().GetImperialis(1),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(2),GameEngine.GetInstance().GetImperialis(2),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(0).Weapons[0]);
+            
+            GameEngine.GetInstance().Fire(GameEngine.GetInstance().GetOrk(3),GameEngine.GetInstance().GetImperialis(3),GameEngine.GetInstance().GetOrk(0).Weapons[0]);
+            
             Map.GetInstance().PrintMap(); // Fire
 
             Console.WriteLine("WE ARE THE CHAMPIONS");

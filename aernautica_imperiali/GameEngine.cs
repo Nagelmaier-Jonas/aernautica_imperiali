@@ -12,6 +12,7 @@ namespace aernautica_imperiali {
         private int _fireTurns = 0;
         private bool _allowFire = false;
         private static int _round = 1;
+
         private GameEngine() {
         }
 
@@ -33,9 +34,11 @@ namespace aernautica_imperiali {
         public int MoveTurns => _moveTurns;
 
         public bool AllowFire => _allowFire;
+
         public static GameEngine GetInstance() {
             return _instance;
         }
+
         public void CheckStructure() {
             if (_imperialis.Planes.Count > 0) {
                 for (int i = 0; i < _imperialis.Planes.Count; i++) {
@@ -45,6 +48,7 @@ namespace aernautica_imperiali {
                     }
                 }
             }
+
             if (_ork.Planes.Count > 0) {
                 for (int i = 0; i < _ork.Planes.Count; i++) {
                     if (_ork.Planes[i].Structure <= 0) {
@@ -64,7 +68,8 @@ namespace aernautica_imperiali {
                             _imperialis.Planes.Add(plane);
                         }
                         else {
-                            Logger.GetInstance().Info("You don't have enough Points: " + _imperialis.StartPoints + " left");
+                            Logger.GetInstance()
+                                .Info("You don't have enough Points: " + _imperialis.StartPoints + " left");
                         }
                     }
                     else {
@@ -86,7 +91,6 @@ namespace aernautica_imperiali {
                     }
                 }
             }
-            
         }
 
         public void CheckTurns() {
@@ -99,7 +103,7 @@ namespace aernautica_imperiali {
                 _allowFire = false;
             }
         }
-        
+
         public void EndTurn() {
             _round++;
             if (_round == 5) {
@@ -118,16 +122,17 @@ namespace aernautica_imperiali {
                     }
                 }
             }
-            else{
-                if (_imperialis.Points >= 100){
+            else {
+                if (_imperialis.Points >= 100) {
                     Logger.GetInstance().Info("Imperialis won");
                     RestartGame();
                 }
-                else if (_ork.Points >= 100){
+                else if (_ork.Points >= 100) {
                     Logger.GetInstance().Info("Orks won");
                     RestartGame();
                 }
             }
+
             NextRound();
         }
 
@@ -135,9 +140,11 @@ namespace aernautica_imperiali {
             foreach (Plane plane in _imperialis.Planes) {
                 plane.HasMoved = false;
             }
+
             foreach (Plane plane in _ork.Planes) {
                 plane.HasMoved = false;
             }
+
             _turnToken = true;
             _moveTurns = 0;
             _fireTurns = 0;
@@ -151,13 +158,12 @@ namespace aernautica_imperiali {
             _ork.StartPoints = 150;
             _ork.Points = 0;
             _ork.Planes.Clear();
-            
-        _turnToken = true;
-        _moveTurns = 0;
-        _fireTurns = 0; 
-        _allowFire = false;
-        _round = 1;
+
+            _turnToken = true;
+            _moveTurns = 0;
+            _fireTurns = 0;
+            _allowFire = false;
+            _round = 1;
         }
     }
-    
 }

@@ -3,7 +3,6 @@ using System.ComponentModel;
 
 namespace aernautica_imperiali {
     public class Weapon {
-
         public const int SHORT = 4;
         public const int MEDIUM = 7;
         public const int LONG = 10;
@@ -15,24 +14,24 @@ namespace aernautica_imperiali {
         private int _ammo;
 
         private EFireArc[] _fireArc;
-        
+
         private Dictionary<ERange, int> _firePower = new Dictionary<ERange, int>();
         private int _damage;
         private int _special;
-        
-        
-        
+
+
         public int Ammo {
             get => _ammo;
             set => _ammo = value;
         }
+
         public Dictionary<ERange, int> Firepower => _firePower;
         public EFireArc[] FireArc => _fireArc;
         public int Damage => _damage;
         public int Special => _special;
 
         public Weapon(EFireArc[] fireArc, int shortpower, int mediumpower, int longpower, int damage, int ammo,
-            int special){
+            int special) {
             _shortpower = shortpower;
             _mediumpower = mediumpower;
             _longpower = longpower;
@@ -45,7 +44,5 @@ namespace aernautica_imperiali {
             _firePower[ERange.MEDIUM] = mediumpower;
             _firePower[ERange.LONG] = longpower;
         }
-        
-        
     }
 }

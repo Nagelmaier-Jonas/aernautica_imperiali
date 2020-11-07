@@ -6,7 +6,6 @@ namespace aernautica_imperiali {
         private static bool LOG_TO_CONSOLE = true;
 
         private Logger() {
-            
         }
 
         public static Logger GetInstance() {
@@ -17,7 +16,6 @@ namespace aernautica_imperiali {
             if (LOG_TO_CONSOLE) {
                 Console.WriteLine(message);
             }
-            
         }
     }
 }

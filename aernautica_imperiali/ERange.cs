@@ -1,5 +1,8 @@
 ﻿namespace aernautica_imperiali {
     public enum ERange {
-        SHORT,MEDIUM,LONG,OUTOFRANGE
+        SHORT,
+        MEDIUM,
+        LONG,
+        OUTOFRANGE
     }
 }

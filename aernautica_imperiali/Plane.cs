@@ -443,13 +443,14 @@ namespace aernautica_imperiali {
                     Logger.GetInstance().Info("Hit (Special)");
                     target.Structure--;
                 }
-                
+
                 weapon.Ammo--;
                 _shotsFired = true;
                 return true;
             }
+
             Logger.GetInstance().Info("Hit Failed");
-            
+
             return false;
         }
 

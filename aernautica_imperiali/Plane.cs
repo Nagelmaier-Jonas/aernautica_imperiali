@@ -74,7 +74,10 @@ namespace aernautica_imperiali {
 
         public char Faction => _faction;
 
-        public bool ShotsFired => _shotsFired;
+        public bool ShotsFired {
+            get => _shotsFired;
+            set => _shotsFired = value;
+        }
 
         public bool HasMoved {
             get => _hasMoved;
@@ -412,9 +415,6 @@ namespace aernautica_imperiali {
                     Logger.GetInstance().Info("Hit (Special)");
                     target.Structure--;
                 }
-
-                weapon.Ammo--;
-                _shotsFired = true;
                 return true;
             }
 
@@ -424,18 +424,25 @@ namespace aernautica_imperiali {
         }
         
         public void Move(Point destination, int speedChange) {
+            Logger.GetInstance().Info("" + GameEngine.GetInstance().MoveTurns);
             if (!GameEngine.GetInstance().GameOver) {
-                if (GameEngine.GetInstance().MoveTurns == 0) {
-                    Console.WriteLine("Current Round: Move");
-                    Console.WriteLine();
+                if (GameEngine.GetInstance().TurnToken && _faction == 'i' ||
+                    !GameEngine.GetInstance().TurnToken && _faction == 'o') {
+                    if (GameEngine.GetInstance().MoveTurns == 0) {
+                        Console.WriteLine("Current Round: Move");
+                        Console.WriteLine();
+                    }
+                    ChangeSpeed(speedChange);
+                    if (IsMoveLegal(destination)) {
+                        MoveBehavior.Move(this, destination, speedChange);
+                        CheckSpeed();
+                        CheckHeight();
+                    }
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                 }
-                ChangeSpeed(speedChange);
-                if (IsMoveLegal(destination)) {
-                    MoveBehavior.Move(this, destination, speedChange);
-                    CheckSpeed();
-                    CheckHeight();
+                else {
+                    Logger.GetInstance().Info("It's not your turn");
                 }
-                GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
             }
         }
         

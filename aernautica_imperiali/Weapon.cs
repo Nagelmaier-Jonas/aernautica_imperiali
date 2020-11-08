@@ -47,24 +47,18 @@ namespace aernautica_imperiali {
         }
 
         public void Fire(Plane plane, Plane target) {
-            if (plane.Faction == 'i') {
-                if (GameEngine.GetInstance().TurnToken) {
-                    plane.MoveBehavior.Fire(plane, target, this);
-                }
-                else {
-                    Logger.GetInstance().Info("It's not your turn");
-                }
+            if (plane.Faction == '-') {
+                GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
             }
             else {
-                if (!GameEngine.GetInstance().TurnToken) {
+                if (GameEngine.GetInstance().TurnToken && plane.Faction == 'i' || !GameEngine.GetInstance().TurnToken && plane.Faction == 'o') {
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                     plane.MoveBehavior.Fire(plane, target, this);
                 }
                 else {
                     Logger.GetInstance().Info("It's not your turn");
                 }
             }
-            GameEngine.GetInstance().FireTurns++;
-            GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
         }
 
         public bool Equals(Weapon other) {

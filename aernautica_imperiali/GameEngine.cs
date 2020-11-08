@@ -173,19 +173,23 @@ namespace aernautica_imperiali {
         
         public void Fire(Plane plane, Plane target, Weapon weapon) {
             if (!_gameOver) {
-                if (_fireTurns == 0) {
+                if (_fireTurns == 0 && plane.Faction != '-') {
                     Console.WriteLine("Current Round: Fire");
                     Console.WriteLine();
                 }
                 if (plane != null && target != null) {
                     weapon.Fire(plane,target);
+                    if (AllShotsFired()) {
+                        Logger.GetInstance().Info("EndTurn");
+                        EndTurn();
+                    }
+                    if (plane.ShotsFired) {
+                        _fireTurns++;
+                    }
+                    Logger.GetInstance().Info("FireTurns: " + _fireTurns);
                 }
                 else {
                     Logger.GetInstance().Info("Plane doesn't exist anymore");
-                }
-
-                if (_fireTurns >= _imperialis.Planes.Count + _ork.Planes.Count) {
-                    EndTurn();
                 }
             }
         }
@@ -199,12 +203,11 @@ namespace aernautica_imperiali {
         }
 
         public void NextRound() {
-            foreach (Plane plane in _imperialis.Planes) {
+            foreach (Plane plane in GetAllPlanes()) {
                 plane.HasMoved = false;
             }
-
-            foreach (Plane plane in _ork.Planes) {
-                plane.HasMoved = false;
+            foreach (Plane plane in GetAllPlanes()) {
+                plane.ShotsFired = false;
             }
 
             _turnToken = true;
@@ -227,6 +230,25 @@ namespace aernautica_imperiali {
             _fireTurns = 0;
             _allowFire = false;
             _round = 1;
+        }
+
+        public List<Plane> GetAllPlanes() {
+            List<Plane> planes = new List<Plane>();
+            planes.AddRange(_imperialis.Planes);
+            planes.AddRange(_ork.Planes);
+
+            return planes;
+        }
+
+        public bool AllShotsFired() {
+            bool check = true;
+            foreach (Plane plane in GetAllPlanes()) {
+                if (!plane.ShotsFired) {
+                    check = false;
+                }
+            }
+            Logger.GetInstance().Info("AllShotsFired: " + check);
+            return check;
         }
     }
 }

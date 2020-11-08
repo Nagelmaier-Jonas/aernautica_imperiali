@@ -19,16 +19,16 @@ namespace aernautica_imperiali {
                         for (int i = 0; i < weapon.Firepower[ERange.SHORT]; i++) {
                             if (plane.DoDamage(target, weapon)) {
                                 GameEngine.GetInstance().CheckStructure();
-                                return;
+                                break;
                             }
                         }
-
+            
                         break;
                     case ERange.MEDIUM:
                         for (int i = 0; i < weapon.Firepower[ERange.MEDIUM]; i++) {
                             if (plane.DoDamage(target, weapon)) {
                                 GameEngine.GetInstance().CheckStructure();
-                                return;
+                                break;
                             }
                         }
 
@@ -36,8 +36,8 @@ namespace aernautica_imperiali {
                     case ERange.LONG:
                         for (int i = 0; i < weapon.Firepower[ERange.LONG]; i++) {
                             if (plane.DoDamage(target, weapon)) {
-                                    GameEngine.GetInstance().CheckStructure();
-                                    return;
+                                GameEngine.GetInstance().CheckStructure();
+                                break;
                             }
                         }
                         break;
@@ -45,6 +45,8 @@ namespace aernautica_imperiali {
                         Logger.GetInstance().Info("Target is out of Range");
                         break;
                 }
+                weapon.Ammo--;
+                plane.ShotsFired = true;
             }
         }
     }

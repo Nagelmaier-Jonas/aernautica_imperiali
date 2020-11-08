@@ -14,15 +14,18 @@ namespace aernautica_imperiali {
         public void Fire(Plane plane, Plane target, Weapon weapon) {
             if (plane.CanFire(target, weapon) && !plane.ShotsFired && GameEngine.GetInstance().AllowFire) {
                 ERange range = plane.CheckRange(target);
-                for (int i = 0; i < weapon.Firepower[range]; i++) {
-                    if (plane.DoDamage(target, weapon)) {
-                        GameEngine.GetInstance().CheckStructure();
-                        break;
+                if (range == ERange.OUTOFRANGE) {
+                    Logger.GetInstance().Info("Target is out of Range");
+                }
+                else {
+                    for (int i = 0; i < weapon.Firepower[range]; i++) {
+                        if (plane.DoDamage(target, weapon)) {
+                            GameEngine.GetInstance().CheckStructure();
+                            break;
+                        }
                     }
                 }
-                if (weapon.Ammo != -1) {
-                    weapon.Ammo--;
-                }
+                weapon.Ammo--;
                 plane.ShotsFired = true;
             }
             else {

@@ -3,7 +3,7 @@
 namespace aernautica_imperiali {
     public class Logger {
         private static Logger _instance = new Logger();
-        private static bool LOG_TO_CONSOLE = true;
+        public static bool LOG_TO_CONSOLE = true;
 
         private Logger() {
         }

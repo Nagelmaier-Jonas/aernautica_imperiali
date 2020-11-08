@@ -42,15 +42,15 @@ namespace aernautica_imperiali {
             switch (index) {
                 case "place":
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Round: Place");
+                    Logger.GetInstance().Info("Round: Place");
                     break;
                 case "move":
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Round: Move");
+                    Logger.GetInstance().Info("Round: Move");
                     break;
                 case "fire":
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Round: Fire");
+                    Logger.GetInstance().Info("Round: Fire");
                     break;
                 default:
                     Logger.GetInstance().Info("PrintMap TurnName not found");

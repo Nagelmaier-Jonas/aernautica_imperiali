@@ -34,5 +34,9 @@
             return new Plane(p, 2, speed, 2, 3, 8, 5, 3, 4, 23, new[] {WeaponFactory.QuadBigShootas()},
                 EOrientation.SOUTH, 'v', 'o');
         }
+
+        public static Plane Dummy() {
+            return new Plane(new Point(-1,-1,-1), 0,0,0,0,0,0,0,0,0,new Weapon[]{new Weapon(new EFireArc[] {EFireArc.ALLROUND}, 0,0,0,0,0,0)}, EOrientation.NORTH,'-','-');
+        }
     }
 }

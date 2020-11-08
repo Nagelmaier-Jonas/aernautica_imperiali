@@ -18,8 +18,9 @@ namespace aernautica_imperiali {
         private EOrientation _orientation;
         private char _type;
         private char _faction;
-        private bool _shotsFired = false;
-        private bool _hasMoved = false;
+        private bool _shotsFired;
+        private bool _hasMoved;
+        private int _listIndex;
 
         public Plane(Point p, int structure, int speed, int throttle, int minSpeed, int maxSpeed, int maneuver,
             int handling, int maxAltitude, int planeValue, Weapon[] weapons, EOrientation orientation, char type,
@@ -73,9 +74,19 @@ namespace aernautica_imperiali {
 
         public char Faction => _faction;
 
+        public bool ShotsFired {
+            get => _shotsFired;
+            set => _shotsFired = value;
+        }
+
         public bool HasMoved {
             get => _hasMoved;
             set => _hasMoved = value;
+        }
+
+        public int ListIndex {
+            get => _listIndex;
+            set => _listIndex = value;
         }
 
         public bool IsMoveLegal(Point destination) {
@@ -83,7 +94,10 @@ namespace aernautica_imperiali {
                 if (!IsPointValid(p)) return false;
             }
 
-            if (_hasMoved) return false;
+            if (_hasMoved) {
+                Logger.GetInstance().Info("Plane has already moved"); 
+                return false;
+            }
 
             int speed = _speed;
             int maneuver = _maneuver;
@@ -91,7 +105,7 @@ namespace aernautica_imperiali {
             int zdistance = Math.Abs(Z - destination.Z);
             speed -= zdistance;
 
-            for (int i = 0; i < (CalculateRoute(destination).Count - 1); i++) {
+            for (int i = 0; i < CalculateRoute(destination).Count - 1; i++) {
                 if (CalculateRoute(destination)[i].X != CalculateRoute(destination)[i + 1].X &&
                     CalculateRoute(destination)[i].Y != CalculateRoute(destination)[i + 1].Y) {
                     maneuver--;
@@ -128,9 +142,9 @@ namespace aernautica_imperiali {
             }
             else {
                 Logger.GetInstance().Info("Handling-Test failed");
-                Z--;
                 HitGround();
             }
+            Z--;
         }
 
         public void CheckHeight() {
@@ -150,17 +164,20 @@ namespace aernautica_imperiali {
                 _structure = 0;
         }
 
-        private bool CanFire(Plane plane, Weapon weapon) {
+        public bool CanFire(Plane plane, Weapon weapon) {
             if (InFireArc(plane, weapon) && CheckRange(plane) != ERange.OUTOFRANGE)
                 if (weapon.Ammo == 0) {
                     Logger.GetInstance().Info("Out of Ammo");
                     return false;
                 }
+                else {
+                    return true;
+                }
 
             return true;
         }
 
-        private ERange CheckRange(Plane plane) {
+        public ERange CheckRange(Plane plane) {
             if (CalculateRoute(plane).Count <= Weapon.SHORT) {
                 return ERange.SHORT;
             }
@@ -172,7 +189,6 @@ namespace aernautica_imperiali {
             if (CalculateRoute(plane).Count > Weapon.MEDIUM && CalculateRoute(plane).Count <= Weapon.LONG) {
                 return ERange.LONG;
             }
-
             return ERange.OUTOFRANGE;
         }
 
@@ -389,76 +405,69 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        public void Fire(Plane target, Weapon weapon) {
-            if (_weapons.Contains(weapon)) {
-                if (CanFire(target, weapon) && !_shotsFired && GameEngine.GetInstance().AllowFire) {
-                    ERange range = CheckRange(target);
-                    switch (range) {
-                        case ERange.SHORT:
-                            for (int i = 0; i < weapon.Firepower[ERange.SHORT]; i++) {
-                                if (DoDamage(target, weapon)) {
-                                    GameEngine.GetInstance().CheckStructure();
-                                    return;
-                                }
-                            }
+        
 
-                            break;
-                        case ERange.MEDIUM:
-                            for (int i = 0; i < weapon.Firepower[ERange.MEDIUM]; i++) {
-                                if (DoDamage(target, weapon)) {
-                                    GameEngine.GetInstance().CheckStructure();
-                                    return;
-                                }
-                            }
-
-                            break;
-                        case ERange.LONG:
-                            for (int i = 0; i < weapon.Firepower[ERange.LONG]; i++) {
-                                if (DoDamage(target, weapon)) {
-                                    GameEngine.GetInstance().CheckStructure();
-                                    return;
-                                }
-                            }
-
-                            break;
-                        case ERange.OUTOFRANGE:
-                            Logger.GetInstance().Info("Target is out of Range");
-                            break;
-                    }
-                }
-            }
-        }
-
-        private bool DoDamage(Plane target, Weapon weapon) {
+        public bool DoDamage(Plane target, Weapon weapon) {
             int dice;
             int heightDifference = Math.Abs(Z - target.Z);
             dice = Dice.GetInstance().Roll() - heightDifference;
             if (dice >= weapon.Damage) {
+                Logger.GetInstance().Info("Hit");
                 target.Structure--;
-                if (dice >= weapon.Special) {
+                if (dice >= weapon.Special && weapon.Special != 0) {
+                    Logger.GetInstance().Info("Hit (Special)");
                     target.Structure--;
                 }
-
-                GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
-                weapon.Ammo--;
-                _shotsFired = true;
                 return true;
             }
 
+            Logger.GetInstance().Info("Hit Failed");
+
             return false;
         }
-
-        public void Move(Point destination) {
-            SetOrientation(destination);
-            _hasMoved = true;
-            X = destination.X;
-            Y = destination.Y;
-            Z = destination.Z;
-            GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
-            GameEngine.GetInstance().CheckTurns();
+        
+        public void Move(Point destination, int speedChange) {
+            if (!GameEngine.GetInstance().GameOver) {
+                if (_faction != 'i' && _faction != 'o') {
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                }
+                else {
+                    ChangeSpeed(speedChange);
+                    if (IsMoveLegal(destination)) {
+                        MoveBehavior.Move(this, destination, speedChange);
+                        CheckSpeed();
+                        CheckHeight();
+                    }
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                }
+            }
         }
+        
+        public void Fire(int targetIndex, int weaponIndex) {
+            Plane target;
+            Weapon weapon;
+            if (!GameEngine.GetInstance().GameOver) {
+                if (_faction != 'i' && _faction != 'o') {
+                    GameEngine.GetInstance().FireTurns++;
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                }
+                else {
+                    if (_faction == 'i' && targetIndex >= 0 && targetIndex < GameEngine.GetInstance().Ork.Planes.Count) {
+                        target = GameEngine.GetInstance().GetOrk(targetIndex);
+                    }
+                    else {
+                        target = GameEngine.GetInstance().GetImperialis(targetIndex);
+                    }
 
-        private void SetOrientation(Point destination) {
+                    if (weaponIndex >= 0 && weaponIndex < target._weapons.Length) {
+                        weapon = target._weapons[weaponIndex];
+                        weapon.Fire(this,target);
+                    }
+                }
+            }
+        }
+        
+        public void SetOrientation(Point destination) {
             List<Point> route = CalculateRoute(destination);
             Point[] lastPoints = new Point[2];
             if (route.Count == 1) {

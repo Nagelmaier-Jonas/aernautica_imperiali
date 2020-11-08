@@ -68,6 +68,12 @@ namespace aernautica_imperiali {
         public int PlaneValue => _planeValue;
 
         public Weapon[] Weapons => _weapons;
+
+        public EOrientation Orientation{
+            get => _orientation;
+            set => _orientation = value;
+        }
+
         public IMoveBehavior MoveBehavior => _moveBehavior;
 
         public char Type => _type;
@@ -95,7 +101,7 @@ namespace aernautica_imperiali {
             }
 
             if (_hasMoved) {
-                Logger.GetInstance().Info("Plane has already moved"); 
+                Logger.GetInstance().Info("Plane " +  + Char.ToUpper(_type) + ListIndex + " has already moved"); 
                 return false;
             }
 
@@ -124,24 +130,19 @@ namespace aernautica_imperiali {
 
         private bool IsPointValid(Point p) {
             if (!Map.GetInstance().IsPointLegal(p)) return false;
-            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
+            foreach (Plane plane in GameEngine.GetInstance().GetAllPlanes()) {
                 if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z) return false;
             }
-
-            foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
-                if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z) return false;
-            }
-
             return true;
         }
 
         public void CheckSpin() {
             if (Dice.GetInstance().Roll() >= _handling) {
-                Logger.GetInstance().Info("Handling-Test successful");
+                Logger.GetInstance().Info("Handling-Test successful for " + Char.ToUpper(_type) + ListIndex);
                 _moveBehavior = new DefaultMoveBehavior();
             }
             else {
-                Logger.GetInstance().Info("Handling-Test failed");
+                Logger.GetInstance().Info("Handling-Test failed for " + Char.ToUpper(_type) + ListIndex);
                 HitGround();
             }
             Z--;
@@ -167,13 +168,9 @@ namespace aernautica_imperiali {
         public bool CanFire(Plane plane, Weapon weapon) {
             if (InFireArc(plane, weapon) && CheckRange(plane) != ERange.OUTOFRANGE)
                 if (weapon.Ammo == 0) {
-                    Logger.GetInstance().Info("Out of Ammo");
+                    Logger.GetInstance().Info("Plane " + Char.ToUpper(_type) + ListIndex + " is out of Ammo");
                     return false;
                 }
-                else {
-                    return true;
-                }
-
             return true;
         }
 
@@ -192,81 +189,70 @@ namespace aernautica_imperiali {
             return ERange.OUTOFRANGE;
         }
 
-        private bool InFireArc(Plane plane, Weapon weapon) {
-            switch (_orientation) {
-                case EOrientation.NORTH:
-                    foreach (EFireArc fireArc in weapon.FireArc) {
-                        if (InNorthFireArc(plane, fireArc)) {
+        private bool InFireArc(Plane target, Weapon weapon) {
+            foreach (EFireArc eFireArc in weapon.FireArc){
+                switch (_orientation){
+                    case EOrientation.NORTH:
+                        if (InNorthFireArc(target, eFireArc)){
                             return true;
                         }
-                    }
-
-                    break;
-                case EOrientation.EAST:
-                    foreach (EFireArc fireArc in weapon.FireArc) {
-                        if (InEastFireArc(plane, fireArc)) {
+                        break;
+                    case EOrientation.EAST:
+                        if (InEastFireArc(target, eFireArc)){
                             return true;
                         }
-                    }
-
-                    break;
-                case EOrientation.SOUTH:
-                    foreach (EFireArc fireArc in weapon.FireArc) {
-                        if (InSouthFireArc(plane, fireArc)) {
+                        break;
+                    case EOrientation.SOUTH:
+                        if (InSouthFireArc(target, eFireArc)){
                             return true;
                         }
-                    }
-
-                    break;
-                case EOrientation.WEST:
-                    foreach (EFireArc fireArc in weapon.FireArc) {
-                        if (InWestFireArc(plane, fireArc)) {
+                        break;
+                    case EOrientation.WEST:
+                        if (InWestFireArc(target, eFireArc)){
                             return true;
                         }
-                    }
-
-                    break;
-                default:
-                    throw new Exception("Hoppala do is wos schief gonga");
+                        break;
+                    default:
+                        throw new Exception("Hoppala");
+                }
             }
-
             return false;
         }
 
-        private bool InNorthFireArc(Plane plane, EFireArc fireArc) {
+        private bool InNorthFireArc(Plane target, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
-                    if (X != plane.X ^ Y != plane.Y) {
+                    if (X != target.X ^ Y != target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.FRONT:
-                    if (Y < plane.Y) {
+                    if (Y < target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.LEFT:
-                    if (X < plane.X) {
+                    if (X < target.X) {
                         return true;
                     }
 
                     break;
                 case EFireArc.RIGHT:
-                    if (X > plane.X) {
+                    if (X > target.X) {
                         return true;
                     }
 
                     break;
                 case EFireArc.REAR:
-                    if (Y > plane.Y) {
+                    if (Y > target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.UP:
-                    if (Z < plane.Z) {
+                    if (Z < target.Z) {
                         return true;
                     }
 
@@ -276,40 +262,40 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        private bool InSouthFireArc(Plane plane, EFireArc fireArc) {
+        private bool InSouthFireArc(Plane target, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
-                    if (X != plane.X ^ Y != plane.Y) {
+                    if (X != target.X ^ Y != target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.FRONT:
-                    if (Y > plane.Y) {
+                    if (Y > target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.LEFT:
-                    if (X > plane.X) {
+                    if (X > target.X) {
                         return true;
                     }
 
                     break;
                 case EFireArc.RIGHT:
-                    if (X < plane.X) {
+                    if (X < target.X) {
                         return true;
                     }
 
                     break;
                 case EFireArc.REAR:
-                    if (Y < plane.Y) {
+                    if (Y < target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.UP:
-                    if (Z < plane.Z) {
+                    if (Z < target.Z) {
                         return true;
                     }
 
@@ -319,40 +305,40 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        private bool InWestFireArc(Plane plane, EFireArc fireArc) {
+        private bool InWestFireArc(Plane target, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
-                    if (X != plane.X ^ Y != plane.Y) {
+                    if (X != target.X ^ Y != target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.FRONT:
-                    if (X > plane.X) {
+                    if (X > target.X) {
                         return true;
                     }
 
                     break;
                 case EFireArc.LEFT:
-                    if (Y < plane.Y) {
+                    if (Y < target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.RIGHT:
-                    if (Y > plane.Y) {
+                    if (Y > target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.REAR:
-                    if (X < plane.X) {
+                    if (X < target.X) {
                         return true;
                     }
 
                     break;
                 case EFireArc.UP:
-                    if (Z < plane.Z) {
+                    if (Z < target.Z) {
                         return true;
                     }
 
@@ -362,40 +348,40 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        private bool InEastFireArc(Plane plane, EFireArc fireArc) {
+        private bool InEastFireArc(Plane target, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
-                    if (X != plane.X ^ Y != plane.Y) {
+                    if (X != target.X ^ Y != target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.FRONT:
-                    if (X < plane.X) {
+                    if (X < target.X) {
                         return true;
                     }
 
                     break;
                 case EFireArc.LEFT:
-                    if (Y > plane.Y) {
+                    if (Y > target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.RIGHT:
-                    if (Y < plane.Y) {
+                    if (Y < target.Y) {
                         return true;
                     }
 
                     break;
                 case EFireArc.REAR:
-                    if (X > plane.X) {
+                    if (X > target.X) {
                         return true;
                     }
 
                     break;
                 case EFireArc.UP:
-                    if (Z < plane.Z) {
+                    if (Z < target.Z) {
                         return true;
                     }
 
@@ -412,16 +398,16 @@ namespace aernautica_imperiali {
             int heightDifference = Math.Abs(Z - target.Z);
             dice = Dice.GetInstance().Roll() - heightDifference;
             if (dice >= weapon.Damage) {
-                Logger.GetInstance().Info("Hit");
+                Logger.GetInstance().Info("Plane " + Char.ToUpper(target.Type) + target.ListIndex + " was Hit by" + Char.ToUpper(_type) + ListIndex);
                 target.Structure--;
                 if (dice >= weapon.Special && weapon.Special != 0) {
-                    Logger.GetInstance().Info("Hit (Special)");
+                    Logger.GetInstance().Info("Plane " + Char.ToUpper(target.Type) + target.ListIndex + " was Hit with a special by" + Char.ToUpper(_type) + ListIndex);
                     target.Structure--;
                 }
                 return true;
             }
 
-            Logger.GetInstance().Info("Hit Failed");
+            Logger.GetInstance().Info(Char.ToUpper(_type) + ListIndex + " missed");
 
             return false;
         }
@@ -509,8 +495,7 @@ namespace aernautica_imperiali {
                 _speed += changeSpeed;
                 return;
             }
-
-            Logger.GetInstance().Info("SpeedChange is too high");
+            Logger.GetInstance().Info("SpeedChange is too high for " + Char.ToUpper(_type) + ListIndex);
         }
     }
 }

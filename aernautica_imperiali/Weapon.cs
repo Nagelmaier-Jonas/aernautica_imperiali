@@ -46,37 +46,17 @@ namespace aernautica_imperiali {
             _firePower[ERange.LONG] = longpower;
         }
 
-        public void Fire(Plane plane, Plane target) {
-            if (plane.Faction == '-') {
-                GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
-            }
-            else {
-                if (GameEngine.GetInstance().TurnToken && plane.Faction == 'i' || !GameEngine.GetInstance().TurnToken && plane.Faction == 'o') {
-                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+        public void Fire(Plane plane, Plane target){
+            if (plane.Faction != '-'){
+                if (GameEngine.GetInstance().TurnToken && plane.Faction == 'i' ||
+                    !GameEngine.GetInstance().TurnToken && plane.Faction == 'o'){
                     plane.MoveBehavior.Fire(plane, target, this);
                 }
-                else {
+                else{
                     Logger.GetInstance().Info("It's not your turn");
                 }
             }
-        }
-
-        public bool Equals(Weapon other) {
-            return _shortpower == other._shortpower && _mediumpower == other._mediumpower &&
-                   _longpower == other._longpower && _ammo == other._ammo && Equals(_fireArc, other._fireArc) &&
-                   Equals(_firePower, other._firePower) && _damage == other._damage && _special == other._special;
-        }
-
-        public override bool Equals(object obj) {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
-            return Equals((Weapon) obj);
-        }
-
-        public override int GetHashCode() {
-            return HashCode.Combine(_shortpower, _mediumpower, _longpower, _ammo, _fireArc, _firePower, _damage,
-                _special);
+            GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
         }
     }
 }

@@ -12,7 +12,6 @@ namespace aernautica_imperiali {
             GameEngine.GetInstance().CheckTurns();
         }
         public void Fire(Plane plane, Plane target, Weapon weapon) {
-           // Logger.GetInstance().Info("ShotsFired:" + plane.ShotsFired + "AllowFire: " + GameEngine.GetInstance().AllowFire);
             if (plane.CanFire(target, weapon) && !plane.ShotsFired && GameEngine.GetInstance().AllowFire) {
                 ERange range = plane.CheckRange(target);
                 switch (range) {

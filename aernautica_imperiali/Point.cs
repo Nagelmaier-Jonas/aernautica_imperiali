@@ -49,5 +49,19 @@ namespace aernautica_imperiali {
             return Points;
         }
 
+        protected bool Equals(Point other) {
+            return _x == other._x && _y == other._y && _z == other._z;
+        }
+
+        public override bool Equals(object obj) {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Point) obj);
+        }
+
+        public override int GetHashCode() {
+            return HashCode.Combine(_x, _y, _z);
+        }
     }
 }

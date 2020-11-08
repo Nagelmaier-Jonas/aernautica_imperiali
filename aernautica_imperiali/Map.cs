@@ -117,20 +117,14 @@ namespace aernautica_imperiali {
                     Console.WriteLine("         Ebene: " + (i + 1));
                 }
             }
-
             Console.ForegroundColor = ConsoleColor.Magenta;
         }
 
         public List<Point> GetPlanePoints() {
             List<Point> planePoints = new List<Point>();
-            foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
+            foreach (Plane plane in GameEngine.GetInstance().GetAllPlanes()) {
                 planePoints.Add(new Point(plane.X, plane.Y, plane.Z));
             }
-
-            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
-                planePoints.Add(new Point(plane.X, plane.Y, plane.Z));
-            }
-
             return planePoints;
         }
     }

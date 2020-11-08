@@ -7,7 +7,6 @@ namespace aernautica_imperiali {
     class Program {
         static void Main(string[] args) {
             //Place
-
             GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(2, 1, 3), 3));
             GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(2, 13, 3), 3));
             

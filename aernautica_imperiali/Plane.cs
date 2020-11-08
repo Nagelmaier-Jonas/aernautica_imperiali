@@ -74,7 +74,10 @@ namespace aernautica_imperiali {
 
         public char Faction => _faction;
 
-        public bool ShotsFired => _shotsFired;
+        public bool ShotsFired {
+            get => _shotsFired;
+            set => _shotsFired = value;
+        }
 
         public bool HasMoved {
             get => _hasMoved;
@@ -166,6 +169,9 @@ namespace aernautica_imperiali {
                 if (weapon.Ammo == 0) {
                     Logger.GetInstance().Info("Out of Ammo");
                     return false;
+                }
+                else {
+                    return true;
                 }
 
             return true;
@@ -408,13 +414,10 @@ namespace aernautica_imperiali {
             if (dice >= weapon.Damage) {
                 Logger.GetInstance().Info("Hit");
                 target.Structure--;
-                if (dice >= weapon.Special) {
+                if (dice >= weapon.Special && weapon.Special != 0) {
                     Logger.GetInstance().Info("Hit (Special)");
                     target.Structure--;
                 }
-
-                weapon.Ammo--;
-                _shotsFired = true;
                 return true;
             }
 
@@ -425,17 +428,42 @@ namespace aernautica_imperiali {
         
         public void Move(Point destination, int speedChange) {
             if (!GameEngine.GetInstance().GameOver) {
-                if (GameEngine.GetInstance().MoveTurns == 0) {
-                    Console.WriteLine("Current Round: Move");
-                    Console.WriteLine();
+                if (_faction != 'i' && _faction != 'o') {
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                 }
-                ChangeSpeed(speedChange);
-                if (IsMoveLegal(destination)) {
-                    MoveBehavior.Move(this, destination, speedChange);
-                    CheckSpeed();
-                    CheckHeight();
+                else {
+                    ChangeSpeed(speedChange);
+                    if (IsMoveLegal(destination)) {
+                        MoveBehavior.Move(this, destination, speedChange);
+                        CheckSpeed();
+                        CheckHeight();
+                    }
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
                 }
-                GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+            }
+        }
+        
+        public void Fire(int targetIndex, int weaponIndex) {
+            Plane target;
+            Weapon weapon;
+            if (!GameEngine.GetInstance().GameOver) {
+                if (_faction != 'i' && _faction != 'o') {
+                    GameEngine.GetInstance().FireTurns++;
+                    GameEngine.GetInstance().TurnToken = !GameEngine.GetInstance().TurnToken;
+                }
+                else {
+                    if (_faction == 'i' && targetIndex >= 0 && targetIndex < GameEngine.GetInstance().Ork.Planes.Count) {
+                        target = GameEngine.GetInstance().GetOrk(targetIndex);
+                    }
+                    else {
+                        target = GameEngine.GetInstance().GetImperialis(targetIndex);
+                    }
+
+                    if (weaponIndex >= 0 && weaponIndex < target._weapons.Length) {
+                        weapon = target._weapons[weaponIndex];
+                        weapon.Fire(this,target);
+                    }
+                }
             }
         }
         

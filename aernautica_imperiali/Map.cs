@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace aernautica_imperiali {
@@ -34,8 +35,29 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        public void PrintMap() {
-            bool[] height = new bool[15];
+        public void PrintMap(string index) {
+            if (GameEngine.GetInstance().GameOver) {
+                return;
+            }
+            switch (index) {
+                case "place":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Round: Place");
+                    break;
+                case "move":
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Round: Move");
+                    break;
+                case "fire":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Round: Fire");
+                    break;
+                default:
+                    Logger.GetInstance().Info("PrintMap TurnName not found");
+                    break;
+            }
+
+            bool[] height = new bool[_content.GetLength(2)];
 
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
@@ -64,14 +86,14 @@ namespace aernautica_imperiali {
                             foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
                                 if (IsSame(plane, _content[k, j, i]) && height[i]) {
                                     Console.Write(Char.ToUpperInvariant(plane.Type));
-                                    Console.Write(GameEngine.GetInstance().Imperialis.Planes.IndexOf(plane));
+                                    Console.Write(plane.ListIndex);
                                 }
                             }
 
                             foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
                                 if (IsSame(plane, _content[k, j, i]) && height[i]) {
                                     Console.Write(Char.ToUpperInvariant(plane.Type));
-                                    Console.Write(GameEngine.GetInstance().Ork.Planes.IndexOf(plane));
+                                    Console.Write(plane.ListIndex);
                                 }
                             }
                         }
@@ -95,6 +117,8 @@ namespace aernautica_imperiali {
                     Console.WriteLine("         Ebene: " + (i + 1));
                 }
             }
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
         }
 
         public List<Point> GetPlanePoints() {

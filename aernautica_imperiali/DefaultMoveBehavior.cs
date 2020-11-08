@@ -12,6 +12,7 @@ namespace aernautica_imperiali {
             GameEngine.GetInstance().CheckTurns();
         }
         public void Fire(Plane plane, Plane target, Weapon weapon) {
+           // Logger.GetInstance().Info("ShotsFired:" + plane.ShotsFired + "AllowFire: " + GameEngine.GetInstance().AllowFire);
             if (plane.CanFire(target, weapon) && !plane.ShotsFired && GameEngine.GetInstance().AllowFire) {
                 ERange range = plane.CheckRange(target);
                 switch (range) {
@@ -19,7 +20,7 @@ namespace aernautica_imperiali {
                         for (int i = 0; i < weapon.Firepower[ERange.SHORT]; i++) {
                             if (plane.DoDamage(target, weapon)) {
                                 GameEngine.GetInstance().CheckStructure();
-                                return;
+                                break;
                             }
                         }
 
@@ -28,7 +29,7 @@ namespace aernautica_imperiali {
                         for (int i = 0; i < weapon.Firepower[ERange.MEDIUM]; i++) {
                             if (plane.DoDamage(target, weapon)) {
                                 GameEngine.GetInstance().CheckStructure();
-                                return;
+                                break;
                             }
                         }
 
@@ -36,8 +37,8 @@ namespace aernautica_imperiali {
                     case ERange.LONG:
                         for (int i = 0; i < weapon.Firepower[ERange.LONG]; i++) {
                             if (plane.DoDamage(target, weapon)) {
-                                    GameEngine.GetInstance().CheckStructure();
-                                    return;
+                                GameEngine.GetInstance().CheckStructure();
+                                break;
                             }
                         }
                         break;
@@ -45,6 +46,14 @@ namespace aernautica_imperiali {
                         Logger.GetInstance().Info("Target is out of Range");
                         break;
                 }
+
+                if (weapon.Ammo != -1) {
+                    weapon.Ammo--;
+                }
+                plane.ShotsFired = true;
+            }
+            else {
+                Logger.GetInstance().Info("Fire Checks failed");
             }
         }
     }

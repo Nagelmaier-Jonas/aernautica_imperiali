@@ -42,15 +42,15 @@ namespace aernautica_imperiali {
             switch (index) {
                 case "place":
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Round: Place");
+                    Logger.GetInstance().Info("Round: Place");
                     break;
                 case "move":
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Round: Move");
+                    Logger.GetInstance().Info("Round: Move");
                     break;
                 case "fire":
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Round: Fire");
+                    Logger.GetInstance().Info("Round: Fire");
                     break;
                 default:
                     Logger.GetInstance().Info("PrintMap TurnName not found");
@@ -117,20 +117,14 @@ namespace aernautica_imperiali {
                     Console.WriteLine("         Ebene: " + (i + 1));
                 }
             }
-
             Console.ForegroundColor = ConsoleColor.Magenta;
         }
 
         public List<Point> GetPlanePoints() {
             List<Point> planePoints = new List<Point>();
-            foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
+            foreach (Plane plane in GameEngine.GetInstance().GetAllPlanes()) {
                 planePoints.Add(new Point(plane.X, plane.Y, plane.Z));
             }
-
-            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
-                planePoints.Add(new Point(plane.X, plane.Y, plane.Z));
-            }
-
             return planePoints;
         }
     }

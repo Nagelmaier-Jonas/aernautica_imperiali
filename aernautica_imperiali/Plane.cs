@@ -398,16 +398,16 @@ namespace aernautica_imperiali {
             int heightDifference = Math.Abs(Z - target.Z);
             dice = Dice.GetInstance().Roll() - heightDifference;
             if (dice >= weapon.Damage) {
-                Logger.GetInstance().Info("Plane " + Char.ToUpper(target.Type) + target.ListIndex + " was Hit by" + Char.ToUpper(_type) + ListIndex);
+                Logger.GetInstance().Info("Plane " + Char.ToUpper(target.Type) + target.ListIndex + " was Hit by " + Char.ToUpper(_type) + ListIndex);
                 target.Structure--;
                 if (dice >= weapon.Special && weapon.Special != 0) {
-                    Logger.GetInstance().Info("Plane " + Char.ToUpper(target.Type) + target.ListIndex + " was Hit with a special by" + Char.ToUpper(_type) + ListIndex);
+                    Logger.GetInstance().Info("Plane " + Char.ToUpper(target.Type) + target.ListIndex + " was Hit with a special by " + Char.ToUpper(_type) + ListIndex);
                     target.Structure--;
                 }
                 return true;
             }
 
-            Logger.GetInstance().Info(Char.ToUpper(_type) + ListIndex + " missed");
+            Logger.GetInstance().Info("" + Char.ToUpperInvariant(_type) + ListIndex + " missed");
 
             return false;
         }

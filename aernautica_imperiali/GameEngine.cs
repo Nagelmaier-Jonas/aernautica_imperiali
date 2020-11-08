@@ -55,7 +55,7 @@ namespace aernautica_imperiali {
                 if (plane.Structure <= 0) {
                     switch (plane.Faction) {
                         case 'i':
-                            Logger.GetInstance().Info("Imperialis Plane destroyed");
+                            Logger.GetInstance().Info("" + Char.ToUpper(plane.Type) + plane.ListIndex + " Plane destroyed");
                             _ork.Points += plane.PlaneValue;
                             _imperialis.Planes.Remove(plane);
                             break;
@@ -81,8 +81,7 @@ namespace aernautica_imperiali {
                             plane.ListIndex = _imperialis.Planes.Count - 1;
                         }
                         else {
-                            Logger.GetInstance()
-                                .Info("You don't have enough Points: " + _imperialis.StartPoints + " left");
+                            Logger.GetInstance().Info("You don't have enough Points: " + _imperialis.StartPoints + " left");
                         }
                     }
                     else {
@@ -123,36 +122,20 @@ namespace aernautica_imperiali {
                 return;
             }
             _round++;
-            if (_round == 5) {
-                if (HasWon() == _imperialis) {
-                    Logger.GetInstance().Info("Imperialis won");
-                    DisplayPoints();
-                    _gameOver = true;
-                }
-                else {
-                    if (HasWon() == _ork) {
-                        Logger.GetInstance().Info("Orks won");
-                        DisplayPoints();
-                        _gameOver = true;
-                    }
-                    else {
+            if (HasWon() == _imperialis) {
+                Logger.GetInstance().Info("Imperialis won");
+                DisplayPoints();
+                _gameOver = true;
+            }
+            else if (HasWon() == _ork) {
+                Logger.GetInstance().Info("Orks won");
+                DisplayPoints();
+                _gameOver = true;
+            }
+            if (_round == 5 && HasWon() == null) {
                         Logger.GetInstance().Info("Nobody won! It's a draw");
                         DisplayPoints();
                         _gameOver = true;
-                    }
-                }
-            }
-            else {
-                if (HasWon() == _imperialis) {
-                    Logger.GetInstance().Info("Imperialis won");
-                    DisplayPoints();
-                    _gameOver = true;
-                }
-                else if (HasWon() == _ork) {
-                    Logger.GetInstance().Info("Orks won");
-                    DisplayPoints();
-                    _gameOver = true;
-                }
             }
             DisplayPoints();
             NextRound();
@@ -176,7 +159,8 @@ namespace aernautica_imperiali {
                     return plane;
                 }
             }
-            return new Plane(new Point(-1,-1,-1), 0,0,0,0,0,0,0,0,0,new Weapon[]{new Weapon(new EFireArc[] {EFireArc.ALLROUND}, 0,0,0,0,0,0)}, EOrientation.NORTH,'-','-');
+
+            return PlaneFactory.Dummy();
         }
 
         public Plane GetOrk(int number) {
@@ -185,14 +169,18 @@ namespace aernautica_imperiali {
                     return plane;
                 }
             }
-            return new Plane(new Point(-1,-1,-1), 0,0,0,0,0,0,0,0,0,new Weapon[]{new Weapon(new EFireArc[] {EFireArc.ALLROUND}, 0,0,0,0,0,0)}, EOrientation.NORTH,'-','-');
+
+            return PlaneFactory.Dummy();
         }
         
         public void DisplayPoints() {
             if (!_gameOver) {
-                Console.WriteLine("Imperialis: " + _imperialis.Points);
-                Console.WriteLine("Orks: " + _ork.Points);
-                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Logger.GetInstance().Info("Imperialis: " + _imperialis.Points);
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Logger.GetInstance().Info("Ork: " + _ork.Points);
+                Console.ResetColor();
+                Logger.GetInstance().Info("");
             }
         }
 
@@ -201,7 +189,6 @@ namespace aernautica_imperiali {
                 plane.HasMoved = false;
                 plane.ShotsFired = false;
             }
-
             _turnToken = true;
             _moveTurns = 0;
             _fireTurns = 0;
@@ -212,7 +199,6 @@ namespace aernautica_imperiali {
             List<Plane> planes = new List<Plane>();
             planes.AddRange(_imperialis.Planes);
             planes.AddRange(_ork.Planes);
-
             return planes;
         }
     }

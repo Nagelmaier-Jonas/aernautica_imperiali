@@ -55,7 +55,7 @@ namespace aernautica_imperiali {
                 if (plane.Structure <= 0) {
                     switch (plane.Faction) {
                         case 'i':
-                            Logger.GetInstance().Info("Imperialis Plane destroyed");
+                            Logger.GetInstance().Info("" + Char.ToUpper(plane.Type) + plane.ListIndex + " Plane destroyed");
                             _ork.Points += plane.PlaneValue;
                             _imperialis.Planes.Remove(plane);
                             break;

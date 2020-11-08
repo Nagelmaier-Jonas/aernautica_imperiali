@@ -37,8 +37,11 @@ namespace aernautica_imperiali {
             set => _moveTurns = value;
         }
 
-        public bool AllowFire => _allowFire;
-        
+        public bool AllowFire {
+            get => _allowFire;
+            set => _allowFire = value;
+        }
+
         public bool GameOver => _gameOver;
 
         public int FireTurns {
@@ -169,11 +172,11 @@ namespace aernautica_imperiali {
                     return plane;
                 }
             }
-
+            
             return PlaneFactory.Dummy();
         }
         
-        public void DisplayPoints() {
+        private void DisplayPoints() {
             if (!_gameOver) {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Logger.GetInstance().Info("Imperialis: " + _imperialis.Points);
@@ -200,6 +203,22 @@ namespace aernautica_imperiali {
             planes.AddRange(_imperialis.Planes);
             planes.AddRange(_ork.Planes);
             return planes;
+        }
+
+        public void RestartGame() {
+            _imperialis.Planes.Clear();
+            _ork.Planes.Clear();
+
+            _imperialis.StartPoints = 150;
+            _ork.StartPoints = 150;
+
+            _imperialis.Points = 0;
+            _ork.Points = 0;
+
+            _turnToken = true;
+            _moveTurns = 0;
+            _fireTurns = 0;
+            _allowFire = false;
         }
     }
 }

@@ -482,11 +482,11 @@ namespace aernautica_imperiali {
                 _orientation = EOrientation.SOUTH;
             }
 
-            if (lastPoints[0].X != lastPoints[1].X && lastPoints[0].Y < lastPoints[1].Y) {
+            if (lastPoints[0].X != lastPoints[1].X && lastPoints[0].Y > lastPoints[1].Y) {
                 _orientation = EOrientation.SOUTH;
             }
 
-            if (lastPoints[0].X != lastPoints[1].X && lastPoints[0].Y > lastPoints[1].Y) {
+            if (lastPoints[0].X != lastPoints[1].X && lastPoints[0].Y < lastPoints[1].Y) {
                 _orientation = EOrientation.NORTH;
             }
         }

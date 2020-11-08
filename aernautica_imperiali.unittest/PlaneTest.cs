@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics;
+using NUnit.Framework;
 
 namespace aernautica_imperiali.unittest {
     public class PlaneTest {
@@ -59,14 +60,14 @@ namespace aernautica_imperiali.unittest {
 
         [Test]
         public void TestCanFire() {
-            GameEngine.GetInstance().Imperialis.Planes.Clear();
-            GameEngine.GetInstance().Ork.Planes.Clear();
-            Plane e = PlaneFactory.Executioner(new Point(0, 0, 1), 4);
-            Plane g = PlaneFactory.GrotBommer(new Point(6,0,1), 4);
+            GameEngine.GetInstance().RestartGame();
             
-            Assert.IsTrue(e.CanFire(g, e.Weapons[0]));
-            e.Weapons[0].Ammo = 0;
-            Assert.IsFalse(e.CanFire(g, e.Weapons[0]));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(3, 2, 3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(3,12,3), 4)); 
+            
+            Assert.IsTrue(GameEngine.GetInstance().GetImperialis(0).CanFire(GameEngine.GetInstance().GetOrk(0), GameEngine.GetInstance().GetImperialis(0).Weapons[0]));
+            GameEngine.GetInstance().GetImperialis(0).Weapons[0].Ammo = 0;
+            Assert.IsFalse(GameEngine.GetInstance().GetImperialis(0).CanFire(GameEngine.GetInstance().GetOrk(0), GameEngine.GetInstance().GetImperialis(0).Weapons[0]));
         }
 
         [Test]
@@ -87,111 +88,111 @@ namespace aernautica_imperiali.unittest {
 
         [Test]
         public void TestInNorthFireArc() {
-            GameEngine.GetInstance().Imperialis.Planes.Clear();
-            GameEngine.GetInstance().Ork.Planes.Clear();
-            Plane e = PlaneFactory.Executioner(new Point(3, 3, 1), 4);
-            Plane gall = PlaneFactory.GrotBommer(new Point(4,4,1), 4);
-            Plane gfront = PlaneFactory.GrotBommer(new Point(3,4,1), 4);
-            Plane gleft = PlaneFactory.GrotBommer(new Point(4,3,1), 4);
-            Plane gright = PlaneFactory.GrotBommer(new Point(2,3,1), 4);
-            Plane grear = PlaneFactory.GrotBommer(new Point(3,2,1), 4);
-            Plane gup = PlaneFactory.GrotBommer(new Point(3,4,2), 4);
+            GameEngine.GetInstance().RestartGame();
             
-            Assert.IsTrue(e.InNorthFireArc(gall, EFireArc.ALLROUND));
-            Assert.IsTrue(e.InNorthFireArc(gfront, EFireArc.FRONT));
-            Assert.IsTrue(e.InNorthFireArc(gleft, EFireArc.LEFT));
-            Assert.IsTrue(e.InNorthFireArc(gright, EFireArc.RIGHT));
-            Assert.IsTrue(e.InNorthFireArc(grear, EFireArc.REAR));
-            Assert.IsTrue(e.InNorthFireArc(gup, EFireArc.UP));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,12,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,13,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,14,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(3,12,3), 4));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(5,12,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(5,12,4), 4)); 
+            
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InNorthFireArc(GameEngine.GetInstance().GetOrk(1), EFireArc.ALLROUND));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InNorthFireArc(GameEngine.GetInstance().GetOrk(4), EFireArc.ALLROUND));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InNorthFireArc(GameEngine.GetInstance().GetOrk(1), EFireArc.FRONT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(3).InNorthFireArc(GameEngine.GetInstance().GetOrk(0), EFireArc.LEFT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(4).InNorthFireArc(GameEngine.GetInstance().GetOrk(0), EFireArc.RIGHT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(2).InNorthFireArc(GameEngine.GetInstance().GetOrk(1), EFireArc.REAR));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(4).InNorthFireArc(GameEngine.GetInstance().GetOrk(5), EFireArc.UP));
             
         }
         
         [Test]
         public void TestInSouthFireArc() {
-            GameEngine.GetInstance().Imperialis.Planes.Clear();
-            GameEngine.GetInstance().Ork.Planes.Clear();
-            Plane e = PlaneFactory.Executioner(new Point(3, 3, 1), 4);
-            Plane gall = PlaneFactory.GrotBommer(new Point(4,4,1), 4);
-            Plane gfront = PlaneFactory.GrotBommer(new Point(3,2,1), 4);
-            Plane gleft = PlaneFactory.GrotBommer(new Point(2,3,1), 4);
-            Plane gright = PlaneFactory.GrotBommer(new Point(4,3,1), 4);
-            Plane grear = PlaneFactory.GrotBommer(new Point(2,4,1), 4);
-            Plane gup = PlaneFactory.GrotBommer(new Point(3,4,2), 4);
+            GameEngine.GetInstance().RestartGame();
             
-            Assert.IsTrue(e.InSouthFireArc(gall, EFireArc.ALLROUND));
-            Assert.IsTrue(e.InSouthFireArc(gfront, EFireArc.FRONT));
-            Assert.IsTrue(e.InSouthFireArc(gleft, EFireArc.LEFT));
-            Assert.IsTrue(e.InSouthFireArc(gright, EFireArc.RIGHT));
-            Assert.IsTrue(e.InSouthFireArc(grear, EFireArc.REAR));
-            Assert.IsTrue(e.InSouthFireArc(gup, EFireArc.UP));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,12,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,13,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,14,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(3,12,3), 4));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(5,12,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(5,12,4), 4)); 
+            
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InSouthFireArc(GameEngine.GetInstance().GetOrk(1), EFireArc.ALLROUND));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InSouthFireArc(GameEngine.GetInstance().GetOrk(4), EFireArc.ALLROUND));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(1).InSouthFireArc(GameEngine.GetInstance().GetOrk(0), EFireArc.FRONT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InSouthFireArc(GameEngine.GetInstance().GetOrk(3), EFireArc.LEFT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InSouthFireArc(GameEngine.GetInstance().GetOrk(4), EFireArc.RIGHT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(1).InSouthFireArc(GameEngine.GetInstance().GetOrk(2), EFireArc.REAR));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(4).InSouthFireArc(GameEngine.GetInstance().GetOrk(5), EFireArc.UP));
             
         }
         
         [Test]
         public void TestInWestFireArc() {
-            GameEngine.GetInstance().Imperialis.Planes.Clear();
-            GameEngine.GetInstance().Ork.Planes.Clear();
-            Plane e = PlaneFactory.Executioner(new Point(3, 3, 1), 4);
-            Plane gall = PlaneFactory.GrotBommer(new Point(4,4,1), 4);
-            Plane gfront = PlaneFactory.GrotBommer(new Point(2,3,1), 4);
-            Plane gleft = PlaneFactory.GrotBommer(new Point(3,4,1), 4);
-            Plane gright = PlaneFactory.GrotBommer(new Point(3,2,1), 4);
-            Plane grear = PlaneFactory.GrotBommer(new Point(4,3,1), 4);
-            Plane gup = PlaneFactory.GrotBommer(new Point(3,4,2), 4);
+            GameEngine.GetInstance().RestartGame();
             
-            Assert.IsTrue(e.InWestFireArc(gall, EFireArc.ALLROUND));
-            Assert.IsTrue(e.InWestFireArc(gfront, EFireArc.FRONT));
-            Assert.IsTrue(e.InWestFireArc(gleft, EFireArc.LEFT));
-            Assert.IsTrue(e.InWestFireArc(gright, EFireArc.RIGHT));
-            Assert.IsTrue(e.InWestFireArc(grear, EFireArc.REAR));
-            Assert.IsTrue(e.InWestFireArc(gup, EFireArc.UP));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,12,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,13,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,14,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(3,12,3), 4));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(5,12,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(5,12,4), 4)); 
+            
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InWestFireArc(GameEngine.GetInstance().GetOrk(1), EFireArc.ALLROUND));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InWestFireArc(GameEngine.GetInstance().GetOrk(4), EFireArc.ALLROUND));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(4).InWestFireArc(GameEngine.GetInstance().GetOrk(0), EFireArc.FRONT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InWestFireArc(GameEngine.GetInstance().GetOrk(1), EFireArc.LEFT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(1).InWestFireArc(GameEngine.GetInstance().GetOrk(0), EFireArc.RIGHT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InWestFireArc(GameEngine.GetInstance().GetOrk(4), EFireArc.REAR));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(4).InWestFireArc(GameEngine.GetInstance().GetOrk(5), EFireArc.UP));
             
         }
         
         [Test]
         public void TestInEastFireArc() {
             GameEngine.GetInstance().RestartGame();
-
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(3, 3, 1), 4));
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(4,4,1), 4)); 
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(4,3,1), 4)); 
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(3,2,1), 4)); 
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(3,4,1), 4)); 
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(2,3,1), 4)); 
-            GameEngine.GetInstance().PlacePlane(PlaneFactory.GrotBommer(new Point(3,4,2), 4)); 
             
-            Assert.IsFalse(GameEngine.GetInstance().GetImperialis(0).InEastFireArc(GameEngine.GetInstance().GetOrk(0), EFireArc.ALLROUND));
-            Assert.IsTrue(GameEngine.GetInstance().GetImperialis(0).InEastFireArc(GameEngine.GetInstance().GetOrk(1), EFireArc.FRONT));
-            Assert.IsTrue(GameEngine.GetInstance().GetImperialis(0).InEastFireArc(GameEngine.GetInstance().GetOrk(2), EFireArc.LEFT));
-            Assert.IsTrue(GameEngine.GetInstance().GetImperialis(0).InEastFireArc(GameEngine.GetInstance().GetOrk(3), EFireArc.RIGHT));
-            Assert.IsTrue(GameEngine.GetInstance().GetImperialis(0).InEastFireArc(GameEngine.GetInstance().GetOrk(4), EFireArc.REAR));
-            Assert.IsTrue(GameEngine.GetInstance().GetImperialis(0).InEastFireArc(GameEngine.GetInstance().GetOrk(5), EFireArc.UP));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,12,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,13,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(4,14,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(3,12,3), 4));
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(5,12,3), 4)); 
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Vulture(new Point(5,12,4), 4)); 
+            
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InEastFireArc(GameEngine.GetInstance().GetOrk(1), EFireArc.ALLROUND));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InEastFireArc(GameEngine.GetInstance().GetOrk(4), EFireArc.ALLROUND));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InEastFireArc(GameEngine.GetInstance().GetOrk(4), EFireArc.FRONT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(1).InEastFireArc(GameEngine.GetInstance().GetOrk(0), EFireArc.LEFT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(0).InEastFireArc(GameEngine.GetInstance().GetOrk(1), EFireArc.RIGHT));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(4).InEastFireArc(GameEngine.GetInstance().GetOrk(0), EFireArc.REAR));
+            Assert.IsTrue(GameEngine.GetInstance().GetOrk(4).InEastFireArc(GameEngine.GetInstance().GetOrk(5), EFireArc.UP));
             
         }
 
         [Test]
         public void TestSetOrientation() {
-            GameEngine.GetInstance().Imperialis.Planes.Clear();
-            GameEngine.GetInstance().Ork.Planes.Clear();
-            Plane e = PlaneFactory.Executioner(new Point(3, 3, 1), 4);
+            GameEngine.GetInstance().RestartGame();
             
-            e.SetOrientation(new Point(4,3,1));
-            Assert.AreEqual(EOrientation.EAST, e.Orientation);
+            GameEngine.GetInstance().PlacePlane(PlaneFactory.Executioner(new Point(3, 2, 3), 4));
+
+            GameEngine.GetInstance().GetImperialis(0).SetOrientation(new Point(4,2,3));
+            Assert.AreEqual(EOrientation.EAST, GameEngine.GetInstance().GetImperialis(0).Orientation);
             
-            e.SetOrientation(new Point(2,3,1));
-            Assert.AreEqual(EOrientation.WEST, e.Orientation);
+            GameEngine.GetInstance().GetImperialis(0).SetOrientation(new Point(2,2,3));
+            Assert.AreEqual(EOrientation.WEST, GameEngine.GetInstance().GetImperialis(0).Orientation);
             
-            e.SetOrientation(new Point(3,4,1));
-            Assert.AreEqual(EOrientation.NORTH, e.Orientation);
+            GameEngine.GetInstance().GetImperialis(0).SetOrientation(new Point(3,4,3));
+            Assert.AreEqual(EOrientation.NORTH, GameEngine.GetInstance().GetImperialis(0).Orientation);
             
-            e.SetOrientation(new Point(3,2,1));
-            Assert.AreEqual(EOrientation.SOUTH, e.Orientation);
+            GameEngine.GetInstance().GetImperialis(0).SetOrientation(new Point(3,1,3));
+            Assert.AreEqual(EOrientation.SOUTH, GameEngine.GetInstance().GetImperialis(0).Orientation);
             
-            e.SetOrientation(new Point(4,4,1));
-            Assert.AreEqual(EOrientation.NORTH, e.Orientation);
+            GameEngine.GetInstance().GetImperialis(0).SetOrientation(new Point(4,4,3));
+            Assert.AreEqual(EOrientation.NORTH, GameEngine.GetInstance().GetImperialis(0).Orientation);
             
-            e.SetOrientation(new Point(4,2,1));
-            Assert.AreEqual(EOrientation.SOUTH, e.Orientation);
+            GameEngine.GetInstance().GetImperialis(0).SetOrientation(new Point(4,1,3));
+            Assert.AreEqual(EOrientation.SOUTH, GameEngine.GetInstance().GetImperialis(0).Orientation);
         }
 
         public void TestChangeSpeed() {

@@ -1,228 +1,22 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0a214631_002D3783_002D4ef9_002Db935_002D9d0825710ee8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestBehaviorChecks" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest.TestBehaviorChecks&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0fa2bd76_002Deec5_002D4d2b_002Da0bc_002Db3d344622208/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GameEngineTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
+	
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1ae66e4c_002Db3ad_002D4b4e_002Db90a_002D5b5bf29e8959/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestPlacePlane" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Or&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-  &lt;/Or&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1b1a2fd6_002Dc6ae_002D428a_002Dbd78_002D503541303c15/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2405391d_002D534e_002D4d0e_002Da3a9_002Db2d5c203b052/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GameEngineTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=28ace356_002Dba5d_002D469a_002Da65d_002Dfdc51ae33c9b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestCheckSpin #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
     &lt;Or&gt;&#xD;
       &lt;Or&gt;&#xD;
         &lt;Or&gt;&#xD;
           &lt;Or&gt;&#xD;
             &lt;Or&gt;&#xD;
-              &lt;Or&gt;&#xD;
-                &lt;Or&gt;&#xD;
-                  &lt;Or&gt;&#xD;
-                    &lt;TestAncestor&gt;&#xD;
-                      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
-                    &lt;/TestAncestor&gt;&#xD;
-                    &lt;TestAncestor&gt;&#xD;
-                      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MoveBehaviourTest.DefaultMoveTest&lt;/TestId&gt;&#xD;
-                    &lt;/TestAncestor&gt;&#xD;
-                  &lt;/Or&gt;&#xD;
-                  &lt;TestAncestor&gt;&#xD;
-                    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PointTest.CalculateRouteTest2&lt;/TestId&gt;&#xD;
-                  &lt;/TestAncestor&gt;&#xD;
-                &lt;/Or&gt;&#xD;
-                &lt;TestAncestor&gt;&#xD;
-                  &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PointTest.CalculateRouteTest_Helicopter&lt;/TestId&gt;&#xD;
-                &lt;/TestAncestor&gt;&#xD;
-              &lt;/Or&gt;&#xD;
-              &lt;TestAncestor&gt;&#xD;
-                &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-              &lt;/TestAncestor&gt;&#xD;
-            &lt;/Or&gt;&#xD;
-            &lt;TestAncestor&gt;&#xD;
-              &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
-            &lt;/TestAncestor&gt;&#xD;
-          &lt;/Or&gt;&#xD;
-          &lt;TestAncestor&gt;&#xD;
-            &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.LoggerTest&lt;/TestId&gt;&#xD;
-          &lt;/TestAncestor&gt;&#xD;
-        &lt;/Or&gt;&#xD;
-        &lt;TestAncestor&gt;&#xD;
-          &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MapTest&lt;/TestId&gt;&#xD;
-        &lt;/TestAncestor&gt;&#xD;
-      &lt;/Or&gt;&#xD;
-      &lt;TestAncestor&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MoveBehaviourTest&lt;/TestId&gt;&#xD;
-      &lt;/TestAncestor&gt;&#xD;
-    &lt;/Or&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PointTest&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-  &lt;/Or&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2a63706b_002D803d_002D4bba_002D9f14_002D67ca0487cf96/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest #10" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3143c5d5_002D8a83_002D4cbc_002Dad88_002D0d8f5eb21b07/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PlaneTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=40c00142_002D77a3_002D4387_002D9a72_002D32cbc4f0b7dd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=433860ad_002Dc203_002D465c_002D917f_002Dd029f06ac463/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestCheckSpin" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest.TestCheckSpin&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=509463b4_002Df30e_002D4b22_002Db1d4_002De82d300b9ae6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;Or&gt;&#xD;
-      &lt;Or&gt;&#xD;
-        &lt;Or&gt;&#xD;
-          &lt;Or&gt;&#xD;
-            &lt;Or&gt;&#xD;
-              &lt;TestAncestor&gt;&#xD;
-                &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-              &lt;/TestAncestor&gt;&#xD;
               &lt;TestAncestor&gt;&#xD;
                 &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
               &lt;/TestAncestor&gt;&#xD;
-            &lt;/Or&gt;&#xD;
-            &lt;TestAncestor&gt;&#xD;
-              &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.LoggerTest&lt;/TestId&gt;&#xD;
-            &lt;/TestAncestor&gt;&#xD;
-          &lt;/Or&gt;&#xD;
-          &lt;TestAncestor&gt;&#xD;
-            &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MapTest&lt;/TestId&gt;&#xD;
-          &lt;/TestAncestor&gt;&#xD;
-        &lt;/Or&gt;&#xD;
-        &lt;TestAncestor&gt;&#xD;
-          &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MoveBehaviourTest&lt;/TestId&gt;&#xD;
-        &lt;/TestAncestor&gt;&#xD;
-      &lt;/Or&gt;&#xD;
-      &lt;TestAncestor&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
-      &lt;/TestAncestor&gt;&#xD;
-    &lt;/Or&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PointTest&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-  &lt;/Or&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5f480e10_002D8962_002D4191_002Db60a_002Da136279bf8ab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SingletonTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest.SingletonTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=67bf2d82_002D10e6_002D4469_002D94c8_002D8b47b50ff3bb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GameEngineTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6bdc8dd4_002De74f_002D44b6_002D92fa_002D3c9947eb97ae/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest #9" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=75b63ada_002Ddb0f_002D4aaf_002D91db_002D96dd3df4ad2b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PlaneTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8553293a_002Dc5d4_002D4310_002D8f07_002Dd105105bfe3d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetPlanePointsTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;Or&gt;&#xD;
-      &lt;TestAncestor&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MapTest.GetPlanePointsTest&lt;/TestId&gt;&#xD;
-      &lt;/TestAncestor&gt;&#xD;
-      &lt;TestAncestor&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MapTest.IsSameTest&lt;/TestId&gt;&#xD;
-      &lt;/TestAncestor&gt;&#xD;
-    &lt;/Or&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.MapTest.IsPointLegalTest&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-  &lt;/Or&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8e2499ca_002D80cf_002D41b4_002Dbdb2_002D377d38d8dea3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;ProjectFile&gt;E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB/f:DiceTest.cs&lt;/ProjectFile&gt;&#xD;
-    &lt;ProjectFile&gt;E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB/f:GameEngineTest.cs&lt;/ProjectFile&gt;&#xD;
-    &lt;ProjectFile&gt;E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB/f:LoggerTest.cs&lt;/ProjectFile&gt;&#xD;
-    &lt;ProjectFile&gt;E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB/f:MapTest.cs&lt;/ProjectFile&gt;&#xD;
-    &lt;ProjectFile&gt;E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB/f:MoveBehaviourTest.cs&lt;/ProjectFile&gt;&#xD;
-    &lt;ProjectFile&gt;E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB/f:PlaneTest.cs&lt;/ProjectFile&gt;&#xD;
-    &lt;ProjectFile&gt;E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB/f:PointTest.cs&lt;/ProjectFile&gt;&#xD;
-  &lt;/Or&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=94430a3c_002D078c_002D4933_002D8acd_002Dee509b3c1aab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PlaneTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9e1d6258_002D86ea_002D4ed4_002Dbbcc_002D5daa6c7e0340/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=bcc58db5_002Dbbbc_002D4667_002D8c7a_002D4bf03385e12a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DiceTest #8" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dddddb54_002Dfd1e_002D4b1b_002D881b_002Dba8394d7a4db/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestChangeSpeed" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;Or&gt;&#xD;
-      &lt;Or&gt;&#xD;
-        &lt;Or&gt;&#xD;
-          &lt;Or&gt;&#xD;
-            &lt;Or&gt;&#xD;
               &lt;TestAncestor&gt;&#xD;
                 &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.PlaneTest&lt;/TestId&gt;&#xD;
               &lt;/TestAncestor&gt;&#xD;
-              &lt;TestAncestor&gt;&#xD;
-                &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
-              &lt;/TestAncestor&gt;&#xD;
             &lt;/Or&gt;&#xD;
             &lt;TestAncestor&gt;&#xD;
-              &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.GameEngineTest&lt;/TestId&gt;&#xD;
+              &lt;TestId&gt;NUnit3x::E8991F3B-DF3A-44C2-8C31-C84CC29E0AEB::.NETCoreApp,Version=v3.1::aernautica_imperiali.unittest.DiceTest&lt;/TestId&gt;&#xD;
             &lt;/TestAncestor&gt;&#xD;
           &lt;/Or&gt;&#xD;
           &lt;TestAncestor&gt;&#xD;
@@ -242,6 +36,36 @@
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -128,7 +128,7 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        private bool IsPointValid(Point p) {
+        public bool IsPointValid(Point p) {
             if (!Map.GetInstance().IsPointLegal(p)) return false;
             foreach (Plane plane in GameEngine.GetInstance().GetAllPlanes()) {
                 if (plane.X == p.X && plane.Y == p.Y && plane.Z == p.Z) return false;
@@ -161,7 +161,7 @@ namespace aernautica_imperiali {
             }
         }
 
-        private void HitGround() {
+        public void HitGround() {
             if (Z <= 0)
                 _structure = 0;
         }
@@ -220,7 +220,7 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        private bool InNorthFireArc(Plane target, EFireArc fireArc) {
+        public bool InNorthFireArc(Plane target, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
                     if (X != target.X ^ Y != target.Y) {
@@ -263,7 +263,7 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        private bool InSouthFireArc(Plane target, EFireArc fireArc) {
+        public bool InSouthFireArc(Plane target, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
                     if (X != target.X ^ Y != target.Y) {
@@ -306,7 +306,7 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        private bool InWestFireArc(Plane target, EFireArc fireArc) {
+        public bool InWestFireArc(Plane target, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
                     if (X != target.X ^ Y != target.Y) {
@@ -349,7 +349,7 @@ namespace aernautica_imperiali {
             return false;
         }
 
-        private bool InEastFireArc(Plane target, EFireArc fireArc) {
+        public bool InEastFireArc(Plane target, EFireArc fireArc) {
             switch (fireArc) {
                 case EFireArc.ALLROUND:
                     if (X != target.X ^ Y != target.Y) {

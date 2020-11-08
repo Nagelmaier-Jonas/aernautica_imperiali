@@ -39,37 +39,14 @@ namespace aernautica_imperiali {
             if (GameEngine.GetInstance().GameOver) {
                 return;
             }
-            switch (index) {
-                case "place":
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Logger.GetInstance().Info("Round: Place");
-                    break;
-                case "move":
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Logger.GetInstance().Info("Round: Move");
-                    break;
-                case "fire":
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Logger.GetInstance().Info("Round: Fire");
-                    break;
-                default:
-                    Logger.GetInstance().Info("PrintMap TurnName not found");
-                    break;
-            }
-
+            SetColor(index, true);
             bool[] height = new bool[_content.GetLength(2)];
 
             for (int i = 0; i < _content.GetLength(2); i++) {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
                         if (GetPlanePoints().Contains(_content[k, j, i])) {
-                            foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
-                                if (IsSame(plane, _content[k, j, i])) {
-                                    height[i] = true;
-                                }
-                            }
-
-                            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
+                            foreach (Plane plane in GameEngine.GetInstance().GetAllPlanes()) {
                                 if (IsSame(plane, _content[k, j, i])) {
                                     height[i] = true;
                                 }
@@ -83,17 +60,13 @@ namespace aernautica_imperiali {
                 for (int j = 0; j < _content.GetLength(1); j++) {
                     for (int k = 0; k < _content.GetLength(0); k++) {
                         if (GetPlanePoints().Contains(_content[k, j, i])) {
-                            foreach (Plane plane in GameEngine.GetInstance().Imperialis.Planes) {
+                            foreach (Plane plane in GameEngine.GetInstance().GetAllPlanes()) {
                                 if (IsSame(plane, _content[k, j, i]) && height[i]) {
+                                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                    if (plane.Faction == 'o') Console.ForegroundColor = ConsoleColor.Cyan;
                                     Console.Write(Char.ToUpperInvariant(plane.Type));
                                     Console.Write(plane.ListIndex);
-                                }
-                            }
-
-                            foreach (Plane plane in GameEngine.GetInstance().Ork.Planes) {
-                                if (IsSame(plane, _content[k, j, i]) && height[i]) {
-                                    Console.Write(Char.ToUpperInvariant(plane.Type));
-                                    Console.Write(plane.ListIndex);
+                                    SetColor(index, false);
                                 }
                             }
                         }
@@ -118,6 +91,26 @@ namespace aernautica_imperiali {
                 }
             }
             Console.ForegroundColor = ConsoleColor.Magenta;
+        }
+
+        public void SetColor(string colorIndex, bool canWrite) {
+            switch (colorIndex) {
+                case "place":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    if (canWrite) Logger.GetInstance().Info("Round: Place");
+                    break;
+                case "move":
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    if (canWrite) Logger.GetInstance().Info("Round: Move");
+                    break;
+                case "fire":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    if (canWrite) Logger.GetInstance().Info("Round: Fire");
+                    break;
+                default:
+                    if (canWrite) Logger.GetInstance().Info("PrintMap TurnName not found");
+                    break;
+            }
         }
 
         public List<Point> GetPlanePoints() {

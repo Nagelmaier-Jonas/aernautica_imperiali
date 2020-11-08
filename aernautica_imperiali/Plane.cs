@@ -137,6 +137,7 @@ namespace aernautica_imperiali {
         }
 
         public void CheckSpin() {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             if (Dice.GetInstance().Roll() >= _handling) {
                 Logger.GetInstance().Info("Handling-Test successful for " + Char.ToUpper(_type) + ListIndex);
                 _moveBehavior = new DefaultMoveBehavior();

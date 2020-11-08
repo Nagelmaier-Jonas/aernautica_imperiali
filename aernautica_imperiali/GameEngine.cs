@@ -109,7 +109,6 @@ namespace aernautica_imperiali {
 
         public void CheckTurns() {
             _moveTurns++;
-           // Logger.GetInstance().Info("CheckTurns aufgerufen" + "MoveTurns: " + _moveTurns + "PlanesLength: " + GetAllPlanes().Count);
             if (_moveTurns == GetAllPlanes().Count) {
                 _allowFire = true;
                 _moveTurns = 0;
